@@ -19,4 +19,14 @@ export default defineConfig(({ mode }) => ({
     },
     dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime", "@tanstack/react-query", "@tanstack/query-core"],
   },
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, "index.html"),
+        demos: path.resolve(__dirname, "demos.html"),
+        portfolio: path.resolve(__dirname, "portfolio.html"),
+        contact: path.resolve(__dirname, "contact.html"),
+      },
+    },
+  },
 }));
