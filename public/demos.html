@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Website Demos – SKC Digital</title>
+<meta name="description" content="Browse live website demos for South African small businesses. Custom built from R800. Delivered in 48 hours."/>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+<meta name="description" content="Custom Excel tools, business websites, bookkeeping and digital solutions for South African small businesses. Based in Pretoria. From R300."/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --bg: #050509; --surface: #0C0C14; --surface2: #12121E;
+  --border: rgba(255,255,255,0.07); --border-bright: rgba(255,255,255,0.14);
+  --accent: #00E5FF; --accent2: #7B61FF; --accent3: #FF4D6D;
+  --text: #E8E8F0; --muted: #6B6B8A; --white: #FFFFFF;
+  --mono: 'JetBrains Mono', monospace; --sans: 'Epilogue', sans-serif;
+}
+body { font-family: var(--sans); background: var(--bg); color: var(--text); overflow-x: hidden; cursor: none; }
+.cursor { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.2s, height 0.2s; mix-blend-mode: difference; }
+.cursor-ring { width: 36px; height: 36px; border: 1px solid rgba(0,229,255,0.4); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.15s ease, width 0.3s, height 0.3s; }
+body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.6; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 3rem; background: rgba(5,5,9,0.7); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+.logo { font-family: var(--sans); font-weight: 900; font-size: 1.25rem; color: var(--white); letter-spacing: -1px; text-decoration: none; }
+.logo .dot { color: var(--accent); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transition: transform 0.2s; }
+.nav-links a:hover { color: var(--white); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta { font-family: var(--mono); font-size: 0.78rem; font-weight: 500; color: var(--bg); background: var(--accent); padding: 0.55rem 1.4rem; border-radius: 4px; text-decoration: none; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; }
+.nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { width: 24px; height: 2px; background: var(--text); display: block; transition: all 0.3s; }
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 3rem 5rem; position: relative; overflow: hidden; }
+.hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 70%); }
+.hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,255,0.07) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-60%); pointer-events: none; }
+.hero-glow2 { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, transparent 70%); bottom: 10%; right: 5%; pointer-events: none; }
+.hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.hero-eyebrow { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; animation: fadeUp 0.6s ease both; }
+.hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+.hero h1 { font-family: var(--sans); font-weight: 900; font-size: clamp(2.8rem, 5vw, 4.4rem); line-height: 1.0; letter-spacing: -2px; color: var(--white); margin-bottom: 1.8rem; animation: fadeUp 0.7s 0.1s ease both; }
+.hero h1 .line2 { color: var(--accent); display: block; }
+.hero h1 .line3 { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.2); display: block; }
+.hero-desc { font-size: 1rem; color: var(--muted); line-height: 1.8; max-width: 440px; margin-bottom: 2.5rem; animation: fadeUp 0.7s 0.2s ease both; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.3s ease both; }
+.btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--mono); font-size: 0.85rem; font-weight: 500; color: var(--bg); background: var(--accent); padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; border: none; }
+.btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+.btn-outline { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--mono); font-size: 0.85rem; color: var(--text); background: transparent; padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; letter-spacing: 0.5px; border: 1px solid var(--border-bright); transition: border-color 0.2s, color 0.2s, transform 0.2s; }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.hero-contact { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; animation: fadeUp 0.7s 0.4s ease both; }
+.contact-chip { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); padding: 0.35rem 0.85rem; border-radius: 50px; text-decoration: none; transition: color 0.2s, border-color 0.2s; }
+.contact-chip:hover { color: var(--accent); border-color: rgba(0,229,255,0.3); }
+.contact-chip .ci { color: var(--accent); font-size: 0.75rem; }
+.hero-right { animation: fadeUp 0.8s 0.4s ease both; }
+.terminal { background: var(--surface); border: 1px solid var(--border-bright); border-radius: 12px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.6); }
+.terminal-bar { background: var(--surface2); padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--border); }
+.t-dot { width: 10px; height: 10px; border-radius: 50%; }
+.t-dot.r { background: #FF5F57; } .t-dot.y { background: #FFBD2E; } .t-dot.g { background: #27C93F; }
+.t-title { flex: 1; text-align: center; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+.terminal-body { padding: 1.5rem; min-height: 280px; }
+.t-line { font-family: var(--mono); font-size: 0.8rem; line-height: 1.9; opacity: 0; animation: typeLine 0.1s ease forwards; }
+.t-line.prompt::before { content: '$ '; color: var(--accent); }
+.t-line.output { color: var(--muted); padding-left: 0.5rem; }
+.t-line.success { color: #27C93F; padding-left: 0.5rem; }
+.t-line.highlight { color: var(--accent2); padding-left: 0.5rem; }
+.t-line.warn { color: #FFBD2E; padding-left: 0.5rem; }
+.cursor-blink { display: inline-block; width: 8px; height: 14px; background: var(--accent); vertical-align: middle; animation: blink 1s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes typeLine { to { opacity: 1; } }
+.hero-stats { position: absolute; right: 4%; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 1rem; z-index: 2; animation: fadeUp 0.8s 0.5s ease both; }
+@media (max-width: 1100px) { .hero-stats { display: none; } }
+.stat-card { background: rgba(12,12,20,0.9); border: 1px solid var(--border-bright); border-radius: 12px; padding: 1rem 1.4rem; backdrop-filter: blur(10px); min-width: 160px; }
+.stat-card .num { font-family: var(--sans); font-size: 1.6rem; font-weight: 900; color: var(--white); }
+.stat-card .num.green { color: var(--accent); }
+.stat-card .num.red { color: var(--accent3); }
+.stat-card .lbl { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; font-family: var(--mono); }
+.ticker-wrap { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); padding: 0.8rem 0; overflow: hidden; position: relative; }
+.ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; }
+.ticker-wrap::before { left: 0; background: linear-gradient(90deg, var(--surface), transparent); }
+.ticker-wrap::after { right: 0; background: linear-gradient(-90deg, var(--surface), transparent); }
+.ticker { display: flex; gap: 0; width: max-content; animation: ticker 30s linear infinite; }
+.ticker-item { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; padding: 0 2.5rem; display: flex; align-items: center; gap: 0.75rem; white-space: nowrap; }
+.ticker-item .sep { color: var(--accent); font-size: 0.6rem; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+section { padding: 7rem 3rem; position: relative; }
+.section-max { max-width: 1200px; margin: 0 auto; }
+.section-tag { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+.section-tag::before { content: '//'; color: var(--muted); }
+.section-h { font-family: var(--sans); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; letter-spacing: -1.5px; color: var(--white); line-height: 1.1; margin-bottom: 1rem; }
+.section-sub { color: var(--muted); font-size: 1rem; line-height: 1.8; max-width: 520px; margin-bottom: 3.5rem; }
+#services { background: var(--surface); }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.svc-card { background: var(--surface); padding: 2.5rem; transition: background 0.25s; position: relative; overflow: hidden; }
+.svc-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+.svc-card:hover { background: var(--surface2); }
+.svc-card:hover::after { transform: scaleX(1); }
+.svc-num { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 1px; margin-bottom: 1.5rem; }
+.svc-icon-wrap { width: 48px; height: 48px; border: 1px solid var(--border-bright); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.2rem; background: rgba(0,229,255,0.04); transition: border-color 0.25s, background 0.25s; }
+.svc-card:hover .svc-icon-wrap { border-color: rgba(0,229,255,0.3); background: rgba(0,229,255,0.08); }
+.svc-card h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.7rem; letter-spacing: -0.3px; }
+.svc-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem; }
+.svc-price { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.5px; }
+#process { background: var(--bg); }
+.process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
+.process-steps::before { content: ''; position: absolute; top: 28px; left: 12.5%; right: 12.5%; height: 1px; background: linear-gradient(90deg, transparent, var(--border-bright), var(--accent), var(--border-bright), transparent); }
+.step { padding: 0 2rem; text-align: center; position: relative; }
+.step-num { width: 56px; height: 56px; background: var(--surface); border: 1px solid var(--border-bright); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.8rem; color: var(--accent); font-weight: 500; margin: 0 auto 1.5rem; position: relative; z-index: 2; transition: all 0.25s; }
+.step:hover .step-num { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.step h4 { font-family: var(--sans); font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+.step p { color: var(--muted); font-size: 0.85rem; line-height: 1.7; }
+#stack { background: var(--surface); }
+.stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 1rem; }
+.stack-pill { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; transition: border-color 0.25s, transform 0.25s; }
+.stack-pill:hover { border-color: var(--accent); transform: translateY(-3px); }
+.stack-pill .s-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.stack-pill .s-name { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.5px; }
+#pricing { background: var(--bg); }
+.pricing-wrap { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; align-items: start; }
+.price-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; transition: border-color 0.25s, transform 0.25s; position: relative; overflow: hidden; }
+.price-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: transparent; transition: background 0.3s; }
+.price-card:hover { border-color: var(--border-bright); transform: translateY(-4px); }
+.price-card:hover::before { background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+.price-card.featured { background: linear-gradient(160deg, rgba(0,229,255,0.06), rgba(123,97,255,0.06)); border-color: rgba(0,229,255,0.2); }
+.price-card.featured::before { background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+.feat-badge { position: absolute; top: 1.5rem; right: 1.5rem; font-family: var(--mono); font-size: 0.65rem; color: var(--bg); background: var(--accent); padding: 0.25rem 0.7rem; border-radius: 50px; letter-spacing: 0.5px; }
+.plan-tier { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; }
+.plan-amount { font-family: var(--sans); font-size: 2.8rem; font-weight: 900; color: var(--white); letter-spacing: -2px; line-height: 1; margin-bottom: 0.3rem; }
+.plan-amount sub { font-size: 1rem; font-weight: 400; color: var(--muted); vertical-align: middle; }
+.plan-period { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin-bottom: 1.5rem; }
+.plan-desc { color: var(--muted); font-size: 0.875rem; line-height: 1.7; margin-bottom: 1.8rem; border-bottom: 1px solid var(--border); padding-bottom: 1.8rem; }
+.plan-feat-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem; }
+.plan-feat-list li { font-size: 0.875rem; color: var(--text); display: flex; align-items: flex-start; gap: 0.75rem; }
+.plan-feat-list li::before { content: '→'; color: var(--accent); font-family: var(--mono); font-size: 0.8rem; flex-shrink: 0; margin-top: 1px; }
+.plan-btn { display: block; text-align: center; font-family: var(--mono); font-size: 0.82rem; font-weight: 500; padding: 0.9rem; border-radius: 6px; text-decoration: none; letter-spacing: 0.5px; border: 1px solid var(--border-bright); color: var(--text); transition: border-color 0.2s, color 0.2s, transform 0.2s; }
+.plan-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.plan-btn.cta { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 700; }
+.plan-btn.cta:hover { opacity: 0.88; transform: translateY(-2px); }
+#faq { background: var(--surface); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.faq-item { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: border-color 0.2s; }
+.faq-item:hover { border-color: var(--border-bright); }
+.faq-q { padding: 1.4rem 1.5rem; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+.faq-q .arrow { font-family: var(--mono); color: var(--accent); transition: transform 0.3s; font-size: 0.8rem; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s; color: var(--muted); font-size: 0.875rem; line-height: 1.75; padding: 0 1.5rem; }
+.faq-item.open .faq-a { max-height: 200px; padding: 0 1.5rem 1.4rem; }
+.faq-item.open .arrow { transform: rotate(90deg); }
+#contact { background: var(--bg); text-align: center; }
+.cta-container { max-width: 800px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border-bright); border-radius: 24px; padding: 5rem 3rem; position: relative; overflow: hidden; }
+.cta-glow { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,255,0.08), transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+.cta-container h2 { font-family: var(--sans); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; letter-spacing: -1.5px; color: var(--white); margin-bottom: 1rem; position: relative; }
+.cta-container p { color: var(--muted); font-size: 1rem; line-height: 1.8; max-width: 480px; margin: 0 auto 1.5rem; position: relative; }
+.cta-response-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.72rem; color: #27C93F; background: rgba(39,201,63,0.08); border: 1px solid rgba(39,201,63,0.2); padding: 0.3rem 0.9rem; border-radius: 50px; margin-bottom: 2rem; position: relative; }
+.cta-response-badge::before { content: ''; width: 6px; height: 6px; background: #27C93F; border-radius: 50%; animation: pg 2s infinite; flex-shrink: 0; }
+@keyframes pg { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+.wa-btn { display: inline-flex; align-items: center; gap: 0.75rem; font-family: var(--mono); font-size: 0.9rem; font-weight: 600; background: #25D366; color: white; padding: 1rem 2.5rem; border-radius: 6px; text-decoration: none; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; box-shadow: 0 4px 24px rgba(37,211,102,0.25); position: relative; }
+.wa-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+.contact-alts { display: flex; justify-content: center; gap: 2rem; margin-top: 1.8rem; flex-wrap: wrap; position: relative; }
+.contact-alts a { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+.contact-alts a:hover { color: var(--accent); }
+footer { background: var(--surface); border-top: 1px solid var(--border); padding: 3rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; }
+.footer-logo { font-family: var(--sans); font-weight: 900; font-size: 1.1rem; letter-spacing: -0.5px; text-decoration: none; color: var(--white); }
+.footer-logo .dot { color: var(--accent); }
+.footer-links { display: flex; gap: 2rem; justify-content: center; }
+.footer-links a { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+.footer-links a:hover { color: var(--accent); }
+.footer-right { text-align: right; }
+.footer-email { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-decoration: none; display: block; margin-bottom: 0.3rem; transition: color 0.2s; }
+.footer-email:hover { color: var(--accent); }
+.footer-copy { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+.reveal.vis { opacity: 1; transform: none; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 65px; left: 0; right: 0; background: rgba(5,5,9,0.97); padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border); backdrop-filter: blur(20px); z-index: 499; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .services-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .process-steps::before { display: none; }
+  .pricing-wrap { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr; text-align: center; }
+  .footer-right { text-align: center; }
+  section { padding: 4rem 1.5rem; }
+  nav { padding: 1.2rem 1.5rem; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 7rem 1.5rem 4rem; }
+  .stack-grid { grid-template-columns: repeat(3,1fr); }
+  .process-steps { grid-template-columns: 1fr; }
+  .hero-contact { flex-direction: column; }
+}
+
+/* ── PORTFOLIO ── */
+.ptab {
+  font-family: var(--mono); font-size: 0.78rem; font-weight: 500;
+  padding: 0.55rem 1.2rem; border-radius: 50px; cursor: pointer;
+  border: 1px solid var(--border-bright);
+  background: transparent; color: var(--muted);
+  transition: all 0.2s; letter-spacing: 0.3px;
+}
+.ptab:hover { color: var(--text); border-color: rgba(0,229,255,0.3); }
+.ptab.ptab-active { background: rgba(0,229,255,0.08); color: var(--accent); border-color: rgba(0,229,255,0.4); }
+.ppanel { display: none; }
+.ppanel.ppanel-active { display: block; }
+.dpanel { display: none; }
+.dpanel.dpanel-active { display: block; }
+.port-label {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+  background: var(--surface2); border: 1px solid var(--border);
+  padding: 0.5rem 1rem; border-radius: 6px; margin-bottom: 1.2rem;
+  display: inline-block;
+}
+.xl-outer {
+  border: 1px solid var(--border-bright); border-radius: 10px;
+  overflow: hidden; background: var(--surface);
+}
+.xl-topbar {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface2); padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.xl-wdots { display: flex; gap: 5px; }
+.xl-wdots span { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.xl-fname { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); flex: 1; text-align: center; }
+.xl-sheettab {
+  font-family: var(--mono); font-size: 0.72rem; padding: 5px 14px;
+  background: var(--surface2); border: none; border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border); color: var(--muted); cursor: pointer;
+  transition: all 0.2s;
+}
+.xl-sheettab.xl-sheettab-active { background: #1D7D45; color: white; border-color: #1D7D45; }
+.xl-scroll { overflow-x: auto; }
+.xlt { width: 100%; border-collapse: collapse; font-size: 0.72rem; font-family: var(--mono); min-width: 560px; }
+.xl-rownum { width: 28px; background: #F0F0F0; color: #999; text-align: center; border: 0.5px solid #ddd; font-size: 0.65rem; padding: 3px; }
+.xl-colhdr { background: #D0D0D0; color: #444; text-align: center; padding: 3px 8px; border: 0.5px solid #ccc; font-size: 0.65rem; font-weight: 500; min-width: 70px; }
+.xl-title-row { background: #0F3460; color: #fff; text-align: center; padding: 5px 8px; font-weight: 500; font-size: 0.72rem; border: 0.5px solid #0a2545; }
+.xl-hint-row { background: var(--surface2); color: var(--muted); text-align: center; padding: 3px 8px; font-size: 0.65rem; font-style: italic; border: 0.5px solid var(--border); }
+.xl-hdr { background: #0F3460; color: #fff; padding: 5px 8px; font-weight: 500; border: 0.5px solid #0a2545; white-space: nowrap; }
+.xl-section-hdr { background: #16213E; color: #8892AA; padding: 4px 8px; font-size: 0.65rem; letter-spacing: 0.5px; border: 0.5px solid var(--border); }
+.xl-lbl { padding: 4px 8px; border: 0.5px solid var(--border); color: var(--text); background: var(--surface); white-space: nowrap; }
+.xl-input { padding: 4px 8px; border: 0.5px solid var(--border); color: #0000CC; background: #EEF4FF; text-align: right; }
+.xl-total-g { padding: 5px 8px; border: 0.5px solid #0a5c30; background: #0F7B6C; color: #fff; font-weight: 600; text-align: right; white-space: nowrap; }
+.xl-total-r { padding: 5px 8px; border: 0.5px solid #8b0000; background: #C0392B; color: #fff; font-weight: 600; text-align: right; white-space: nowrap; }
+.xl-net { padding: 6px 8px; border: 0.5px solid #0a2545; background: #0F3460; color: #fff; font-weight: 700; text-align: right; white-space: nowrap; }
+.xl-pos { color: #00E5FF !important; }
+.xl-status-ok { padding: 4px 8px; border: 0.5px solid var(--border); color: #27C93F; font-weight: 500; text-align: center; background: rgba(39,201,63,0.06); }
+.xl-status-warn { padding: 4px 8px; border: 0.5px solid var(--border); color: #FFBD2E; font-weight: 500; text-align: center; background: rgba(255,189,46,0.06); }
+.xl-status-out { padding: 4px 8px; border: 0.5px solid var(--border); color: #FF4D6D; font-weight: 500; text-align: center; background: rgba(255,77,109,0.06); }
+.browser-mockup { border: 1px solid var(--border-bright); border-radius: 10px; overflow: hidden; }
+.bm-bar { display: flex; align-items: center; gap: 8px; background: var(--surface2); padding: 8px 14px; border-bottom: 1px solid var(--border); }
+.bm-dots { display: flex; gap: 5px; }
+.bm-dots span { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.bm-url { flex: 1; text-align: center; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2px 12px; }
+.bm-body { background: var(--bg); }
+@media (max-width: 700px) {
+  .xl-scroll { overflow-x: scroll; }
+  .xlt { min-width: 480px; }
+}
+
+</style>
+
+
+<style>
+.subpage-hero { padding: 7rem 3rem 3rem; text-align: center; background: var(--bg); position: relative; overflow: hidden; }
+.subpage-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 60% 60% at 50% 30%, black 30%, transparent 80%); }
+.subpage-hero h1 { font-family: var(--sans); font-weight: 900; font-size: clamp(2.4rem, 4vw, 3.4rem); letter-spacing: -2px; color: var(--white); margin-bottom: 1rem; line-height: 1; position: relative; }
+.subpage-hero h1 .accent { color: var(--accent); }
+.subpage-hero p { color: var(--muted); max-width: 600px; margin: 0 auto 2rem; line-height: 1.7; position: relative; }
+.subpage-hero .crumb { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; position: relative; }
+.contact-page { padding: 4rem 1.5rem 6rem; min-height: 70vh; }
+.contact-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+@media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-card { background: var(--surface); border: 1px solid var(--border-bright); border-radius: 16px; padding: 2.5rem; }
+.contact-card h2 { font-family: var(--sans); font-size: 1.5rem; font-weight: 900; color: var(--white); margin-bottom: 0.5rem; letter-spacing: -0.5px; }
+.contact-card p.lead { color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.8rem; }
+.quick-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0; }
+@media (max-width: 480px) { .quick-row { grid-template-columns: 1fr; } }
+.quick-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; padding: 1.4rem 1rem; border-radius: 12px; border: 1px solid var(--border-bright); transition: all 0.2s; text-align: center; }
+.quick-btn:hover { transform: translateY(-3px); border-color: var(--accent); }
+.quick-btn .qicon { font-size: 1.8rem; }
+.quick-btn .qlabel { font-family: var(--mono); font-size: 0.75rem; color: var(--text); letter-spacing: 0.5px; }
+.quick-btn .qsub { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); }
+.quick-btn.wa { background: rgba(37,211,102,0.08); border-color: rgba(37,211,102,0.3); }
+.quick-btn.wa:hover { background: rgba(37,211,102,0.14); border-color: #25D366; }
+.quick-btn.wa .qlabel { color: #25D366; }
+.quick-btn.em { background: rgba(0,229,255,0.06); border-color: rgba(0,229,255,0.3); }
+.quick-btn.em:hover { border-color: var(--accent); }
+.quick-btn.em .qlabel { color: var(--accent); }
+.field-group { margin-bottom: 1rem; }
+.field-group label { display: block; font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
+.field-group input, .field-group textarea { width: 100%; background: var(--bg); border: 1px solid var(--border-bright); border-radius: 8px; padding: 0.85rem 1rem; color: var(--text); font-family: var(--sans); font-size: 0.95rem; transition: border-color 0.2s; cursor: none; }
+.field-group input:focus, .field-group textarea:focus { outline: none; border-color: var(--accent); }
+.field-group textarea { resize: vertical; min-height: 130px; }
+.submit-btn { width: 100%; background: var(--accent); color: var(--bg); font-family: var(--mono); font-weight: 700; font-size: 0.9rem; padding: 1rem; border-radius: 8px; border: none; cursor: none; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; }
+.submit-btn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-2px); }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.form-msg { margin-top: 1rem; padding: 0.85rem 1rem; border-radius: 8px; font-family: var(--mono); font-size: 0.78rem; display: none; }
+.form-msg.success { display: block; background: rgba(39,201,63,0.08); border: 1px solid rgba(39,201,63,0.3); color: #27C93F; }
+.form-msg.error { display: block; background: rgba(255,77,109,0.08); border: 1px solid rgba(255,77,109,0.3); color: var(--accent3); }
+@media (max-width: 768px) { section.subpage-hero { padding: 6rem 1.5rem 2rem; } }
+</style>
+
+</head>
+<body>
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="ring"></div>
+<nav id="nav">
+  <a href="#home" class="logo">SKC<span class="dot">.</span>Digital</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/demos.html">Demos</a></li>
+    <li><a href="/portfolio.html">Portfolio</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <a href="/contact.html" class="nav-cta">Get in Touch</a>
+  <button class="hamburger" id="ham" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="subpage-hero">
+  <div class="crumb">Live Demos</div>
+  <h1>See What We Can <span class="accent">Build for You</span></h1>
+  <p>Click any tab to preview a live working demo. Each one is custom-built — not a template.</p>
+</section>
+
+<!-- DEMOS SECTION -->
+<section id="demos" style="background:var(--surface);">
+  <div class="section-max">
+    <div class="section-tag reveal">Website Demos</div>
+    <h2 class="section-h reveal">See What We Can Build for Your Business</h2>
+    <p class="section-sub reveal">Click any demo below to see a real working preview. Each one is custom-built — not a template. From R800. Delivered in 48hrs.</p>
+
+    <!-- DEMO TAB NAV -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2rem;" class="reveal">
+      <button class="ptab ptab-active" onclick="switchDemoTab('salon',this)">Hair Salon</button>
+      <button class="ptab" onclick="switchDemoTab('cleaning',this)">Cleaning Co.</button>
+      <button class="ptab" onclick="switchDemoTab('spaza',this)">Spaza Shop</button>
+      <button class="ptab" onclick="switchDemoTab('gym',this)">Gym / Fitness</button>
+      <button class="ptab" onclick="switchDemoTab('mechanic',this)">Mechanic</button>
+      <button class="ptab" onclick="switchDemoTab('restaurant',this)">Restaurant</button>
+      <button class="ptab" onclick="switchDemoTab('nails',this)">Nail Salon</button>
+      <button class="ptab" onclick="switchDemoTab('store',this)">General Store</button>
+    </div>
+
+    <div class="reveal">
+
+      <!-- HAIR SALON DEMO -->
+      <div class="dpanel dpanel-active" id="dp-salon">
+        <div class="browser-mockup">
+          <div class="bm-bar">
+            <div class="bm-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#27C93F"></span></div>
+            <div class="bm-url">glowstudio.co.za</div>
+            <div style="width:60px"></div>
+          </div>
+          <div style="font-family:var(--sans);background:#0D0D0D;color:#fff;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,0.08);">
+              <div style="font-size:15px;font-weight:900;letter-spacing:-0.5px;">Glow<span style="color:#D4A574;">Studio</span></div>
+              <div style="display:flex;gap:14px;"><span style="font-size:9px;color:#999;">Services</span><span style="font-size:9px;color:#999;">Gallery</span><span style="font-size:9px;color:#999;">Pricing</span></div>
+              <span style="font-size:9px;background:#D4A574;color:#0D0D0D;padding:4px 12px;border-radius:20px;font-weight:700;">Book Now</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;min-height:220px;">
+              <div style="padding:24px 20px;background:linear-gradient(135deg,#1a0a00,#0D0D0D);display:flex;flex-direction:column;justify-content:center;">
+                <div style="font-size:8px;color:#D4A574;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Pretoria's Premier Hair Studio</div>
+                <div style="font-size:22px;font-weight:900;line-height:1.1;margin-bottom:10px;">Where Every Braid<br><span style="color:#D4A574;">Tells Your Story</span></div>
+                <div style="font-size:9px;color:#888;line-height:1.6;margin-bottom:14px;">Braids, relaxers, weaves & natural hair care. Walk-ins welcome.</div>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;">
+                  <span style="font-size:9px;background:#25D366;color:#fff;padding:5px 14px;border-radius:20px;font-weight:700;">💬 Book via WhatsApp</span>
+                  <span style="font-size:9px;border:1px solid rgba(255,255,255,0.2);color:#fff;padding:5px 14px;border-radius:20px;">View Services</span>
+                </div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                  <span style="font-size:8px;color:#888;border:1px solid rgba(255,255,255,0.07);padding:3px 8px;border-radius:50px;">⭐ 4.9 Google</span>
+                  <span style="font-size:8px;color:#888;border:1px solid rgba(255,255,255,0.07);padding:3px 8px;border-radius:50px;">📍 Hatfield, PTA</span>
+                </div>
+              </div>
+              <div style="position:relative;overflow:hidden;min-height:220px;">
+                <img src="/images/salon-knotless.jpg" alt="Hair salon" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,13,13,0.4),transparent);"></div>
+              </div>
+            </div>
+            <div style="padding:14px 20px;background:#161616;border-top:1px solid rgba(255,255,255,0.06);">
+              <!-- Salon service tabs -->
+              <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;">
+                <button onclick="switchSalonTab('knotless',this)" style="font-size:8px;padding:3px 9px;border-radius:50px;border:1px solid #D4A574;background:#D4A574;color:#0D0D0D;cursor:pointer;font-weight:700;font-family:inherit;">Knotless</button>
+                <button onclick="switchSalonTab('box',this)" style="font-size:8px;padding:3px 9px;border-radius:50px;border:1px solid rgba(212,165,116,0.4);background:transparent;color:#D4A574;cursor:pointer;font-family:inherit;">Box Braids</button>
+                <button onclick="switchSalonTab('faux',this)" style="font-size:8px;padding:3px 9px;border-radius:50px;border:1px solid rgba(212,165,116,0.4);background:transparent;color:#D4A574;cursor:pointer;font-family:inherit;">Faux Locs</button>
+                <button onclick="switchSalonTab('weave',this)" style="font-size:8px;padding:3px 9px;border-radius:50px;border:1px solid rgba(212,165,116,0.4);background:transparent;color:#D4A574;cursor:pointer;font-family:inherit;">Weaves</button>
+                <button onclick="switchSalonTab('natural',this)" style="font-size:8px;padding:3px 9px;border-radius:50px;border:1px solid rgba(212,165,116,0.4);background:transparent;color:#D4A574;cursor:pointer;font-family:inherit;">Natural</button>
+              </div>
+              <!-- Knotless -->
+              <div id="salon-knotless" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><div style="grid-column:1/-1;margin-bottom:6px;border-radius:8px;overflow:hidden;border:1px solid rgba(212,165,116,0.3);"><img src="/images/salon-knotless.jpg" alt="knotless hairstyle" loading="lazy" style="width:100%;height:90px;object-fit:cover;display:block;"/></div>
+                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.3);border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:2px;">Small Knotless</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Full head, fine parts</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R550</div></div>
+                <div style="background:#0D0D0D;border:2px solid #D4A574;border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#D4A574;margin-bottom:2px;">Medium Knotless</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Most popular size</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R420</div></div>
+                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.3);border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:2px;">Large Knotless</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Bold & chunky look</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R350</div></div>
+              </div>
+              <!-- Box Braids -->
+              <div id="salon-box" style="display:none;grid-template-columns:repeat(3,1fr);gap:6px;"><div style="grid-column:1/-1;margin-bottom:6px;border-radius:8px;overflow:hidden;border:1px solid rgba(212,165,116,0.3);"><img src="/images/salon-box.jpg" alt="box hairstyle" loading="lazy" style="width:100%;height:90px;object-fit:cover;display:block;"/></div>
+                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.3);border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:2px;">Small Box Braids</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Micro / jumbo options</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R500</div></div>
+                <div style="background:#0D0D0D;border:2px solid #D4A574;border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#D4A574;margin-bottom:2px;">Medium Box Braids</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Classic style</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R380</div></div>
+                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.3);border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:2px;">Jumbo Box Braids</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Bold statement look</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R300</div></div>
+              </div>
+              <!-- Faux Locs -->
+              <div id="salon-faux" style="display:none;grid-template-columns:repeat(3,1fr);gap:6px;"><div style="grid-column:1/-1;margin-bottom:6px;border-radius:8px;overflow:hidden;border:1px solid rgba(212,165,116,0.3);"><img src="/images/salon-faux.jpg" alt="faux hairstyle" loading="lazy" style="width:100%;height:90px;object-fit:cover;display:block;"/></div>
+                <div style="background:#0D0D0D;border:2px solid #D4A574;border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#D4A574;margin-bottom:2px;">Soft Locs</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Wrapped, boho finish</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R600</div></div>
+                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.3);border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:2px;">Butterfly Locs</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Distressed texture</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R550</div></div>
+                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.3);border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:2px;">Goddess Locs</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Wavy ends</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R650</div></div>
+              </div>
+              <!-- Weaves -->
+              <div id="salon-weave" style="display:none;grid-template-columns:repeat(3,1fr);gap:6px;"><div style="grid-column:1/-1;margin-bottom:6px;border-radius:8px;overflow:hidden;border:1px solid rgba(212,165,116,0.3);"><img src="/images/salon-weave.jpg" alt="weave hairstyle" loading="lazy" style="width:100%;height:90px;object-fit:cover;display:block;"/></div>
+                <div style="background:#0D0D0D;border:2px solid #D4A574;border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#D4A574;margin-bottom:2px;">Sew-In Weave</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Natural hairline</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R450</div></div>
+                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.3);border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:2px;">Quick Weave</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Bonded, fast install</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R300</div></div>
+                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.3);border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:2px;">Closure Weave</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">4x4 or 5x5 closure</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R550</div></div>
+              </div>
+              <!-- Natural -->
+              <div id="salon-natural" style="display:none;grid-template-columns:repeat(3,1fr);gap:6px;"><div style="grid-column:1/-1;margin-bottom:6px;border-radius:8px;overflow:hidden;border:1px solid rgba(212,165,116,0.3);"><img src="/images/salon-natural.jpg" alt="natural hairstyle" loading="lazy" style="width:100%;height:90px;object-fit:cover;display:block;"/></div>
+                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.3);border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:2px;">Wash & Style</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Blow dry, flat iron</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R180</div></div>
+                <div style="background:#0D0D0D;border:2px solid #D4A574;border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#D4A574;margin-bottom:2px;">Deep Treatment</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Protein + moisture</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R220</div></div>
+                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.3);border-radius:8px;padding:8px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#fff;margin-bottom:2px;">Relaxer</div><div style="font-size:7.5px;color:#888;margin-bottom:4px;">Creamy crack, protein</div><div style="font-size:9px;color:#D4A574;font-weight:600;">From R250</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Real photo hero &nbsp;·&nbsp; WhatsApp booking &nbsp;·&nbsp; Services & pricing &nbsp;·&nbsp; Delivered in 48hrs</span>
+          <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20website%20like%20the%20hair%20salon%20demo" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R800</a>
+        </div>
+      </div>
+
+      <!-- CLEANING DEMO -->
+      <div class="dpanel" id="dp-cleaning">
+        <div class="browser-mockup">
+          <div class="bm-bar">
+            <div class="bm-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#27C93F"></span></div>
+            <div class="bm-url">sparklepro-cleaning.co.za</div>
+            <div style="width:60px"></div>
+          </div>
+          <div style="font-family:var(--sans);background:#fff;color:#1a2744;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 20px;background:#fff;border-bottom:1px solid #E8EDF5;">
+              <div style="font-size:14px;font-weight:900;letter-spacing:-0.5px;">Sparkle<span style="color:#2563EB;">Pro</span></div>
+              <div style="display:flex;gap:12px;"><span style="font-size:9px;color:#666;">Services</span><span style="font-size:9px;color:#666;">Areas</span><span style="font-size:9px;color:#666;">Prices</span></div>
+              <span style="font-size:9px;background:#2563EB;color:#fff;padding:4px 10px;border-radius:4px;font-weight:600;">Get a Quote</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;min-height:220px;">
+              <div style="position:relative;overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80" alt="Cleaning service" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                <div style="position:absolute;inset:0;background:linear-gradient(270deg,rgba(255,255,255,0.3),transparent);"></div>
+              </div>
+              <div style="padding:24px 20px;background:linear-gradient(135deg,#EEF4FF,#fff);display:flex;flex-direction:column;justify-content:center;">
+                <div style="display:inline-block;background:#DBEAFE;color:#1D4ED8;font-size:8px;font-weight:600;padding:3px 8px;border-radius:50px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">⚡ Same-day available</div>
+                <div style="font-size:20px;font-weight:900;color:#1a2744;line-height:1.1;margin-bottom:8px;">Professional<br><span style="color:#2563EB;">Cleaning Services</span></div>
+                <div style="font-size:9px;color:#666;line-height:1.6;margin-bottom:12px;">Domestic, commercial & deep cleaning. 200+ happy clients. Insured staff.</div>
+                <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                  <span style="font-size:9px;background:#25D366;color:#fff;padding:5px 12px;border-radius:4px;font-weight:600;">💬 WhatsApp Quote</span>
+                  <span style="font-size:9px;border:1px solid #CBD5E1;color:#1a2744;padding:5px 12px;border-radius:4px;">Our Services</span>
+                </div>
+              </div>
+            </div>
+            <div style="padding:10px 20px;background:#EEF4FF;border-top:1px solid #DBEAFE;display:flex;justify-content:space-around;flex-wrap:wrap;gap:8px;">
+              <div style="text-align:center;"><div style="font-size:13px;font-weight:900;color:#2563EB;">200+</div><div style="font-size:8px;color:#888;">Happy Clients</div></div>
+              <div style="text-align:center;"><div style="font-size:13px;font-weight:900;color:#2563EB;">⭐ 4.9</div><div style="font-size:8px;color:#888;">Google Rating</div></div>
+              <div style="text-align:center;"><div style="font-size:13px;font-weight:900;color:#2563EB;">5yrs</div><div style="font-size:8px;color:#888;">In Business</div></div>
+              <div style="text-align:center;"><div style="font-size:13px;font-weight:900;color:#2563EB;">Insured</div><div style="font-size:8px;color:#888;">Staff</div></div>
+              <div style="text-align:center;"><div style="font-size:13px;font-weight:900;color:#2563EB;">Same Day</div><div style="font-size:8px;color:#888;">Available</div></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Real photo hero &nbsp;·&nbsp; Trust badges &nbsp;·&nbsp; WhatsApp quote &nbsp;·&nbsp; Delivered in 48hrs</span>
+          <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20website%20like%20the%20cleaning%20demo" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R800</a>
+        </div>
+      </div>
+
+      <!-- SPAZA DEMO -->
+      <div class="dpanel" id="dp-spaza">
+        <div class="browser-mockup">
+          <div class="bm-bar">
+            <div class="bm-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#27C93F"></span></div>
+            <div class="bm-url">mama-grace-spaza.co.za</div>
+            <div style="width:60px"></div>
+          </div>
+          <div style="font-family:var(--sans);background:#FFFBF0;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:#E65C00;color:#fff;">
+              <div style="font-size:14px;font-weight:900;letter-spacing:-0.5px;">Mama Grace<span style="color:#FFD166;">•</span>Spaza</div>
+              <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:9px;opacity:0.85;">Specials</span><span style="font-size:9px;opacity:0.85;">Stock</span><span style="font-size:9px;background:#FFD166;color:#E65C00;padding:3px 10px;border-radius:50px;font-weight:700;">Order on WhatsApp</span></div>
+            </div>
+            <div style="background:#FFD166;padding:6px 18px;font-size:9px;font-weight:700;color:#7B2D00;">🔥 TODAY: Bread R14.99 · Milk 2L R28 · Airtime loaded instantly! &nbsp;·&nbsp; Open 6am–10pm daily</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;min-height:220px;">
+              <div style="padding:20px;background:linear-gradient(135deg,#FFF3E0,#FFFBF0);display:flex;flex-direction:column;justify-content:center;">
+                <div style="font-size:8px;background:#E65C00;color:#fff;display:inline-block;padding:2px 8px;border-radius:50px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Your Local Shop</div>
+                <div style="font-size:20px;font-weight:900;color:#3E1F00;line-height:1.1;margin-bottom:8px;">Everything You Need,<br><span style="color:#E65C00;">Right in Your Street</span></div>
+                <div style="font-size:9px;color:#7B5A3A;line-height:1.6;margin-bottom:10px;">Groceries, airtime, cold drinks & more. WhatsApp your order — we'll prepare it before you arrive.</div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                  <span style="font-size:9px;background:#25D366;color:#fff;padding:5px 12px;border-radius:4px;font-weight:600;">💬 WhatsApp Order</span>
+                  <span style="font-size:9px;border:1px solid #E65C00;color:#E65C00;padding:5px 12px;border-radius:4px;">Stock List</span>
+                </div>
+              </div>
+              <div style="position:relative;overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=600&q=80" alt="Spaza shop" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,243,224,0.4),transparent);"></div>
+              </div>
+            </div>
+            <div style="padding:10px 18px;background:#E65C00;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
+              <span style="font-size:9px;color:#FFE0B2;">📍 123 Mamelodi East · Mon–Sun: 6am–10pm</span>
+              <span style="font-size:9px;background:#FFD166;color:#E65C00;padding:4px 10px;border-radius:50px;font-weight:700;">💬 WhatsApp Us</span>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Real photo &nbsp;·&nbsp; Daily specials banner &nbsp;·&nbsp; WhatsApp ordering &nbsp;·&nbsp; Delivered in 48hrs</span>
+          <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20website%20like%20the%20spaza%20shop%20demo" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R800</a>
+        </div>
+      </div>
+
+      <!-- GYM DEMO -->
+      <div class="dpanel" id="dp-gym">
+        <div class="browser-mockup">
+          <div class="bm-bar">
+            <div class="bm-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#27C93F"></span></div>
+            <div class="bm-url">ironpeak-gym.co.za</div>
+            <div style="width:60px"></div>
+          </div>
+          <div style="font-family:var(--sans);background:#0A0A0A;color:#fff;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:#111;border-bottom:1px solid rgba(255,59,0,0.2);">
+              <div style="font-size:14px;font-weight:900;letter-spacing:-0.5px;">IRON<span style="color:#FF3B00;">PEAK</span></div>
+              <div style="display:flex;gap:12px;align-items:center;"><span style="font-size:9px;color:#999;">Classes</span><span style="font-size:9px;color:#999;">Membership</span><span style="font-size:9px;color:#999;">Trainers</span><span style="font-size:9px;background:#FF3B00;color:#fff;padding:3px 10px;border-radius:3px;font-weight:700;">Join Now</span></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;min-height:220px;">
+              <div style="position:relative;overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="Gym" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                <div style="position:absolute;inset:0;background:linear-gradient(270deg,rgba(10,10,10,0.7),transparent);"></div>
+              </div>
+              <div style="padding:20px;background:linear-gradient(160deg,#1A0A00,#0A0A0A);display:flex;flex-direction:column;justify-content:center;">
+                <div style="font-size:8px;color:#FF3B00;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">Pretoria's #1 Gym</div>
+                <div style="font-size:22px;font-weight:900;line-height:1.05;margin-bottom:8px;">Train Hard.<br><span style="color:#FF3B00;">Get Results.</span></div>
+                <div style="font-size:9px;color:#888;line-height:1.6;margin-bottom:12px;">First week FREE. Expert trainers & flexible memberships.</div>
+                <div style="display:flex;flex-direction:column;gap:5px;margin-bottom:12px;">
+                  <div style="background:#111;border:1px solid rgba(255,59,0,0.2);border-radius:6px;padding:6px 10px;display:flex;justify-content:space-between;"><span style="font-size:9px;">Starter — Mon–Fri</span><span style="font-size:9px;color:#FF3B00;font-weight:700;">R299/mo</span></div>
+                  <div style="background:#1A0A00;border:2px solid #FF3B00;border-radius:6px;padding:6px 10px;display:flex;justify-content:space-between;"><span style="font-size:9px;">Pro — 7 days ⭐</span><span style="font-size:9px;color:#FF3B00;font-weight:700;">R499/mo</span></div>
+                  <div style="background:#111;border:1px solid rgba(255,59,0,0.2);border-radius:6px;padding:6px 10px;display:flex;justify-content:space-between;"><span style="font-size:9px;">Elite + PT</span><span style="font-size:9px;color:#FF3B00;font-weight:700;">R899/mo</span></div>
+                </div>
+                <span style="font-size:9px;background:#FF3B00;color:#fff;padding:5px 14px;border-radius:3px;font-weight:600;display:inline-block;text-align:center;">Join Now — Free Week</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Real gym photo &nbsp;·&nbsp; Membership tiers &nbsp;·&nbsp; Class timetable &nbsp;·&nbsp; Delivered in 48hrs</span>
+          <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20website%20like%20the%20gym%20demo" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R800</a>
+        </div>
+      </div>
+
+      <!-- MECHANIC DEMO -->
+      <div class="dpanel" id="dp-mechanic">
+        <div class="browser-mockup">
+          <div class="bm-bar">
+            <div class="bm-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#27C93F"></span></div>
+            <div class="bm-url">precisionauto-pta.co.za</div>
+            <div style="width:60px"></div>
+          </div>
+          <div style="font-family:var(--sans);background:#181818;color:#fff;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:#111;border-bottom:2px solid #F5A623;">
+              <div style="font-size:13px;font-weight:900;letter-spacing:-0.5px;">Precision<span style="color:#F5A623;">Auto</span></div>
+              <div style="display:flex;gap:12px;align-items:center;"><span style="font-size:9px;color:#aaa;">Services</span><span style="font-size:9px;color:#aaa;">Gallery</span><span style="font-size:9px;color:#aaa;">Location</span><span style="font-size:9px;background:#F5A623;color:#111;padding:3px 10px;border-radius:3px;font-weight:700;">Get a Quote</span></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;min-height:220px;">
+              <div style="padding:20px;background:linear-gradient(160deg,#222,#181818);display:flex;flex-direction:column;justify-content:center;">
+                <div style="display:inline-block;background:#F5A623;color:#111;font-size:7px;font-weight:700;padding:2px 8px;border-radius:50px;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Trusted Since 2010</div>
+                <div style="font-size:20px;font-weight:900;line-height:1.1;margin-bottom:8px;">Your Car Fixed<br><span style="color:#F5A623;">Right. Every Time.</span></div>
+                <div style="font-size:9px;color:#aaa;line-height:1.6;margin-bottom:10px;">Full mechanical & electrical repairs. Honest prices. 6-month workmanship guarantee.</div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;">
+                  <span style="font-size:9px;background:#25D366;color:#fff;padding:5px 12px;border-radius:3px;font-weight:600;">💬 WhatsApp Quote</span>
+                  <span style="font-size:9px;border:1px solid #F5A623;color:#F5A623;padding:5px 12px;border-radius:3px;">Call Us</span>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;">
+                  <div style="background:#222;border:1px solid #333;border-radius:5px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;">Full Service</div><div style="font-size:8px;color:#F5A623;">From R650</div></div>
+                  <div style="background:#222;border:1px solid #333;border-radius:5px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;">Brakes & Tyres</div><div style="font-size:8px;color:#F5A623;">From R280</div></div>
+                  <div style="background:#222;border:1px solid #F5A623;border-radius:5px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;">Diagnostics</div><div style="font-size:8px;color:#F5A623;">Free check</div></div>
+                  <div style="background:#222;border:1px solid #333;border-radius:5px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;">Aircon Regas</div><div style="font-size:8px;color:#F5A623;">From R350</div></div>
+                </div>
+              </div>
+              <div style="position:relative;overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1625047509252-ab38fb5c7343?w=600&q=80" alt="Car mechanic" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(24,24,24,0.5),transparent);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Real workshop photo &nbsp;·&nbsp; Services & pricing &nbsp;·&nbsp; WhatsApp quote &nbsp;·&nbsp; Delivered in 48hrs</span>
+          <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20website%20like%20the%20mechanic%20demo" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R800</a>
+        </div>
+      </div>
+
+      <!-- RESTAURANT DEMO -->
+      <div class="dpanel" id="dp-restaurant">
+        <div class="browser-mockup">
+          <div class="bm-bar">
+            <div class="bm-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#27C93F"></span></div>
+            <div class="bm-url">kasi-kitchen-pta.co.za</div>
+            <div style="width:60px"></div>
+          </div>
+          <div style="font-family:var(--sans);background:#1A0500;color:#fff;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:#2C0800;border-bottom:1px solid rgba(255,107,0,0.3);">
+              <div style="font-size:14px;font-weight:900;letter-spacing:-0.5px;">Kasi<span style="color:#FF6B00;">Kitchen</span></div>
+              <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:9px;color:#FFB380;">Menu</span><span style="font-size:9px;color:#FFB380;">About</span><span style="font-size:9px;background:#FF6B00;color:#fff;padding:3px 10px;border-radius:50px;font-weight:700;">Order Now</span></div>
+            </div>
+            <div style="background:#FF6B00;padding:5px 18px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:8px;font-weight:700;color:#fff;">🟢 OPEN NOW — Tue–Sun 11am–9pm</span>
+              <span style="font-size:8px;color:rgba(255,255,255,0.85);">Delivery & Takeaway</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;min-height:220px;">
+              <div style="padding:20px;background:linear-gradient(160deg,#2C0800,#1A0500);display:flex;flex-direction:column;justify-content:center;">
+                <div style="font-size:8px;color:#FF6B00;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Authentic SA Flavours</div>
+                <div style="font-size:20px;font-weight:900;line-height:1.1;margin-bottom:8px;">Taste of Home,<br><span style="color:#FF6B00;">Made with Love</span></div>
+                <div style="font-size:9px;color:#FFB380;line-height:1.6;margin-bottom:10px;">Pap, stews, braai platters & kota. Cooked fresh. WhatsApp your order, collect in 20 mins.</div>
+                <div style="background:rgba(255,107,0,0.1);border:1px solid rgba(255,107,0,0.2);border-radius:8px;overflow:hidden;">
+                  <div style="background:#FF6B00;padding:5px 10px;font-size:8px;font-weight:700;">Today's Favourites</div>
+                  <div style="padding:8px 10px;display:flex;flex-direction:column;gap:4px;">
+                    <div style="display:flex;justify-content:space-between;"><span style="font-size:9px;">Steak & Pap Combo</span><span style="font-size:9px;color:#FF6B00;font-weight:700;">R85</span></div>
+                    <div style="display:flex;justify-content:space-between;"><span style="font-size:9px;">Kota (Full House)</span><span style="font-size:9px;color:#FF6B00;font-weight:700;">R45</span></div>
+                    <div style="display:flex;justify-content:space-between;"><span style="font-size:9px;">Braai Platter ×2</span><span style="font-size:9px;color:#FF6B00;font-weight:700;">R140</span></div>
+                  </div>
+                </div>
+              </div>
+              <div style="position:relative;overflow:hidden;">
+                <img src="/images/food-sa.jpg" alt="South African food spread" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,5,0,0.5),transparent);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Real food photo &nbsp;·&nbsp; Menu display &nbsp;·&nbsp; WhatsApp ordering &nbsp;·&nbsp; Delivered in 48hrs</span>
+          <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20website%20like%20the%20restaurant%20demo" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R800</a>
+        </div>
+      </div>
+
+      <!-- NAIL SALON DEMO -->
+      <div class="dpanel" id="dp-nails">
+        <div class="browser-mockup">
+          <div class="bm-bar">
+            <div class="bm-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#27C93F"></span></div>
+            <div class="bm-url">glam-nails-pta.co.za</div>
+            <div style="width:60px"></div>
+          </div>
+          <div style="font-family:var(--sans);background:#FFF8FB;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:#fff;border-bottom:1px solid #FFDDE9;">
+              <div style="font-size:14px;font-weight:900;color:#C2185B;letter-spacing:-0.5px;">GlamNails</div>
+              <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:9px;color:#888;">Services</span><span style="font-size:9px;color:#888;">Gallery</span><span style="font-size:9px;color:#888;">Prices</span><span style="font-size:9px;background:#C2185B;color:#fff;padding:3px 10px;border-radius:50px;font-weight:600;">Book Now</span></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;min-height:220px;">
+              <div style="position:relative;overflow:hidden;">
+                <img src="/images/nails-hero.jpg" alt="Nail salon" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                <div style="position:absolute;inset:0;background:linear-gradient(270deg,rgba(255,248,251,0.4),transparent);"></div>
+              </div>
+              <div style="padding:16px 18px;background:linear-gradient(135deg,#FCE4EC,#FFF8FB);display:flex;flex-direction:column;justify-content:center;">
+                <div style="font-size:8px;color:#C2185B;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;">Pretoria's Nail Queens</div>
+                <div style="font-size:18px;font-weight:900;color:#880E4F;line-height:1.1;margin-bottom:6px;">Beautiful Nails,<br><span style="color:#C2185B;">Every Time</span></div>
+                <div style="font-size:9px;color:#888;line-height:1.5;margin-bottom:8px;">Gel, acrylic, nail art, manicures & pedicures. Walk-ins welcome.</div>
+                <!-- Nail tabs -->
+                <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px;" id="nailTabBar">
+                  <button onclick="switchNailTab('mani',this)" style="font-size:8px;padding:3px 8px;border-radius:50px;border:1px solid #C2185B;background:#C2185B;color:#fff;cursor:pointer;font-family:inherit;">💅 Manicure</button>
+                  <button onclick="switchNailTab('pedi',this)" style="font-size:8px;padding:3px 8px;border-radius:50px;border:1px solid #FFDDE9;background:transparent;color:#C2185B;cursor:pointer;font-family:inherit;">🦶 Pedicure</button>
+                  <button onclick="switchNailTab('art',this)" style="font-size:8px;padding:3px 8px;border-radius:50px;border:1px solid #FFDDE9;background:transparent;color:#C2185B;cursor:pointer;font-family:inherit;">✨ Nail Art</button>
+                </div>
+                <!-- Manicure panel -->
+                <div id="nail-mani" style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px;"><div style="grid-column:1/-1;margin-bottom:4px;border-radius:6px;overflow:hidden;border:1px solid #FFDDE9;"><img src="/images/nails-french.jpg" alt="mani nails" loading="lazy" style="width:100%;height:80px;object-fit:cover;display:block;"/></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Gel Set</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R220</div></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Acrylic Full Set</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R280</div></div>
+                  <div style="background:#FCE4EC;border:2px solid #C2185B;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Gel Refill</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R150</div></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Classic Manicure</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R120</div></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Acrylic Refill</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R180</div></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Dip Powder</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R200</div></div>
+                </div>
+                <!-- Pedicure panel -->
+                <div id="nail-pedi" style="display:none;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px;"><div style="grid-column:1/-1;margin-bottom:4px;border-radius:6px;overflow:hidden;border:1px solid #FFDDE9;"><img src="/images/pedicure.jpg" alt="pedi nails" loading="lazy" style="width:100%;height:80px;object-fit:cover;display:block;"/></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Classic Pedicure</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R150</div></div>
+                  <div style="background:#FCE4EC;border:2px solid #C2185B;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Gel Pedicure</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R220</div></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Spa Pedicure</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R280</div></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Callus Removal</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R80</div></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Mani + Pedi Combo</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R350</div></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">French Pedicure</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R200</div></div>
+                </div>
+                <!-- Nail Art panel -->
+                <div id="nail-art" style="display:none;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px;"><div style="grid-column:1/-1;margin-bottom:4px;border-radius:6px;overflow:hidden;border:1px solid #FFDDE9;"><img src="/images/nails-acrylic.jpg" alt="art nails" loading="lazy" style="width:100%;height:80px;object-fit:cover;display:block;"/></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Chrome / Mirror</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R50/nail</div></div>
+                  <div style="background:#FCE4EC;border:2px solid #C2185B;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">3D Nail Art</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R80/nail</div></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Ombre / Gradient</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R250</div></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Stamping</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R40/nail</div></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Rhinestones</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R20/nail</div></div>
+                  <div style="background:#fff;border:1px solid #FFDDE9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:9px;font-weight:700;color:#880E4F;">Freehand Design</div><div style="font-size:8px;color:#C2185B;font-weight:600;">From R60/nail</div></div>
+                </div>
+                <span style="font-size:9px;background:#25D366;color:#fff;padding:5px 12px;border-radius:50px;font-weight:600;text-align:center;">💬 Book on WhatsApp</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Real nail photo &nbsp;·&nbsp; Pricing table &nbsp;·&nbsp; WhatsApp booking &nbsp;·&nbsp; Delivered in 48hrs</span>
+          <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20website%20like%20the%20nail%20salon%20demo" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R800</a>
+        </div>
+      </div>
+
+      <!-- GENERAL STORE DEMO -->
+      <div class="dpanel" id="dp-store">
+        <div class="browser-mockup">
+          <div class="bm-bar">
+            <div class="bm-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#27C93F"></span></div>
+            <div class="bm-url">corner-store-pta.co.za</div>
+            <div style="width:60px"></div>
+          </div>
+          <div style="font-family:var(--sans);background:#F5FFF7;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 18px;background:#1B5E20;color:#fff;">
+              <div style="font-size:14px;font-weight:900;letter-spacing:-0.5px;">Corner<span style="color:#69F0AE;">Store</span></div>
+              <div style="display:flex;gap:10px;align-items:center;"><span style="font-size:9px;opacity:0.8;">Groceries</span><span style="font-size:9px;opacity:0.8;">Household</span><span style="font-size:9px;opacity:0.8;">Specials</span><span style="font-size:9px;background:#69F0AE;color:#1B5E20;padding:3px 10px;border-radius:50px;font-weight:700;">Order Now</span></div>
+            </div>
+            <div style="background:#2E7D32;padding:6px 18px;display:flex;justify-content:space-between;align-items:center;">
+              <span style="font-size:8px;font-weight:700;color:#C8E6C9;">🚚 LOCAL DELIVERY · Orders over R150 · Mon–Sat</span>
+              <span style="font-size:8px;color:#A5D6A7;">Open 7 days · 7am–9pm</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;min-height:220px;">
+              <div style="padding:20px;background:linear-gradient(135deg,#E8F5E9,#F5FFF7);display:flex;flex-direction:column;justify-content:center;">
+                <div style="font-size:8px;color:#2E7D32;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Your Neighbourhood Superette</div>
+                <div style="font-size:20px;font-weight:900;color:#1B5E20;line-height:1.1;margin-bottom:8px;">Fresh Stock,<br><span style="color:#2E7D32;">Fair Prices</span></div>
+                <div style="font-size:9px;color:#555;line-height:1.6;margin-bottom:10px;">Groceries, household, baby products & more. WhatsApp your order — deliver or pickup.</div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-bottom:10px;">
+                  <div style="background:#fff;border:1px solid #C8E6C9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:12px;">🥦</div><div style="font-size:8px;font-weight:700;color:#1B5E20;">Produce</div></div>
+                  <div style="background:#fff;border:1px solid #C8E6C9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:12px;">🥩</div><div style="font-size:8px;font-weight:700;color:#1B5E20;">Meat</div></div>
+                  <div style="background:#E8F5E9;border:2px solid #2E7D32;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:12px;">🧴</div><div style="font-size:8px;font-weight:700;color:#1B5E20;">Toiletries</div></div>
+                  <div style="background:#fff;border:1px solid #C8E6C9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:12px;">🍞</div><div style="font-size:8px;font-weight:700;color:#1B5E20;">Bakery</div></div>
+                  <div style="background:#fff;border:1px solid #C8E6C9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:12px;">🧹</div><div style="font-size:8px;font-weight:700;color:#1B5E20;">Household</div></div>
+                  <div style="background:#fff;border:1px solid #C8E6C9;border-radius:6px;padding:6px;text-align:center;"><div style="font-size:12px;">👶</div><div style="font-size:8px;font-weight:700;color:#1B5E20;">Baby</div></div>
+                </div>
+                <span style="font-size:9px;background:#25D366;color:#fff;padding:5px 12px;border-radius:4px;font-weight:600;text-align:center;">💬 Order on WhatsApp</span>
+              </div>
+              <div style="position:relative;overflow:hidden;">
+                <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=80" alt="Grocery store" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(245,255,247,0.4),transparent);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:12px 16px;background:var(--bg);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Real store photo &nbsp;·&nbsp; Category grid &nbsp;·&nbsp; Delivery info &nbsp;·&nbsp; Delivered in 48hrs</span>
+          <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20website%20like%20the%20general%20store%20demo" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R800</a>
+        </div>
+      </div>
+
+    </div><!-- end reveal -->
+  </div><!-- end section-max -->
+</section>
+
+<footer>
+  <a href="#home" class="footer-logo">SKC<span class="dot">.</span>Digital</a>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-right">
+    <a href="mailto:info@skcdigital.co.za" class="footer-email">info@skcdigital.co.za</a>
+    <span class="footer-copy">© <span id="yr"></span> SKC Digital · Pretoria, ZA</span>
+  </div>
+</footer>
+
+<script>
+const cur = document.getElementById('cur'), ring = document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+function animCursor(){rx+=(mx-rx)*0.15;ry+=(my-ry)*0.15;cur.style.left=mx+'px';cur.style.top=my+'px';ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animCursor);}
+animCursor();
+document.querySelectorAll('a,button,.faq-q,.stack-pill,.svc-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='52px';ring.style.height='52px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
+});
+const lines=[
+  {cls:'prompt',text:'ssh skc@digital.co.za'},
+  {cls:'success',text:'✓ Connected to SKC Digital'},
+  {cls:'prompt',text:'ls services/'},
+  {cls:'highlight',text:'excel-automation/   web-dev/'},
+  {cls:'highlight',text:'bookkeeping/        automation/'},
+  {cls:'highlight',text:'digital-setup/      consulting/'},
+  {cls:'prompt',text:'cat status.txt'},
+  {cls:'success',text:'✓ Status: AVAILABLE for new projects'},
+  {cls:'output',text:'Location: Pretoria, Gauteng, ZA'},
+  {cls:'output',text:'Email: info@skcdigital.co.za'},
+  {cls:'output',text:'Response time: < 4 hours'},
+  {cls:'warn',text:'→ Run: ./get-quote.sh to start'},
+];
+const tbody=document.getElementById('termBody');
+let ti=0;
+function nextLine(){
+  if(ti>=lines.length){const b=document.createElement('span');b.className='cursor-blink';tbody.appendChild(b);return;}
+  const el=document.createElement('div');el.className='t-line '+lines[ti].cls;el.textContent=lines[ti].text;tbody.appendChild(el);ti++;
+  setTimeout(nextLine,180+Math.random()*80);
+}
+setTimeout(nextLine,800);
+const reveals=document.querySelectorAll('.reveal');
+const ro=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*60);ro.unobserve(e.target);}});},{threshold:0.08});
+reveals.forEach(el=>ro.observe(el));
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>80?'rgba(5,5,9,0.96)':'rgba(5,5,9,0.7)';});
+function toggleFaq(el){const item=el.parentElement;const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!wasOpen)item.classList.add('open');}
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+function switchPortTab(id, btn) {
+  const section = document.getElementById('portfolio');
+  section.querySelectorAll('.ptab').forEach(t => t.classList.remove('ptab-active'));
+  section.querySelectorAll('.ppanel').forEach(p => p.classList.remove('ppanel-active'));
+  btn.classList.add('ptab-active');
+  document.getElementById('pp-' + id).classList.add('ppanel-active');
+}
+function switchDemoTab(id, btn) {
+  // only affect tabs & panels within the demos section
+  const section = document.getElementById('demos');
+  section.querySelectorAll('.ptab').forEach(t => t.classList.remove('ptab-active'));
+  section.querySelectorAll('.dpanel').forEach(p => p.classList.remove('dpanel-active'));
+  btn.classList.add('ptab-active');
+  document.getElementById('dp-' + id).classList.add('dpanel-active');
+}
+function switchXLSheet(id, btn) {
+  document.querySelectorAll('.xl-sheettab').forEach(t => t.classList.remove('xl-sheettab-active'));
+  document.querySelectorAll('.xlsheet').forEach(s => s.style.display = 'none');
+  btn.classList.add('xl-sheettab-active');
+  document.getElementById('xl-' + id).style.display = 'block';
+}
+
+function switchNailTab(id, btn) {
+  document.querySelectorAll('#nailTabBar button').forEach(b => {
+    b.style.background = 'transparent'; b.style.color = '#C2185B'; b.style.border = '1px solid #FFDDE9';
+  });
+  btn.style.background = '#C2185B'; btn.style.color = '#fff'; btn.style.border = '1px solid #C2185B';
+  ['mani','pedi','art'].forEach(t => {
+    const el = document.getElementById('nail-' + t);
+    if (el) el.style.display = t === id ? 'grid' : 'none';
+  });
+}
+function switchSalonTab(id, btn) {
+  btn.parentElement.querySelectorAll('button').forEach(b => {
+    b.style.background = 'transparent'; b.style.color = '#D4A574'; b.style.border = '1px solid rgba(212,165,116,0.4)'; b.style.fontWeight = 'normal';
+  });
+  btn.style.background = '#D4A574'; btn.style.color = '#0D0D0D'; btn.style.border = '1px solid #D4A574'; btn.style.fontWeight = '700';
+  ['knotless','box','faux','weave','natural'].forEach(t => {
+    const el = document.getElementById('salon-' + t);
+    if (el) el.style.display = t === id ? 'grid' : 'none';
+  });
+}
+
+</script>
+</body>
+</html>

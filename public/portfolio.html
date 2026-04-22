@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Portfolio – SKC Digital</title>
+<meta name="description" content="Real examples of Excel templates, websites, and bookkeeping work delivered to South African businesses."/>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+<meta name="description" content="Custom Excel tools, business websites, bookkeeping and digital solutions for South African small businesses. Based in Pretoria. From R300."/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --bg: #050509; --surface: #0C0C14; --surface2: #12121E;
+  --border: rgba(255,255,255,0.07); --border-bright: rgba(255,255,255,0.14);
+  --accent: #00E5FF; --accent2: #7B61FF; --accent3: #FF4D6D;
+  --text: #E8E8F0; --muted: #6B6B8A; --white: #FFFFFF;
+  --mono: 'JetBrains Mono', monospace; --sans: 'Epilogue', sans-serif;
+}
+body { font-family: var(--sans); background: var(--bg); color: var(--text); overflow-x: hidden; cursor: none; }
+.cursor { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width 0.2s, height 0.2s; mix-blend-mode: difference; }
+.cursor-ring { width: 36px; height: 36px; border: 1px solid rgba(0,229,255,0.4); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.15s ease, width 0.3s, height 0.3s; }
+body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.6; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 3rem; background: rgba(5,5,9,0.7); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: background 0.3s; }
+.logo { font-family: var(--sans); font-weight: 900; font-size: 1.25rem; color: var(--white); letter-spacing: -1px; text-decoration: none; }
+.logo .dot { color: var(--accent); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transition: transform 0.2s; }
+.nav-links a:hover { color: var(--white); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta { font-family: var(--mono); font-size: 0.78rem; font-weight: 500; color: var(--bg); background: var(--accent); padding: 0.55rem 1.4rem; border-radius: 4px; text-decoration: none; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; }
+.nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { width: 24px; height: 2px; background: var(--text); display: block; transition: all 0.3s; }
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 3rem 5rem; position: relative; overflow: hidden; }
+.hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 70%); }
+.hero-glow { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,255,0.07) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-60%); pointer-events: none; }
+.hero-glow2 { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(123,97,255,0.08) 0%, transparent 70%); bottom: 10%; right: 5%; pointer-events: none; }
+.hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.hero-eyebrow { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; animation: fadeUp 0.6s ease both; }
+.hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+.hero h1 { font-family: var(--sans); font-weight: 900; font-size: clamp(2.8rem, 5vw, 4.4rem); line-height: 1.0; letter-spacing: -2px; color: var(--white); margin-bottom: 1.8rem; animation: fadeUp 0.7s 0.1s ease both; }
+.hero h1 .line2 { color: var(--accent); display: block; }
+.hero h1 .line3 { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.2); display: block; }
+.hero-desc { font-size: 1rem; color: var(--muted); line-height: 1.8; max-width: 440px; margin-bottom: 2.5rem; animation: fadeUp 0.7s 0.2s ease both; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.3s ease both; }
+.btn-primary { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--mono); font-size: 0.85rem; font-weight: 500; color: var(--bg); background: var(--accent); padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; border: none; }
+.btn-primary:hover { opacity: 0.88; transform: translateY(-2px); }
+.btn-outline { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--mono); font-size: 0.85rem; color: var(--text); background: transparent; padding: 0.9rem 2rem; border-radius: 4px; text-decoration: none; letter-spacing: 0.5px; border: 1px solid var(--border-bright); transition: border-color 0.2s, color 0.2s, transform 0.2s; }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.hero-contact { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; animation: fadeUp 0.7s 0.4s ease both; }
+.contact-chip { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.75rem; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); padding: 0.35rem 0.85rem; border-radius: 50px; text-decoration: none; transition: color 0.2s, border-color 0.2s; }
+.contact-chip:hover { color: var(--accent); border-color: rgba(0,229,255,0.3); }
+.contact-chip .ci { color: var(--accent); font-size: 0.75rem; }
+.hero-right { animation: fadeUp 0.8s 0.4s ease both; }
+.terminal { background: var(--surface); border: 1px solid var(--border-bright); border-radius: 12px; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.6); }
+.terminal-bar { background: var(--surface2); padding: 0.75rem 1rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid var(--border); }
+.t-dot { width: 10px; height: 10px; border-radius: 50%; }
+.t-dot.r { background: #FF5F57; } .t-dot.y { background: #FFBD2E; } .t-dot.g { background: #27C93F; }
+.t-title { flex: 1; text-align: center; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+.terminal-body { padding: 1.5rem; min-height: 280px; }
+.t-line { font-family: var(--mono); font-size: 0.8rem; line-height: 1.9; opacity: 0; animation: typeLine 0.1s ease forwards; }
+.t-line.prompt::before { content: '$ '; color: var(--accent); }
+.t-line.output { color: var(--muted); padding-left: 0.5rem; }
+.t-line.success { color: #27C93F; padding-left: 0.5rem; }
+.t-line.highlight { color: var(--accent2); padding-left: 0.5rem; }
+.t-line.warn { color: #FFBD2E; padding-left: 0.5rem; }
+.cursor-blink { display: inline-block; width: 8px; height: 14px; background: var(--accent); vertical-align: middle; animation: blink 1s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes typeLine { to { opacity: 1; } }
+.hero-stats { position: absolute; right: 4%; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 1rem; z-index: 2; animation: fadeUp 0.8s 0.5s ease both; }
+@media (max-width: 1100px) { .hero-stats { display: none; } }
+.stat-card { background: rgba(12,12,20,0.9); border: 1px solid var(--border-bright); border-radius: 12px; padding: 1rem 1.4rem; backdrop-filter: blur(10px); min-width: 160px; }
+.stat-card .num { font-family: var(--sans); font-size: 1.6rem; font-weight: 900; color: var(--white); }
+.stat-card .num.green { color: var(--accent); }
+.stat-card .num.red { color: var(--accent3); }
+.stat-card .lbl { font-size: 0.75rem; color: var(--muted); margin-top: 0.2rem; font-family: var(--mono); }
+.ticker-wrap { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); padding: 0.8rem 0; overflow: hidden; position: relative; }
+.ticker-wrap::before, .ticker-wrap::after { content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2; }
+.ticker-wrap::before { left: 0; background: linear-gradient(90deg, var(--surface), transparent); }
+.ticker-wrap::after { right: 0; background: linear-gradient(-90deg, var(--surface), transparent); }
+.ticker { display: flex; gap: 0; width: max-content; animation: ticker 30s linear infinite; }
+.ticker-item { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; padding: 0 2.5rem; display: flex; align-items: center; gap: 0.75rem; white-space: nowrap; }
+.ticker-item .sep { color: var(--accent); font-size: 0.6rem; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+section { padding: 7rem 3rem; position: relative; }
+.section-max { max-width: 1200px; margin: 0 auto; }
+.section-tag { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+.section-tag::before { content: '//'; color: var(--muted); }
+.section-h { font-family: var(--sans); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 900; letter-spacing: -1.5px; color: var(--white); line-height: 1.1; margin-bottom: 1rem; }
+.section-sub { color: var(--muted); font-size: 1rem; line-height: 1.8; max-width: 520px; margin-bottom: 3.5rem; }
+#services { background: var(--surface); }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+.svc-card { background: var(--surface); padding: 2.5rem; transition: background 0.25s; position: relative; overflow: hidden; }
+.svc-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+.svc-card:hover { background: var(--surface2); }
+.svc-card:hover::after { transform: scaleX(1); }
+.svc-num { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 1px; margin-bottom: 1.5rem; }
+.svc-icon-wrap { width: 48px; height: 48px; border: 1px solid var(--border-bright); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.2rem; background: rgba(0,229,255,0.04); transition: border-color 0.25s, background 0.25s; }
+.svc-card:hover .svc-icon-wrap { border-color: rgba(0,229,255,0.3); background: rgba(0,229,255,0.08); }
+.svc-card h3 { font-family: var(--sans); font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 0.7rem; letter-spacing: -0.3px; }
+.svc-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem; }
+.svc-price { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.5px; }
+#process { background: var(--bg); }
+.process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
+.process-steps::before { content: ''; position: absolute; top: 28px; left: 12.5%; right: 12.5%; height: 1px; background: linear-gradient(90deg, transparent, var(--border-bright), var(--accent), var(--border-bright), transparent); }
+.step { padding: 0 2rem; text-align: center; position: relative; }
+.step-num { width: 56px; height: 56px; background: var(--surface); border: 1px solid var(--border-bright); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.8rem; color: var(--accent); font-weight: 500; margin: 0 auto 1.5rem; position: relative; z-index: 2; transition: all 0.25s; }
+.step:hover .step-num { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.step h4 { font-family: var(--sans); font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+.step p { color: var(--muted); font-size: 0.85rem; line-height: 1.7; }
+#stack { background: var(--surface); }
+.stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 1rem; }
+.stack-pill { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; transition: border-color 0.25s, transform 0.25s; }
+.stack-pill:hover { border-color: var(--accent); transform: translateY(-3px); }
+.stack-pill .s-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.stack-pill .s-name { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.5px; }
+#pricing { background: var(--bg); }
+.pricing-wrap { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; align-items: start; }
+.price-card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; transition: border-color 0.25s, transform 0.25s; position: relative; overflow: hidden; }
+.price-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: transparent; transition: background 0.3s; }
+.price-card:hover { border-color: var(--border-bright); transform: translateY(-4px); }
+.price-card:hover::before { background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+.price-card.featured { background: linear-gradient(160deg, rgba(0,229,255,0.06), rgba(123,97,255,0.06)); border-color: rgba(0,229,255,0.2); }
+.price-card.featured::before { background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+.feat-badge { position: absolute; top: 1.5rem; right: 1.5rem; font-family: var(--mono); font-size: 0.65rem; color: var(--bg); background: var(--accent); padding: 0.25rem 0.7rem; border-radius: 50px; letter-spacing: 0.5px; }
+.plan-tier { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.75rem; }
+.plan-amount { font-family: var(--sans); font-size: 2.8rem; font-weight: 900; color: var(--white); letter-spacing: -2px; line-height: 1; margin-bottom: 0.3rem; }
+.plan-amount sub { font-size: 1rem; font-weight: 400; color: var(--muted); vertical-align: middle; }
+.plan-period { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); margin-bottom: 1.5rem; }
+.plan-desc { color: var(--muted); font-size: 0.875rem; line-height: 1.7; margin-bottom: 1.8rem; border-bottom: 1px solid var(--border); padding-bottom: 1.8rem; }
+.plan-feat-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 2rem; }
+.plan-feat-list li { font-size: 0.875rem; color: var(--text); display: flex; align-items: flex-start; gap: 0.75rem; }
+.plan-feat-list li::before { content: '→'; color: var(--accent); font-family: var(--mono); font-size: 0.8rem; flex-shrink: 0; margin-top: 1px; }
+.plan-btn { display: block; text-align: center; font-family: var(--mono); font-size: 0.82rem; font-weight: 500; padding: 0.9rem; border-radius: 6px; text-decoration: none; letter-spacing: 0.5px; border: 1px solid var(--border-bright); color: var(--text); transition: border-color 0.2s, color 0.2s, transform 0.2s; }
+.plan-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.plan-btn.cta { background: var(--accent); color: var(--bg); border-color: var(--accent); font-weight: 700; }
+.plan-btn.cta:hover { opacity: 0.88; transform: translateY(-2px); }
+#faq { background: var(--surface); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.faq-item { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: border-color 0.2s; }
+.faq-item:hover { border-color: var(--border-bright); }
+.faq-q { padding: 1.4rem 1.5rem; font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: var(--white); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+.faq-q .arrow { font-family: var(--mono); color: var(--accent); transition: transform 0.3s; font-size: 0.8rem; }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s; color: var(--muted); font-size: 0.875rem; line-height: 1.75; padding: 0 1.5rem; }
+.faq-item.open .faq-a { max-height: 200px; padding: 0 1.5rem 1.4rem; }
+.faq-item.open .arrow { transform: rotate(90deg); }
+#contact { background: var(--bg); text-align: center; }
+.cta-container { max-width: 800px; margin: 0 auto; background: var(--surface); border: 1px solid var(--border-bright); border-radius: 24px; padding: 5rem 3rem; position: relative; overflow: hidden; }
+.cta-glow { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(0,229,255,0.08), transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+.cta-container h2 { font-family: var(--sans); font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; letter-spacing: -1.5px; color: var(--white); margin-bottom: 1rem; position: relative; }
+.cta-container p { color: var(--muted); font-size: 1rem; line-height: 1.8; max-width: 480px; margin: 0 auto 1.5rem; position: relative; }
+.cta-response-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.72rem; color: #27C93F; background: rgba(39,201,63,0.08); border: 1px solid rgba(39,201,63,0.2); padding: 0.3rem 0.9rem; border-radius: 50px; margin-bottom: 2rem; position: relative; }
+.cta-response-badge::before { content: ''; width: 6px; height: 6px; background: #27C93F; border-radius: 50%; animation: pg 2s infinite; flex-shrink: 0; }
+@keyframes pg { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+.wa-btn { display: inline-flex; align-items: center; gap: 0.75rem; font-family: var(--mono); font-size: 0.9rem; font-weight: 600; background: #25D366; color: white; padding: 1rem 2.5rem; border-radius: 6px; text-decoration: none; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; box-shadow: 0 4px 24px rgba(37,211,102,0.25); position: relative; }
+.wa-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+.contact-alts { display: flex; justify-content: center; gap: 2rem; margin-top: 1.8rem; flex-wrap: wrap; position: relative; }
+.contact-alts a { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+.contact-alts a:hover { color: var(--accent); }
+footer { background: var(--surface); border-top: 1px solid var(--border); padding: 3rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; }
+.footer-logo { font-family: var(--sans); font-weight: 900; font-size: 1.1rem; letter-spacing: -0.5px; text-decoration: none; color: var(--white); }
+.footer-logo .dot { color: var(--accent); }
+.footer-links { display: flex; gap: 2rem; justify-content: center; }
+.footer-links a { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; }
+.footer-links a:hover { color: var(--accent); }
+.footer-right { text-align: right; }
+.footer-email { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-decoration: none; display: block; margin-bottom: 0.3rem; transition: color 0.2s; }
+.footer-email:hover { color: var(--accent); }
+.footer-copy { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s, transform 0.6s; }
+.reveal.vis { opacity: 1; transform: none; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 65px; left: 0; right: 0; background: rgba(5,5,9,0.97); padding: 2rem; gap: 1.5rem; border-bottom: 1px solid var(--border); backdrop-filter: blur(20px); z-index: 499; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .services-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .process-steps::before { display: none; }
+  .pricing-wrap { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+  footer { grid-template-columns: 1fr; text-align: center; }
+  .footer-right { text-align: center; }
+  section { padding: 4rem 1.5rem; }
+  nav { padding: 1.2rem 1.5rem; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 7rem 1.5rem 4rem; }
+  .stack-grid { grid-template-columns: repeat(3,1fr); }
+  .process-steps { grid-template-columns: 1fr; }
+  .hero-contact { flex-direction: column; }
+}
+
+/* ── PORTFOLIO ── */
+.ptab {
+  font-family: var(--mono); font-size: 0.78rem; font-weight: 500;
+  padding: 0.55rem 1.2rem; border-radius: 50px; cursor: pointer;
+  border: 1px solid var(--border-bright);
+  background: transparent; color: var(--muted);
+  transition: all 0.2s; letter-spacing: 0.3px;
+}
+.ptab:hover { color: var(--text); border-color: rgba(0,229,255,0.3); }
+.ptab.ptab-active { background: rgba(0,229,255,0.08); color: var(--accent); border-color: rgba(0,229,255,0.4); }
+.ppanel { display: none; }
+.ppanel.ppanel-active { display: block; }
+.dpanel { display: none; }
+.dpanel.dpanel-active { display: block; }
+.port-label {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+  background: var(--surface2); border: 1px solid var(--border);
+  padding: 0.5rem 1rem; border-radius: 6px; margin-bottom: 1.2rem;
+  display: inline-block;
+}
+.xl-outer {
+  border: 1px solid var(--border-bright); border-radius: 10px;
+  overflow: hidden; background: var(--surface);
+}
+.xl-topbar {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface2); padding: 8px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.xl-wdots { display: flex; gap: 5px; }
+.xl-wdots span { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.xl-fname { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); flex: 1; text-align: center; }
+.xl-sheettab {
+  font-family: var(--mono); font-size: 0.72rem; padding: 5px 14px;
+  background: var(--surface2); border: none; border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border); color: var(--muted); cursor: pointer;
+  transition: all 0.2s;
+}
+.xl-sheettab.xl-sheettab-active { background: #1D7D45; color: white; border-color: #1D7D45; }
+.xl-scroll { overflow-x: auto; }
+.xlt { width: 100%; border-collapse: collapse; font-size: 0.72rem; font-family: var(--mono); min-width: 560px; }
+.xl-rownum { width: 28px; background: #F0F0F0; color: #999; text-align: center; border: 0.5px solid #ddd; font-size: 0.65rem; padding: 3px; }
+.xl-colhdr { background: #D0D0D0; color: #444; text-align: center; padding: 3px 8px; border: 0.5px solid #ccc; font-size: 0.65rem; font-weight: 500; min-width: 70px; }
+.xl-title-row { background: #0F3460; color: #fff; text-align: center; padding: 5px 8px; font-weight: 500; font-size: 0.72rem; border: 0.5px solid #0a2545; }
+.xl-hint-row { background: var(--surface2); color: var(--muted); text-align: center; padding: 3px 8px; font-size: 0.65rem; font-style: italic; border: 0.5px solid var(--border); }
+.xl-hdr { background: #0F3460; color: #fff; padding: 5px 8px; font-weight: 500; border: 0.5px solid #0a2545; white-space: nowrap; }
+.xl-section-hdr { background: #16213E; color: #8892AA; padding: 4px 8px; font-size: 0.65rem; letter-spacing: 0.5px; border: 0.5px solid var(--border); }
+.xl-lbl { padding: 4px 8px; border: 0.5px solid var(--border); color: var(--text); background: var(--surface); white-space: nowrap; }
+.xl-input { padding: 4px 8px; border: 0.5px solid var(--border); color: #0000CC; background: #EEF4FF; text-align: right; }
+.xl-total-g { padding: 5px 8px; border: 0.5px solid #0a5c30; background: #0F7B6C; color: #fff; font-weight: 600; text-align: right; white-space: nowrap; }
+.xl-total-r { padding: 5px 8px; border: 0.5px solid #8b0000; background: #C0392B; color: #fff; font-weight: 600; text-align: right; white-space: nowrap; }
+.xl-net { padding: 6px 8px; border: 0.5px solid #0a2545; background: #0F3460; color: #fff; font-weight: 700; text-align: right; white-space: nowrap; }
+.xl-pos { color: #00E5FF !important; }
+.xl-status-ok { padding: 4px 8px; border: 0.5px solid var(--border); color: #27C93F; font-weight: 500; text-align: center; background: rgba(39,201,63,0.06); }
+.xl-status-warn { padding: 4px 8px; border: 0.5px solid var(--border); color: #FFBD2E; font-weight: 500; text-align: center; background: rgba(255,189,46,0.06); }
+.xl-status-out { padding: 4px 8px; border: 0.5px solid var(--border); color: #FF4D6D; font-weight: 500; text-align: center; background: rgba(255,77,109,0.06); }
+.browser-mockup { border: 1px solid var(--border-bright); border-radius: 10px; overflow: hidden; }
+.bm-bar { display: flex; align-items: center; gap: 8px; background: var(--surface2); padding: 8px 14px; border-bottom: 1px solid var(--border); }
+.bm-dots { display: flex; gap: 5px; }
+.bm-dots span { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.bm-url { flex: 1; text-align: center; font-family: var(--mono); font-size: 0.72rem; color: var(--muted); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 2px 12px; }
+.bm-body { background: var(--bg); }
+@media (max-width: 700px) {
+  .xl-scroll { overflow-x: scroll; }
+  .xlt { min-width: 480px; }
+}
+
+</style>
+
+
+<style>
+.subpage-hero { padding: 7rem 3rem 3rem; text-align: center; background: var(--bg); position: relative; overflow: hidden; }
+.subpage-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 60% 60% at 50% 30%, black 30%, transparent 80%); }
+.subpage-hero h1 { font-family: var(--sans); font-weight: 900; font-size: clamp(2.4rem, 4vw, 3.4rem); letter-spacing: -2px; color: var(--white); margin-bottom: 1rem; line-height: 1; position: relative; }
+.subpage-hero h1 .accent { color: var(--accent); }
+.subpage-hero p { color: var(--muted); max-width: 600px; margin: 0 auto 2rem; line-height: 1.7; position: relative; }
+.subpage-hero .crumb { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; position: relative; }
+.contact-page { padding: 4rem 1.5rem 6rem; min-height: 70vh; }
+.contact-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+@media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-card { background: var(--surface); border: 1px solid var(--border-bright); border-radius: 16px; padding: 2.5rem; }
+.contact-card h2 { font-family: var(--sans); font-size: 1.5rem; font-weight: 900; color: var(--white); margin-bottom: 0.5rem; letter-spacing: -0.5px; }
+.contact-card p.lead { color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.8rem; }
+.quick-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0; }
+@media (max-width: 480px) { .quick-row { grid-template-columns: 1fr; } }
+.quick-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; padding: 1.4rem 1rem; border-radius: 12px; border: 1px solid var(--border-bright); transition: all 0.2s; text-align: center; }
+.quick-btn:hover { transform: translateY(-3px); border-color: var(--accent); }
+.quick-btn .qicon { font-size: 1.8rem; }
+.quick-btn .qlabel { font-family: var(--mono); font-size: 0.75rem; color: var(--text); letter-spacing: 0.5px; }
+.quick-btn .qsub { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); }
+.quick-btn.wa { background: rgba(37,211,102,0.08); border-color: rgba(37,211,102,0.3); }
+.quick-btn.wa:hover { background: rgba(37,211,102,0.14); border-color: #25D366; }
+.quick-btn.wa .qlabel { color: #25D366; }
+.quick-btn.em { background: rgba(0,229,255,0.06); border-color: rgba(0,229,255,0.3); }
+.quick-btn.em:hover { border-color: var(--accent); }
+.quick-btn.em .qlabel { color: var(--accent); }
+.field-group { margin-bottom: 1rem; }
+.field-group label { display: block; font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
+.field-group input, .field-group textarea { width: 100%; background: var(--bg); border: 1px solid var(--border-bright); border-radius: 8px; padding: 0.85rem 1rem; color: var(--text); font-family: var(--sans); font-size: 0.95rem; transition: border-color 0.2s; cursor: none; }
+.field-group input:focus, .field-group textarea:focus { outline: none; border-color: var(--accent); }
+.field-group textarea { resize: vertical; min-height: 130px; }
+.submit-btn { width: 100%; background: var(--accent); color: var(--bg); font-family: var(--mono); font-weight: 700; font-size: 0.9rem; padding: 1rem; border-radius: 8px; border: none; cursor: none; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; }
+.submit-btn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-2px); }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.form-msg { margin-top: 1rem; padding: 0.85rem 1rem; border-radius: 8px; font-family: var(--mono); font-size: 0.78rem; display: none; }
+.form-msg.success { display: block; background: rgba(39,201,63,0.08); border: 1px solid rgba(39,201,63,0.3); color: #27C93F; }
+.form-msg.error { display: block; background: rgba(255,77,109,0.08); border: 1px solid rgba(255,77,109,0.3); color: var(--accent3); }
+@media (max-width: 768px) { section.subpage-hero { padding: 6rem 1.5rem 2rem; } }
+</style>
+
+</head>
+<body>
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="ring"></div>
+<nav id="nav">
+  <a href="#home" class="logo">SKC<span class="dot">.</span>Digital</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/demos.html">Demos</a></li>
+    <li><a href="/portfolio.html">Portfolio</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <a href="/contact.html" class="nav-cta">Get in Touch</a>
+  <button class="hamburger" id="ham" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="subpage-hero">
+  <div class="crumb">Our Work</div>
+  <h1>Real Examples. <span class="accent">Real Results.</span></h1>
+  <p>Every sample below was built using the same tools and process we use for every client. Browse by service type.</p>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" style="background:var(--bg);">
+  <div class="section-max">
+    <div class="section-tag reveal">Our Work</div>
+    <h2 class="section-h reveal">Real Examples. Real Results.</h2>
+    <p class="section-sub reveal">Every sample below was built using the same tools and process we use for every client. Browse by service type.</p>
+
+    <div class="reveal">
+      <!-- TAB NAV -->
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:2rem;">
+        <button class="ptab ptab-active" onclick="switchPortTab('excel',this)">📊 Excel Templates</button>
+        <button class="ptab" onclick="switchPortTab('website',this)">🌐 Website Build</button>
+        <button class="ptab" onclick="switchPortTab('ba',this)">🔄 Before vs After</button>
+        <button class="ptab" onclick="switchPortTab('invoice',this)">🧾 Invoice Template</button>
+      </div>
+
+      <!-- EXCEL PANEL -->
+      <div class="ppanel ppanel-active" id="pp-excel">
+        <div class="port-label">Demo: Monthly Cash Flow Tracker & Stock Tracker — delivered as .xlsx in 24hrs</div>
+        <div class="xl-outer">
+          <div class="xl-topbar">
+            <div class="xl-wdots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#27C93F"></span></div>
+            <span class="xl-fname">SKC_Digital_Business_Toolkit.xlsx</span>
+          </div>
+          <div style="display:flex;gap:0;">
+            <button class="xl-sheettab xl-sheettab-active" onclick="switchXLSheet('cf',this)">Cash Flow</button>
+            <button class="xl-sheettab" onclick="switchXLSheet('stock',this)">Stock Tracker</button>
+          </div>
+
+          <!-- CASH FLOW SHEET -->
+          <div class="xlsheet" id="xl-cf">
+            <div class="xl-scroll">
+              <table class="xlt">
+                <thead>
+                  <tr><th class="xl-rownum"></th><th class="xl-colhdr">A</th><th class="xl-colhdr">B</th><th class="xl-colhdr">C</th><th class="xl-colhdr">D</th><th class="xl-colhdr">E</th><th class="xl-colhdr">F</th><th class="xl-colhdr">G</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="xl-rownum">1</td><td colspan="7" class="xl-title-row">MONTHLY CASH FLOW TRACKER &nbsp;|&nbsp; SKC Digital</td></tr>
+                  <tr><td class="xl-rownum">2</td><td colspan="7" class="xl-hint-row">Blue cells = enter your data &nbsp;·&nbsp; Black cells = auto-calculated &nbsp;·&nbsp; R = South African Rand</td></tr>
+                  <tr><td class="xl-rownum">3</td><td class="xl-hdr">CATEGORY</td><td class="xl-hdr">Jan</td><td class="xl-hdr">Feb</td><td class="xl-hdr">Mar</td><td class="xl-hdr">Apr</td><td class="xl-hdr">May</td><td class="xl-hdr">Jun</td></tr>
+                  <tr><td class="xl-rownum">4</td><td colspan="7" class="xl-section-hdr">▶&nbsp;&nbsp;INCOME</td></tr>
+                  <tr><td class="xl-rownum">5</td><td class="xl-lbl">Salary / Main Income</td><td class="xl-input">7,870</td><td class="xl-input">7,870</td><td class="xl-input">7,870</td><td class="xl-input">7,870</td><td class="xl-input">7,870</td><td class="xl-input">7,870</td></tr>
+                  <tr><td class="xl-rownum">6</td><td class="xl-lbl">Freelance / Side Income</td><td class="xl-input">0</td><td class="xl-input">500</td><td class="xl-input">1,200</td><td class="xl-input">800</td><td class="xl-input">1,500</td><td class="xl-input">2,000</td></tr>
+                  <tr><td class="xl-rownum">7</td><td class="xl-lbl">Other Income</td><td class="xl-input">0</td><td class="xl-input">0</td><td class="xl-input">0</td><td class="xl-input">0</td><td class="xl-input">0</td><td class="xl-input">0</td></tr>
+                  <tr><td class="xl-rownum">8</td><td class="xl-total-g">TOTAL INCOME</td><td class="xl-total-g">7,870</td><td class="xl-total-g">8,370</td><td class="xl-total-g">9,070</td><td class="xl-total-g">8,670</td><td class="xl-total-g">9,370</td><td class="xl-total-g">9,870</td></tr>
+                  <tr><td class="xl-rownum">9</td><td colspan="7" class="xl-section-hdr">▶&nbsp;&nbsp;EXPENSES</td></tr>
+                  <tr><td class="xl-rownum">10</td><td class="xl-lbl">Rent / Bond</td><td class="xl-input">2,000</td><td class="xl-input">2,000</td><td class="xl-input">2,000</td><td class="xl-input">2,000</td><td class="xl-input">2,000</td><td class="xl-input">2,000</td></tr>
+                  <tr><td class="xl-rownum">11</td><td class="xl-lbl">Groceries & Food</td><td class="xl-input">1,500</td><td class="xl-input">1,500</td><td class="xl-input">1,600</td><td class="xl-input">1,450</td><td class="xl-input">1,500</td><td class="xl-input">1,500</td></tr>
+                  <tr><td class="xl-rownum">12</td><td class="xl-lbl">Transport / Petrol</td><td class="xl-input">800</td><td class="xl-input">800</td><td class="xl-input">750</td><td class="xl-input">800</td><td class="xl-input">800</td><td class="xl-input">800</td></tr>
+                  <tr><td class="xl-rownum">13</td><td class="xl-lbl">Cellphone & Data</td><td class="xl-input">500</td><td class="xl-input">500</td><td class="xl-input">500</td><td class="xl-input">500</td><td class="xl-input">500</td><td class="xl-input">500</td></tr>
+                  <tr><td class="xl-rownum">14</td><td class="xl-lbl">Subscriptions</td><td class="xl-input">300</td><td class="xl-input">300</td><td class="xl-input">300</td><td class="xl-input">300</td><td class="xl-input">300</td><td class="xl-input">300</td></tr>
+                  <tr><td class="xl-rownum">15</td><td class="xl-lbl">Clothing</td><td class="xl-input">400</td><td class="xl-input">0</td><td class="xl-input">250</td><td class="xl-input">0</td><td class="xl-input">400</td><td class="xl-input">200</td></tr>
+                  <tr><td class="xl-rownum">16</td><td class="xl-total-r">TOTAL EXPENSES</td><td class="xl-total-r">5,500</td><td class="xl-total-r">5,100</td><td class="xl-total-r">5,400</td><td class="xl-total-r">5,050</td><td class="xl-total-r">5,500</td><td class="xl-total-r">5,300</td></tr>
+                  <tr><td class="xl-rownum">17</td><td class="xl-net">NET CASH FLOW</td><td class="xl-net xl-pos">+2,370</td><td class="xl-net xl-pos">+3,270</td><td class="xl-net xl-pos">+3,670</td><td class="xl-net xl-pos">+3,620</td><td class="xl-net xl-pos">+3,870</td><td class="xl-net xl-pos">+4,570</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- STOCK SHEET -->
+          <div class="xlsheet" id="xl-stock" style="display:none">
+            <div class="xl-scroll">
+              <table class="xlt">
+                <thead>
+                  <tr><th class="xl-rownum"></th><th class="xl-colhdr">A</th><th class="xl-colhdr">B</th><th class="xl-colhdr">C</th><th class="xl-colhdr">D</th><th class="xl-colhdr">E</th><th class="xl-colhdr">F</th><th class="xl-colhdr">G</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="xl-rownum">1</td><td colspan="7" class="xl-title-row">STOCK & INVENTORY TRACKER &nbsp;|&nbsp; SKC Digital</td></tr>
+                  <tr><td class="xl-rownum">2</td><td colspan="7" class="xl-hint-row">Blue cells = enter your data &nbsp;·&nbsp; Status column auto-updates based on qty vs reorder level</td></tr>
+                  <tr><td class="xl-rownum">3</td><td class="xl-hdr">Product Name</td><td class="xl-hdr">SKU</td><td class="xl-hdr">Cost (R)</td><td class="xl-hdr">Price (R)</td><td class="xl-hdr">Qty</td><td class="xl-hdr">Reorder</td><td class="xl-hdr">Status</td></tr>
+                  <tr><td class="xl-rownum">4</td><td class="xl-input" style="text-align:left">Black Hoodie S</td><td class="xl-input">BH-001</td><td class="xl-input">120</td><td class="xl-input">280</td><td class="xl-input">14</td><td class="xl-input">5</td><td class="xl-status-ok">✅ OK</td></tr>
+                  <tr><td class="xl-rownum">5</td><td class="xl-input" style="text-align:left">White T-Shirt M</td><td class="xl-input">WT-002</td><td class="xl-input">80</td><td class="xl-input">180</td><td class="xl-input">3</td><td class="xl-input">5</td><td class="xl-status-warn">🔴 REORDER</td></tr>
+                  <tr><td class="xl-rownum">6</td><td class="xl-input" style="text-align:left">Denim Jacket L</td><td class="xl-input">DJ-003</td><td class="xl-input">350</td><td class="xl-input">750</td><td class="xl-input">8</td><td class="xl-input">3</td><td class="xl-status-ok">✅ OK</td></tr>
+                  <tr><td class="xl-rownum">7</td><td class="xl-input" style="text-align:left">Cap (One Size)</td><td class="xl-input">CP-004</td><td class="xl-input">60</td><td class="xl-input">140</td><td class="xl-input">0</td><td class="xl-input">4</td><td class="xl-status-out">⚠ OUT OF STOCK</td></tr>
+                  <tr><td class="xl-rownum">8</td><td class="xl-input" style="text-align:left">Cargo Pants M</td><td class="xl-input">CP-005</td><td class="xl-input">200</td><td class="xl-input">450</td><td class="xl-input">6</td><td class="xl-input">3</td><td class="xl-status-ok">✅ OK</td></tr>
+                  <tr><td class="xl-rownum">9</td><td class="xl-input" style="text-align:left">Sneakers Size 8</td><td class="xl-input">SN-006</td><td class="xl-input">480</td><td class="xl-input">950</td><td class="xl-input">2</td><td class="xl-input">3</td><td class="xl-status-warn">🔴 REORDER</td></tr>
+                  <tr><td class="xl-rownum">10</td><td class="xl-net" colspan="2">TOTAL STOCK VALUE</td><td class="xl-net" colspan="2"></td><td class="xl-net xl-pos" colspan="3">R 18,600</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div style="padding:10px 16px;background:var(--surface2);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+            <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Zero formula errors &nbsp;·&nbsp; Auto-calculates totals &nbsp;·&nbsp; Print-ready layout</span>
+            <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20custom%20Excel%20template%20like%20the%20demo" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R300</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEBSITE PANEL -->
+      <div class="ppanel" id="pp-website">
+        <div class="port-label">Demo: skcdigital.co.za — custom-built website, live on Vercel in under 48hrs</div>
+        <div class="browser-mockup">
+          <div class="bm-bar">
+            <div class="bm-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#27C93F"></span></div>
+            <div class="bm-url">skcdigital.co.za</div>
+            <div style="width:60px"></div>
+          </div>
+          <div class="bm-body">
+            <!-- minisite nav -->
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 20px;border-bottom:1px solid rgba(255,255,255,0.07);background:rgba(5,5,9,0.95);">
+              <span style="font-family:var(--mono);font-size:12px;font-weight:700;color:#fff;">SKC<span style="color:#00E5FF;">.</span>Digital</span>
+              <div style="display:flex;gap:16px;">
+                <span style="font-family:var(--mono);font-size:9px;color:#6B6B8A;">Services</span>
+                <span style="font-family:var(--mono);font-size:9px;color:#6B6B8A;">Pricing</span>
+                <span style="font-family:var(--mono);font-size:9px;color:#6B6B8A;">FAQ</span>
+              </div>
+              <span style="font-family:var(--mono);font-size:9px;background:#00E5FF;color:#050509;padding:4px 10px;border-radius:3px;font-weight:600;">Get in Touch</span>
+            </div>
+            <!-- minisite hero -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px;background:var(--bg);">
+              <div>
+                <div style="font-family:var(--mono);font-size:8px;color:#00E5FF;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px;"><span style="display:inline-block;width:20px;height:1px;background:#00E5FF;"></span>Available · Pretoria, ZA</div>
+                <div style="font-size:22px;font-weight:900;color:#fff;line-height:1.05;letter-spacing:-1px;margin-bottom:8px;">IT Solutions<br><span style="color:#00E5FF;">Built to Scale</span><br><span style="color:transparent;-webkit-text-stroke:1px rgba(255,255,255,0.2);">Your Business</span></div>
+                <div style="font-size:9px;color:#6B6B8A;line-height:1.6;max-width:220px;margin-bottom:12px;">Custom Excel tools, websites & business automation for South African small businesses.</div>
+                <div style="display:flex;gap:6px;margin-bottom:8px;">
+                  <span style="font-family:var(--mono);font-size:9px;background:#00E5FF;color:#050509;padding:5px 12px;border-radius:3px;">→ View Services</span>
+                  <span style="font-family:var(--mono);font-size:9px;border:1px solid rgba(255,255,255,0.2);color:#fff;padding:5px 12px;border-radius:3px;">💬 WhatsApp</span>
+                </div>
+                <div style="display:flex;gap:6px;">
+                  <span style="font-family:var(--mono);font-size:8px;color:#6B6B8A;border:1px solid rgba(255,255,255,0.07);padding:2px 8px;border-radius:50px;">💬 +27 67 379 3503</span>
+                  <span style="font-family:var(--mono);font-size:8px;color:#6B6B8A;border:1px solid rgba(255,255,255,0.07);padding:2px 8px;border-radius:50px;">✉ info@skcdigital.co.za</span>
+                </div>
+              </div>
+              <div style="background:#0C0C14;border:1px solid rgba(255,255,255,0.1);border-radius:10px;overflow:hidden;">
+                <div style="background:#12121E;padding:6px 10px;display:flex;gap:4px;align-items:center;border-bottom:1px solid rgba(255,255,255,0.07);">
+                  <span style="width:8px;height:8px;border-radius:50%;background:#FF5F57;display:inline-block;"></span>
+                  <span style="width:8px;height:8px;border-radius:50%;background:#FFBD2E;display:inline-block;"></span>
+                  <span style="width:8px;height:8px;border-radius:50%;background:#27C93F;display:inline-block;"></span>
+                  <span style="font-family:var(--mono);font-size:8px;color:#6B6B8A;flex:1;text-align:center;">skc-digital ~ bash</span>
+                </div>
+                <div style="padding:12px;font-family:var(--mono);font-size:9px;line-height:1.9;">
+                  <div><span style="color:#00E5FF;">$ </span><span style="color:#E8E8F0;">ssh skc@digital.co.za</span></div>
+                  <div style="color:#27C93F;">✓ Connected to SKC Digital</div>
+                  <div><span style="color:#00E5FF;">$ </span><span style="color:#E8E8F0;">ls services/</span></div>
+                  <div style="color:#7B61FF;">excel/&nbsp;&nbsp; web-dev/</div>
+                  <div style="color:#7B61FF;">bookkeeping/&nbsp;&nbsp; automation/</div>
+                  <div style="color:#27C93F;">✓ AVAILABLE for projects</div>
+                  <div style="color:#FFBD2E;">→ ./get-quote.sh</div>
+                </div>
+              </div>
+            </div>
+            <!-- minisite services strip -->
+            <div style="padding:12px 20px;background:var(--surface);border-top:1px solid var(--border);display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px;">
+                <div style="font-family:var(--mono);font-size:9px;color:#6B6B8A;margin-bottom:4px;">01</div>
+                <div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:3px;">Excel & Data</div>
+                <div style="font-size:9px;color:#6B6B8A;line-height:1.4;margin-bottom:6px;">Custom spreadsheets & automation tools</div>
+                <div style="font-family:var(--mono);font-size:9px;color:#00E5FF;">→ From R300</div>
+              </div>
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px;">
+                <div style="font-family:var(--mono);font-size:9px;color:#6B6B8A;margin-bottom:4px;">02</div>
+                <div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:3px;">Web Development</div>
+                <div style="font-size:9px;color:#6B6B8A;line-height:1.4;margin-bottom:6px;">Fast, mobile-friendly websites</div>
+                <div style="font-family:var(--mono);font-size:9px;color:#00E5FF;">→ From R800</div>
+              </div>
+              <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px;">
+                <div style="font-family:var(--mono);font-size:9px;color:#6B6B8A;margin-bottom:4px;">03</div>
+                <div style="font-size:11px;font-weight:700;color:#fff;margin-bottom:3px;">Bookkeeping</div>
+                <div style="font-size:9px;color:#6B6B8A;line-height:1.4;margin-bottom:6px;">Monthly cleanup via WhatsApp & email</div>
+                <div style="font-family:var(--mono);font-size:9px;color:#00E5FF;">→ From R400/mo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Custom built &nbsp;·&nbsp; Mobile responsive &nbsp;·&nbsp; Live on Vercel &nbsp;·&nbsp; Delivered in 48hrs</span>
+          <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20website%20like%20the%20demo" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R800</a>
+        </div>
+      </div>
+
+      <!-- BEFORE / AFTER PANEL -->
+      <div class="ppanel" id="pp-ba">
+        <div class="port-label">Demo: Monthly books cleanup — client sends receipts on WhatsApp, gets back clean organised records</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+          <!-- BEFORE -->
+          <div style="border:1px solid rgba(226,75,74,0.3);border-radius:12px;overflow:hidden;">
+            <div style="background:rgba(226,75,74,0.1);padding:10px 16px;border-bottom:1px solid rgba(226,75,74,0.2);display:flex;align-items:center;gap:8px;">
+              <span style="width:8px;height:8px;background:#E24B4A;border-radius:50%;display:inline-block;flex-shrink:0;"></span>
+              <span style="font-family:var(--mono);font-size:0.75rem;font-weight:600;color:#FF8080;">BEFORE &nbsp;— &nbsp;Messy notebook / WhatsApp notes</span>
+            </div>
+            <div style="padding:16px;background:var(--surface);">
+              <div style="background:#fdfbf4;border:1px solid #e8e0c8;border-radius:6px;padding:12px;font-family:Georgia,serif;">
+                <div style="display:flex;flex-direction:column;gap:0;">
+                  <div style="border-bottom:1px solid #d4cca8;padding:5px 0;font-size:11px;color:#2c2c2c;display:flex;justify-content:space-between;"><span>jan sales: R4500??</span><span style="color:#cc0000;font-size:10px;">check</span></div>
+                  <div style="border-bottom:1px solid #d4cca8;padding:5px 0;font-size:11px;color:#999;text-decoration:line-through;display:flex;justify-content:space-between;"><span>feb - R3200 or 3800?</span></div>
+                  <div style="border-bottom:1px solid #d4cca8;padding:5px 0;font-size:11px;color:#2c2c2c;">expenses - rent 2000</div>
+                  <div style="border-bottom:1px solid #d4cca8;padding:5px 0;font-size:11px;color:#2c2c2c;display:flex;justify-content:space-between;"><span>stock: hoodies × 12</span><span style="color:#cc0000;font-size:10px;">sold 4?</span></div>
+                  <div style="border-bottom:1px solid #d4cca8;padding:5px 0;font-size:11px;color:#999;text-decoration:line-through;">refund client R300</div>
+                  <div style="border-bottom:1px solid #d4cca8;padding:5px 0;font-size:11px;color:#2c2c2c;font-weight:bold;">profit this month = ???</div>
+                  <div style="border-bottom:1px solid #d4cca8;padding:5px 0;font-size:11px;color:#2c2c2c;">WhatsApp order - R450</div>
+                  <div style="padding:5px 0;font-size:11px;color:#2c2c2c;">petrol 3x = roughly R800</div>
+                </div>
+                <div style="margin-top:10px;border:1px dashed #cc9999;background:#fff5f5;padding:8px;border-radius:4px;font-size:10px;color:#cc0000;font-style:italic;">Can't find Feb receipt. Tax deadline coming up — no idea what to show accountant.</div>
+              </div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">
+                <span style="font-family:var(--mono);font-size:0.7rem;padding:3px 10px;background:rgba(226,75,74,0.1);color:#FF8080;border:1px solid rgba(226,75,74,0.2);border-radius:50px;">No totals</span>
+                <span style="font-family:var(--mono);font-size:0.7rem;padding:3px 10px;background:rgba(226,75,74,0.1);color:#FF8080;border:1px solid rgba(226,75,74,0.2);border-radius:50px;">Errors likely</span>
+                <span style="font-family:var(--mono);font-size:0.7rem;padding:3px 10px;background:rgba(226,75,74,0.1);color:#FF8080;border:1px solid rgba(226,75,74,0.2);border-radius:50px;">Tax risk</span>
+                <span style="font-family:var(--mono);font-size:0.7rem;padding:3px 10px;background:rgba(226,75,74,0.1);color:#FF8080;border:1px solid rgba(226,75,74,0.2);border-radius:50px;">Stress</span>
+              </div>
+            </div>
+          </div>
+          <!-- AFTER -->
+          <div style="border:1px solid rgba(15,123,108,0.4);border-radius:12px;overflow:hidden;">
+            <div style="background:rgba(15,123,108,0.12);padding:10px 16px;border-bottom:1px solid rgba(15,123,108,0.25);display:flex;align-items:center;gap:8px;">
+              <span style="width:8px;height:8px;background:#27C93F;border-radius:50%;display:inline-block;flex-shrink:0;"></span>
+              <span style="font-family:var(--mono);font-size:0.75rem;font-weight:600;color:#5ECBB9;">AFTER &nbsp;— &nbsp;SKC Digital cleanup (48hrs)</span>
+            </div>
+            <div style="padding:16px;background:var(--surface);">
+              <table style="width:100%;border-collapse:collapse;font-size:11px;">
+                <thead>
+                  <tr style="background:#0F7B6C;">
+                    <td style="padding:6px 10px;color:#fff;font-weight:600;font-family:var(--mono);font-size:10px;">Category</td>
+                    <td style="padding:6px 10px;color:#fff;font-weight:600;font-family:var(--mono);font-size:10px;text-align:right;">Amount</td>
+                    <td style="padding:6px 10px;color:#fff;font-weight:600;font-family:var(--mono);font-size:10px;text-align:center;">✓</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 10px;color:var(--text);">Sales — January</td><td style="padding:5px 10px;text-align:right;font-family:var(--mono);color:var(--text);">R 4,500</td><td style="padding:5px 10px;text-align:center;color:#27C93F;">✓</td></tr>
+                  <tr style="border-bottom:1px solid var(--border);background:rgba(0,229,255,0.02);"><td style="padding:5px 10px;color:var(--text);">Sales — February</td><td style="padding:5px 10px;text-align:right;font-family:var(--mono);color:var(--text);">R 3,200</td><td style="padding:5px 10px;text-align:center;color:#27C93F;">✓</td></tr>
+                  <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 10px;color:var(--text);">WhatsApp orders</td><td style="padding:5px 10px;text-align:right;font-family:var(--mono);color:var(--text);">R 450</td><td style="padding:5px 10px;text-align:center;color:#27C93F;">✓</td></tr>
+                  <tr style="border-bottom:1px solid var(--border);background:rgba(0,229,255,0.02);"><td style="padding:5px 10px;color:var(--text);">Rent</td><td style="padding:5px 10px;text-align:right;font-family:var(--mono);color:#FF8080;">- R 2,000</td><td style="padding:5px 10px;text-align:center;color:#27C93F;">✓</td></tr>
+                  <tr style="border-bottom:1px solid var(--border);"><td style="padding:5px 10px;color:var(--text);">Transport / Petrol</td><td style="padding:5px 10px;text-align:right;font-family:var(--mono);color:#FF8080;">- R 800</td><td style="padding:5px 10px;text-align:center;color:#27C93F;">✓</td></tr>
+                  <tr style="border-bottom:1px solid var(--border);background:rgba(0,229,255,0.02);"><td style="padding:5px 10px;color:var(--text);">Refund issued</td><td style="padding:5px 10px;text-align:right;font-family:var(--mono);color:#FF8080;">- R 300</td><td style="padding:5px 10px;text-align:center;color:#27C93F;">✓</td></tr>
+                  <tr style="background:#0F3460;"><td style="padding:7px 10px;color:#fff;font-weight:600;font-family:var(--mono);font-size:11px;">NET PROFIT</td><td style="padding:7px 10px;text-align:right;font-family:var(--mono);color:#00E5FF;font-weight:600;font-size:12px;">R 5,050</td><td style="padding:7px 10px;text-align:center;color:#27C93F;font-size:14px;">✓</td></tr>
+                </tbody>
+              </table>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">
+                <span style="font-family:var(--mono);font-size:0.7rem;padding:3px 10px;background:rgba(15,123,108,0.15);color:#5ECBB9;border:1px solid rgba(15,123,108,0.3);border-radius:50px;">Auto-totals</span>
+                <span style="font-family:var(--mono);font-size:0.7rem;padding:3px 10px;background:rgba(15,123,108,0.15);color:#5ECBB9;border:1px solid rgba(15,123,108,0.3);border-radius:50px;">Tax-ready</span>
+                <span style="font-family:var(--mono);font-size:0.7rem;padding:3px 10px;background:rgba(15,123,108,0.15);color:#5ECBB9;border:1px solid rgba(15,123,108,0.3);border-radius:50px;">Zero errors</span>
+                <span style="font-family:var(--mono);font-size:0.7rem;padding:3px 10px;background:rgba(15,123,108,0.15);color:#5ECBB9;border:1px solid rgba(15,123,108,0.3);border-radius:50px;">Peace of mind</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Send receipts via WhatsApp or email &nbsp;·&nbsp; Get clean records back in 48hrs &nbsp;·&nbsp; No software needed</span>
+          <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20my%20books%20cleaned%20up" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R400/month</a>
+        </div>
+      </div>
+
+      <!-- INVOICE PANEL -->
+      <div class="ppanel" id="pp-invoice">
+        <div class="port-label">Demo: Professional invoice template — auto-calculates totals, branded with your business details</div>
+        <div style="max-width:640px;margin:0 auto;">
+          <div style="background:#fff;border:1px solid #e0e0e0;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.3);">
+            <!-- Invoice top bar -->
+            <div style="background:#0F3460;padding:20px 28px;display:flex;justify-content:space-between;align-items:flex-start;">
+              <div>
+                <div style="font-family:var(--mono);font-size:18px;font-weight:700;color:#fff;letter-spacing:-0.5px;">Your Business Name</div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:3px;font-family:var(--mono);">Professional Services &nbsp;·&nbsp; Pretoria, ZA</div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:24px;font-weight:900;color:#00E5FF;font-family:var(--mono);letter-spacing:-1px;">INVOICE</div>
+                <div style="font-size:10px;color:rgba(255,255,255,0.5);font-family:var(--mono);margin-top:2px;">Powered by SKC Digital</div>
+              </div>
+            </div>
+            <!-- Invoice meta -->
+            <div style="padding:16px 28px;display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#f8f9ff;border-bottom:1px solid #e8eaf0;">
+              <div><div style="font-size:9px;text-transform:uppercase;letter-spacing:0.5px;color:#888;margin-bottom:3px;font-family:var(--mono);">Invoice No.</div><div style="font-size:12px;color:#1a1a2e;font-family:var(--mono);font-weight:600;">INV-20250420-001</div></div>
+              <div><div style="font-size:9px;text-transform:uppercase;letter-spacing:0.5px;color:#888;margin-bottom:3px;font-family:var(--mono);">Date</div><div style="font-size:12px;color:#1a1a2e;font-family:var(--mono);">20 April 2025</div></div>
+              <div><div style="font-size:9px;text-transform:uppercase;letter-spacing:0.5px;color:#888;margin-bottom:3px;font-family:var(--mono);">Bill To</div><div style="font-size:12px;color:#1a1a2e;font-family:var(--mono);font-weight:600;">Client Business Name</div></div>
+              <div><div style="font-size:9px;text-transform:uppercase;letter-spacing:0.5px;color:#888;margin-bottom:3px;font-family:var(--mono);">Due Date</div><div style="font-size:12px;color:#1a1a2e;font-family:var(--mono);">04 May 2025</div></div>
+            </div>
+            <!-- Line items -->
+            <div style="padding:16px 28px;">
+              <table style="width:100%;border-collapse:collapse;font-size:11px;">
+                <thead>
+                  <tr style="background:#217346;">
+                    <th style="padding:7px 10px;text-align:left;color:#fff;font-weight:500;font-family:var(--mono);font-size:10px;">Description</th>
+                    <th style="padding:7px 10px;text-align:center;color:#fff;font-weight:500;font-family:var(--mono);font-size:10px;">Qty</th>
+                    <th style="padding:7px 10px;text-align:right;color:#fff;font-weight:500;font-family:var(--mono);font-size:10px;">Unit Price</th>
+                    <th style="padding:7px 10px;text-align:right;color:#fff;font-weight:500;font-family:var(--mono);font-size:10px;">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom:1px solid #eef0f8;"><td style="padding:7px 10px;color:#1a1a2e;">Cash Flow Tracker (custom Excel)</td><td style="padding:7px 10px;text-align:center;color:#1a1a2e;font-family:var(--mono);">1</td><td style="padding:7px 10px;text-align:right;color:#1a1a2e;font-family:var(--mono);">R 350</td><td style="padding:7px 10px;text-align:right;color:#1a1a2e;font-family:var(--mono);">R 350</td></tr>
+                  <tr style="border-bottom:1px solid #eef0f8;background:#f8f9ff;"><td style="padding:7px 10px;color:#1a1a2e;">Invoice Template Setup</td><td style="padding:7px 10px;text-align:center;color:#1a1a2e;font-family:var(--mono);">1</td><td style="padding:7px 10px;text-align:right;color:#1a1a2e;font-family:var(--mono);">R 250</td><td style="padding:7px 10px;text-align:right;color:#1a1a2e;font-family:var(--mono);">R 250</td></tr>
+                  <tr style="border-bottom:1px solid #eef0f8;"><td style="padding:7px 10px;color:#1a1a2e;">WhatsApp setup walkthrough</td><td style="padding:7px 10px;text-align:center;color:#1a1a2e;font-family:var(--mono);">1</td><td style="padding:7px 10px;text-align:right;color:#888;font-family:var(--mono);">—</td><td style="padding:7px 10px;text-align:right;color:#217346;font-family:var(--mono);font-weight:600;">FREE</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- Totals -->
+            <div style="padding:0 28px 16px;display:flex;flex-direction:column;align-items:flex-end;gap:5px;">
+              <div style="display:flex;gap:32px;font-size:11px;"><span style="color:#888;">Subtotal</span><span style="font-family:var(--mono);color:#1a1a2e;min-width:70px;text-align:right;">R 600</span></div>
+              <div style="display:flex;gap:32px;font-size:11px;"><span style="color:#888;">VAT (not VAT registered)</span><span style="font-family:var(--mono);color:#888;min-width:70px;text-align:right;">R 0</span></div>
+              <div style="display:flex;gap:32px;font-size:14px;font-weight:600;border-top:2px solid #eef0f8;padding-top:8px;margin-top:4px;"><span style="color:#217346;">Total Due</span><span style="font-family:var(--mono);color:#217346;min-width:70px;text-align:right;">R 600</span></div>
+            </div>
+            <!-- Footer -->
+            <div style="background:#f8f9ff;border-top:1px solid #e8eaf0;padding:12px 28px;font-size:10px;color:#888;">
+              Payment via EFT &nbsp;·&nbsp; Account details on request &nbsp;·&nbsp; Ref: INV-20250420-001<br>
+              Questions? &nbsp;info@skcdigital.co.za &nbsp;·&nbsp; +27 67 379 3503 &nbsp;·&nbsp; skcdigital.co.za
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:1rem;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Auto-calculates totals &nbsp;·&nbsp; Branded with your name &nbsp;·&nbsp; Print or send as PDF &nbsp;·&nbsp; Reusable forever</span>
+          <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20professional%20invoice%20template" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R250</a>
+        </div>
+      </div>
+
+
+
+
+    </div><!-- end reveal -->
+  </div><!-- end section-max -->
+</section>
+
+<footer>
+  <a href="#home" class="footer-logo">SKC<span class="dot">.</span>Digital</a>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="footer-right">
+    <a href="mailto:info@skcdigital.co.za" class="footer-email">info@skcdigital.co.za</a>
+    <span class="footer-copy">© <span id="yr"></span> SKC Digital · Pretoria, ZA</span>
+  </div>
+</footer>
+
+<script>
+const cur = document.getElementById('cur'), ring = document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+function animCursor(){rx+=(mx-rx)*0.15;ry+=(my-ry)*0.15;cur.style.left=mx+'px';cur.style.top=my+'px';ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animCursor);}
+animCursor();
+document.querySelectorAll('a,button,.faq-q,.stack-pill,.svc-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='52px';ring.style.height='52px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
+});
+const lines=[
+  {cls:'prompt',text:'ssh skc@digital.co.za'},
+  {cls:'success',text:'✓ Connected to SKC Digital'},
+  {cls:'prompt',text:'ls services/'},
+  {cls:'highlight',text:'excel-automation/   web-dev/'},
+  {cls:'highlight',text:'bookkeeping/        automation/'},
+  {cls:'highlight',text:'digital-setup/      consulting/'},
+  {cls:'prompt',text:'cat status.txt'},
+  {cls:'success',text:'✓ Status: AVAILABLE for new projects'},
+  {cls:'output',text:'Location: Pretoria, Gauteng, ZA'},
+  {cls:'output',text:'Email: info@skcdigital.co.za'},
+  {cls:'output',text:'Response time: < 4 hours'},
+  {cls:'warn',text:'→ Run: ./get-quote.sh to start'},
+];
+const tbody=document.getElementById('termBody');
+let ti=0;
+function nextLine(){
+  if(ti>=lines.length){const b=document.createElement('span');b.className='cursor-blink';tbody.appendChild(b);return;}
+  const el=document.createElement('div');el.className='t-line '+lines[ti].cls;el.textContent=lines[ti].text;tbody.appendChild(el);ti++;
+  setTimeout(nextLine,180+Math.random()*80);
+}
+setTimeout(nextLine,800);
+const reveals=document.querySelectorAll('.reveal');
+const ro=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*60);ro.unobserve(e.target);}});},{threshold:0.08});
+reveals.forEach(el=>ro.observe(el));
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
+document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=window.scrollY>80?'rgba(5,5,9,0.96)':'rgba(5,5,9,0.7)';});
+function toggleFaq(el){const item=el.parentElement;const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!wasOpen)item.classList.add('open');}
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+function switchPortTab(id, btn) {
+  const section = document.getElementById('portfolio');
+  section.querySelectorAll('.ptab').forEach(t => t.classList.remove('ptab-active'));
+  section.querySelectorAll('.ppanel').forEach(p => p.classList.remove('ppanel-active'));
+  btn.classList.add('ptab-active');
+  document.getElementById('pp-' + id).classList.add('ppanel-active');
+}
+function switchDemoTab(id, btn) {
+  // only affect tabs & panels within the demos section
+  const section = document.getElementById('demos');
+  section.querySelectorAll('.ptab').forEach(t => t.classList.remove('ptab-active'));
+  section.querySelectorAll('.dpanel').forEach(p => p.classList.remove('dpanel-active'));
+  btn.classList.add('ptab-active');
+  document.getElementById('dp-' + id).classList.add('dpanel-active');
+}
+function switchXLSheet(id, btn) {
+  document.querySelectorAll('.xl-sheettab').forEach(t => t.classList.remove('xl-sheettab-active'));
+  document.querySelectorAll('.xlsheet').forEach(s => s.style.display = 'none');
+  btn.classList.add('xl-sheettab-active');
+  document.getElementById('xl-' + id).style.display = 'block';
+}
+
+function switchNailTab(id, btn) {
+  document.querySelectorAll('#nailTabBar button').forEach(b => {
+    b.style.background = 'transparent'; b.style.color = '#C2185B'; b.style.border = '1px solid #FFDDE9';
+  });
+  btn.style.background = '#C2185B'; btn.style.color = '#fff'; btn.style.border = '1px solid #C2185B';
+  ['mani','pedi','art'].forEach(t => {
+    const el = document.getElementById('nail-' + t);
+    if (el) el.style.display = t === id ? 'grid' : 'none';
+  });
+}
+function switchSalonTab(id, btn) {
+  btn.parentElement.querySelectorAll('button').forEach(b => {
+    b.style.background = 'transparent'; b.style.color = '#D4A574'; b.style.border = '1px solid rgba(212,165,116,0.4)'; b.style.fontWeight = 'normal';
+  });
+  btn.style.background = '#D4A574'; btn.style.color = '#0D0D0D'; btn.style.border = '1px solid #D4A574'; btn.style.fontWeight = '700';
+  ['knotless','box','faux','weave','natural'].forEach(t => {
+    const el = document.getElementById('salon-' + t);
+    if (el) el.style.display = t === id ? 'grid' : 'none';
+  });
+}
+
+</script>
+</body>
+</html>
