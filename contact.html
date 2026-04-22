@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SKC Digital – IT Solutions & Digital Services</title>
+<title>Contact – SKC Digital</title>
+<meta name="description" content="Get in touch with SKC Digital. WhatsApp, email or send us a message about your project."/>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
 <meta name="description" content="Custom Excel tools, business websites, bookkeeping and digital solutions for South African small businesses. Based in Pretoria. From R300."/>
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
@@ -262,11 +268,52 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
 }
 
 </style>
+
+
+<style>
+.subpage-hero { padding: 7rem 3rem 3rem; text-align: center; background: var(--bg); position: relative; overflow: hidden; }
+.subpage-hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 60% 60% at 50% 30%, black 30%, transparent 80%); }
+.subpage-hero h1 { font-family: var(--sans); font-weight: 900; font-size: clamp(2.4rem, 4vw, 3.4rem); letter-spacing: -2px; color: var(--white); margin-bottom: 1rem; line-height: 1; position: relative; }
+.subpage-hero h1 .accent { color: var(--accent); }
+.subpage-hero p { color: var(--muted); max-width: 600px; margin: 0 auto 2rem; line-height: 1.7; position: relative; }
+.subpage-hero .crumb { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem; position: relative; }
+.contact-page { padding: 4rem 1.5rem 6rem; min-height: 70vh; }
+.contact-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+@media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-card { background: var(--surface); border: 1px solid var(--border-bright); border-radius: 16px; padding: 2.5rem; }
+.contact-card h2 { font-family: var(--sans); font-size: 1.5rem; font-weight: 900; color: var(--white); margin-bottom: 0.5rem; letter-spacing: -0.5px; }
+.contact-card p.lead { color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.8rem; }
+.quick-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 0; }
+@media (max-width: 480px) { .quick-row { grid-template-columns: 1fr; } }
+.quick-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; padding: 1.4rem 1rem; border-radius: 12px; border: 1px solid var(--border-bright); transition: all 0.2s; text-align: center; }
+.quick-btn:hover { transform: translateY(-3px); border-color: var(--accent); }
+.quick-btn .qicon { font-size: 1.8rem; }
+.quick-btn .qlabel { font-family: var(--mono); font-size: 0.75rem; color: var(--text); letter-spacing: 0.5px; }
+.quick-btn .qsub { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); }
+.quick-btn.wa { background: rgba(37,211,102,0.08); border-color: rgba(37,211,102,0.3); }
+.quick-btn.wa:hover { background: rgba(37,211,102,0.14); border-color: #25D366; }
+.quick-btn.wa .qlabel { color: #25D366; }
+.quick-btn.em { background: rgba(0,229,255,0.06); border-color: rgba(0,229,255,0.3); }
+.quick-btn.em:hover { border-color: var(--accent); }
+.quick-btn.em .qlabel { color: var(--accent); }
+.field-group { margin-bottom: 1rem; }
+.field-group label { display: block; font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
+.field-group input, .field-group textarea { width: 100%; background: var(--bg); border: 1px solid var(--border-bright); border-radius: 8px; padding: 0.85rem 1rem; color: var(--text); font-family: var(--sans); font-size: 0.95rem; transition: border-color 0.2s; cursor: none; }
+.field-group input:focus, .field-group textarea:focus { outline: none; border-color: var(--accent); }
+.field-group textarea { resize: vertical; min-height: 130px; }
+.submit-btn { width: 100%; background: var(--accent); color: var(--bg); font-family: var(--mono); font-weight: 700; font-size: 0.9rem; padding: 1rem; border-radius: 8px; border: none; cursor: none; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; }
+.submit-btn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-2px); }
+.submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.form-msg { margin-top: 1rem; padding: 0.85rem 1rem; border-radius: 8px; font-family: var(--mono); font-size: 0.78rem; display: none; }
+.form-msg.success { display: block; background: rgba(39,201,63,0.08); border: 1px solid rgba(39,201,63,0.3); color: #27C93F; }
+.form-msg.error { display: block; background: rgba(255,77,109,0.08); border: 1px solid rgba(255,77,109,0.3); color: var(--accent3); }
+@media (max-width: 768px) { section.subpage-hero { padding: 6rem 1.5rem 2rem; } }
+</style>
+
 </head>
 <body>
 <div class="cursor" id="cur"></div>
 <div class="cursor-ring" id="ring"></div>
-
 <nav id="nav">
   <a href="#home" class="logo">SKC<span class="dot">.</span>Digital</a>
   <ul class="nav-links" id="navLinks">
@@ -281,326 +328,97 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
   <button class="hamburger" id="ham" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<section class="hero" id="home">
-  <div class="hero-grid-bg"></div>
-  <div class="hero-glow"></div>
-  <div class="hero-glow2"></div>
-  <div class="hero-inner">
-    <div class="hero-left">
-      <div class="hero-eyebrow">Available for projects · Pretoria, ZA</div>
-      <h1>IT Solutions<span class="line2">Built to Scale</span><span class="line3">Your Business</span></h1>
-      <p class="hero-desc">From custom data tools and business automation to web development and digital consulting — practical, professional technology solutions for South African businesses.</p>
-      <div class="hero-actions">
-        <a href="#services" class="btn-primary">→ View Services</a>
-        <a href="https://wa.me/27673793503?text=Hi%2C%20I%20need%20IT%20help" class="btn-outline">💬 WhatsApp Us</a>
+<section class="subpage-hero">
+  <div class="crumb">Get in Touch</div>
+  <h1>Let's Build <span class="accent">Something Great</span></h1>
+  <p>Pick whichever works for you — WhatsApp, email, or fill in the form. We respond fast.</p>
+</section>
+
+
+<section class="contact-page">
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h2>Quick Connect</h2>
+      <p class="lead">Prefer a chat? Hit us on WhatsApp or drop an email and we'll respond within hours.</p>
+      <div class="quick-row">
+        <a class="quick-btn wa" href="https://wa.me/27673793503?text=Hi%2C%20I%27m%20interested%20in%20your%20IT%20services" target="_blank" rel="noopener">
+          <span class="qicon">💬</span>
+          <span class="qlabel">WhatsApp</span>
+          <span class="qsub">+27 67 379 3503</span>
+        </a>
+        <a class="quick-btn em" href="mailto:info@skcdigital.co.za">
+          <span class="qicon">✉</span>
+          <span class="qlabel">Email</span>
+          <span class="qsub">info@skcdigital.co.za</span>
+        </a>
       </div>
-      <div class="hero-contact">
-        <a href="https://wa.me/27673793503" class="contact-chip"><span class="ci">💬</span> +27 67 379 3503</a>
-        <a href="mailto:info@skcdigital.co.za" class="contact-chip"><span class="ci">✉</span> info@skcdigital.co.za</a>
+      <div style="margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid var(--border);font-family:var(--mono);font-size:0.75rem;color:var(--muted);line-height:1.8;">
+        📍 Pretoria, South Africa<br>
+        🕒 Mon–Sat · 8am–8pm<br>
+        ⚡ Typical response: under 4 hours
       </div>
     </div>
-    <div class="hero-right">
-      <div class="terminal">
-        <div class="terminal-bar">
-          <div class="t-dot r"></div><div class="t-dot y"></div><div class="t-dot g"></div>
-          <span class="t-title">skc-digital ~ bash</span>
+
+    <div class="contact-card">
+      <h2>Send a Message</h2>
+      <p class="lead">Tell us about your project — we'll reply with a clear quote and timeline.</p>
+      <form id="contactForm" novalidate>
+        <div class="field-group">
+          <label for="cf-name">Your Name</label>
+          <input id="cf-name" name="name" type="text" required maxlength="100" autocomplete="name"/>
         </div>
-        <div class="terminal-body" id="termBody"></div>
-      </div>
-    </div>
-  </div>
-  <div class="hero-stats">
-    <div class="stat-card"><div class="num green">R300</div><div class="lbl">Starting from</div></div>
-    <div class="stat-card"><div class="num">48hr</div><div class="lbl">Turnaround time</div></div>
-    <div class="stat-card"><div class="num red">100%</div><div class="lbl">Online service</div></div>
-  </div>
-</section>
-
-<div class="ticker-wrap">
-  <div class="ticker">
-    <span class="ticker-item">Excel Automation <span class="sep">✦</span></span>
-    <span class="ticker-item">Web Development <span class="sep">✦</span></span>
-    <span class="ticker-item">Business Systems <span class="sep">✦</span></span>
-    <span class="ticker-item">Data Solutions <span class="sep">✦</span></span>
-    <span class="ticker-item">Bookkeeping <span class="sep">✦</span></span>
-    <span class="ticker-item">Digital Tools <span class="sep">✦</span></span>
-    <span class="ticker-item">Pretoria, South Africa <span class="sep">✦</span></span>
-    <span class="ticker-item">Process Automation <span class="sep">✦</span></span>
-    <span class="ticker-item">Excel Automation <span class="sep">✦</span></span>
-    <span class="ticker-item">Web Development <span class="sep">✦</span></span>
-    <span class="ticker-item">Business Systems <span class="sep">✦</span></span>
-    <span class="ticker-item">Data Solutions <span class="sep">✦</span></span>
-    <span class="ticker-item">Bookkeeping <span class="sep">✦</span></span>
-    <span class="ticker-item">Digital Tools <span class="sep">✦</span></span>
-    <span class="ticker-item">Pretoria, South Africa <span class="sep">✦</span></span>
-    <span class="ticker-item">Process Automation <span class="sep">✦</span></span>
-  </div>
-</div>
-
-
-
-
-
-<section id="services">
-        <div class="port-label">Demo: Hair salon website — this is what we'd build for a salon like Hair Kair or Pixie Nails. Delivered in 48hrs for R800.</div>
-        <div class="browser-mockup">
-          <div class="bm-bar">
-            <div class="bm-dots"><span style="background:#FF5F57"></span><span style="background:#FFBD2E"></span><span style="background:#27C93F"></span></div>
-            <div class="bm-url">yoursalon.co.za</div>
-            <div style="width:60px"></div>
-          </div>
-          <div style="background:#0D0D0D;font-family:var(--sans);">
-            <!-- Salon Nav -->
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,0.08);">
-              <div style="font-size:16px;font-weight:900;color:#fff;letter-spacing:-0.5px;">Glow<span style="color:#D4A574;">Studio</span></div>
-              <div style="display:flex;gap:14px;">
-                <span style="font-size:9px;color:#999;">Services</span>
-                <span style="font-size:9px;color:#999;">Gallery</span>
-                <span style="font-size:9px;color:#999;">Pricing</span>
-              </div>
-              <span style="font-size:9px;background:#D4A574;color:#0D0D0D;padding:4px 10px;border-radius:20px;font-weight:700;">Book Now</span>
-            </div>
-            <!-- Hero -->
-            <div style="padding:24px 20px 20px;background:linear-gradient(135deg,#1a0a00 0%,#0D0D0D 60%);">
-              <div style="font-size:8px;color:#D4A574;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;">✦ Pretoria's Premier Hair Studio</div>
-              <div style="font-size:22px;font-weight:900;color:#fff;line-height:1.1;margin-bottom:8px;">Where Every Braid<br><span style="color:#D4A574;">Tells Your Story</span></div>
-              <div style="font-size:9px;color:#888;line-height:1.6;max-width:260px;margin-bottom:14px;">Professional braids, relaxers, weaves & natural hair care. Walk-ins welcome. Serving Pretoria since 2019.</div>
-              <div style="display:flex;gap:8px;margin-bottom:14px;">
-                <span style="font-size:9px;background:#D4A574;color:#0D0D0D;padding:5px 14px;border-radius:20px;font-weight:700;">💬 Book via WhatsApp</span>
-                <span style="font-size:9px;border:1px solid rgba(255,255,255,0.2);color:#fff;padding:5px 14px;border-radius:20px;">View Services</span>
-              </div>
-              <div style="display:flex;gap:8px;">
-                <span style="font-size:8px;color:#888;border:1px solid rgba(255,255,255,0.07);padding:3px 8px;border-radius:50px;">⭐ 4.9 Google Rating</span>
-                <span style="font-size:8px;color:#888;border:1px solid rgba(255,255,255,0.07);padding:3px 8px;border-radius:50px;">📍 Hatfield, Pretoria</span>
-              </div>
-            </div>
-            <!-- Services strip -->
-            <div style="padding:16px 20px;background:#161616;border-top:1px solid rgba(255,255,255,0.06);">
-              <div style="font-size:9px;color:#D4A574;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;">Our Services</div>
-              <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
-                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.15);border-radius:8px;padding:10px;text-align:center;">
-                  <div style="font-size:16px;margin-bottom:4px;">🧵</div>
-                  <div style="font-size:10px;font-weight:700;color:#fff;margin-bottom:2px;">Braiding</div>
-                  <div style="font-size:8px;color:#888;">Box, Knotless, Faux Locs</div>
-                  <div style="font-size:9px;color:#D4A574;margin-top:5px;font-weight:600;">From R350</div>
-                </div>
-                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.15);border-radius:8px;padding:10px;text-align:center;">
-                  <div style="font-size:16px;margin-bottom:4px;">✂️</div>
-                  <div style="font-size:10px;font-weight:700;color:#fff;margin-bottom:2px;">Relaxer & Treatment</div>
-                  <div style="font-size:8px;color:#888;">Creamy crack, protein, deep</div>
-                  <div style="font-size:9px;color:#D4A574;margin-top:5px;font-weight:600;">From R250</div>
-                </div>
-                <div style="background:#0D0D0D;border:1px solid rgba(212,165,116,0.15);border-radius:8px;padding:10px;text-align:center;">
-                  <div style="font-size:16px;margin-bottom:4px;">💆</div>
-                  <div style="font-size:10px;font-weight:700;color:#fff;margin-bottom:2px;">Natural Hair Care</div>
-                  <div style="font-size:8px;color:#888;">Wash, blow dry, style</div>
-                  <div style="font-size:9px;color:#D4A574;margin-top:5px;font-weight:600;">From R180</div>
-                </div>
-              </div>
-            </div>
-            <!-- Hours + CTA strip -->
-            <div style="padding:12px 20px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,0.06);background:#0D0D0D;flex-wrap:wrap;gap:8px;">
-              <div>
-                <div style="font-size:8px;color:#D4A574;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">Hours</div>
-                <div style="font-size:9px;color:#ccc;">Mon–Sat: 8am–7pm &nbsp;·&nbsp; Sun: 10am–5pm</div>
-              </div>
-              <div style="font-size:9px;background:rgba(212,165,116,0.1);border:1px solid rgba(212,165,116,0.3);color:#D4A574;padding:5px 12px;border-radius:20px;">📞 +27 XX XXX XXXX</div>
-            </div>
-          </div>
+        <div class="field-group">
+          <label for="cf-email">Email Address</label>
+          <input id="cf-email" name="email" type="email" required maxlength="255" autocomplete="email"/>
         </div>
-        <div style="margin-top:1rem;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-          <span style="font-family:var(--mono);font-size:0.7rem;color:var(--muted);">✓ Mobile-friendly &nbsp;·&nbsp; WhatsApp booking button &nbsp;·&nbsp; Google Maps ready &nbsp;·&nbsp; Delivered in 48hrs</span>
-          <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20website%20like%20the%20salon%20demo" style="font-family:var(--mono);font-size:0.72rem;color:var(--accent);text-decoration:none;">→ Get yours from R800</a>
+        <div class="field-group">
+          <label for="cf-msg">How can we help?</label>
+          <textarea id="cf-msg" name="message" required maxlength="2000" placeholder="e.g. I need a custom Excel cash flow tracker..."></textarea>
         </div>
-      </div>
-
-
-
-
-<section id="services">
-  <div class="section-max">
-    <div class="section-tag reveal">Services</div>
-    <h2 class="section-h reveal">What We Build For You</h2>
-    <p class="section-sub reveal">Practical IT solutions tailored to small and medium South African businesses. No unnecessary complexity — just tools that work.</p>
-    <div class="services-grid reveal">
-      <div class="svc-card">
-        <div class="svc-num">01</div><div class="svc-icon-wrap">📊</div>
-        <h3>Excel & Data Automation</h3>
-        <p>Custom spreadsheets, automated reports, cash flow trackers, inventory systems, and invoice templates. Turn hours of manual work into seconds.</p>
-        <div class="svc-price">→ From R300</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-num">02</div><div class="svc-icon-wrap">🌐</div>
-        <h3>Web Development</h3>
-        <p>Professional websites for your business — clean, fast, mobile-friendly, and built to convert visitors into clients. No templates, custom built.</p>
-        <div class="svc-price">→ From R800</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-num">03</div><div class="svc-icon-wrap">🗂️</div>
-        <h3>Bookkeeping & Records</h3>
-        <p>Monthly financial cleanup, income and expense tracking, and organised records sent back via WhatsApp or email. No accounting software needed.</p>
-        <div class="svc-price">→ From R400/month</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-num">04</div><div class="svc-icon-wrap">⚙️</div>
-        <h3>Business Process Automation</h3>
-        <p>Automate repetitive tasks — invoice generation, stock alerts, report scheduling, and email workflows. Save time and reduce human error.</p>
-        <div class="svc-price">→ From R600</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-num">05</div><div class="svc-icon-wrap">📱</div>
-        <h3>Digital Setup & Consulting</h3>
-        <p>Help setting up your business online — Google Business profile, WhatsApp Business, email, cloud storage, and general digital strategy.</p>
-        <div class="svc-price">→ From R250</div>
-      </div>
-      <div class="svc-card" style="background:rgba(0,229,255,0.02);">
-        <div class="svc-num" style="color:var(--accent);">CUSTOM</div><div class="svc-icon-wrap">💡</div>
-        <h3>Got Something Else in Mind?</h3>
-        <p>Have a unique requirement? Describe your problem and we'll build a solution around it — no job too small or unusual.</p>
-        <div class="svc-price"><a href="https://wa.me/27673793503?text=Hi%2C%20I%20have%20a%20custom%20project" style="color:var(--accent);text-decoration:none;">→ Let's talk</a></div>
-      </div>
+        <button class="submit-btn" id="cf-submit" type="submit">→ Send Message</button>
+        <div class="form-msg" id="cf-msg-out"></div>
+      </form>
     </div>
   </div>
 </section>
 
-<section id="process">
-  <div class="section-max">
-    <div class="section-tag reveal">How It Works</div>
-    <h2 class="section-h reveal">Simple Process, Fast Delivery</h2>
-    <p class="section-sub reveal">No complicated onboarding. No long meetings. Just contact us and we get to work.</p>
-    <div class="process-steps reveal">
-      <div class="step"><div class="step-num">01</div><h4>Contact Us</h4><p>WhatsApp or email us. We respond within hours, ask a few quick questions, and confirm the scope.</p></div>
-      <div class="step"><div class="step-num">02</div><h4>We Quote</h4><p>You get a clear, upfront price. No hidden costs. You approve before we start anything.</p></div>
-      <div class="step"><div class="step-num">03</div><h4>We Build</h4><p>Most projects delivered within 24–48 hours. We keep you updated throughout.</p></div>
-      <div class="step"><div class="step-num">04</div><h4>You're Set</h4><p>Receive your deliverable, we walk you through it, and support you if anything needs tweaking.</p></div>
-    </div>
-  </div>
-</section>
+<script type="module">
+const SUPABASE_URL = "https://vzrnzrqlywgatefojwbn.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6cm56cnFseXdnYXRlZm9qd2JuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NjIzNDIsImV4cCI6MjA5MjQzODM0Mn0.7VAE1V58OcIEVojd1Cp4QQXMuGuuNf30L9QLLqRLvJg";
+const form = document.getElementById('contactForm');
+const out = document.getElementById('cf-msg-out');
+const btn = document.getElementById('cf-submit');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  out.className = 'form-msg';
+  out.textContent = '';
+  const name = document.getElementById('cf-name').value.trim();
+  const email = document.getElementById('cf-email').value.trim();
+  const message = document.getElementById('cf-msg').value.trim();
+  if (!name || name.length > 100) { out.className='form-msg error'; out.textContent='Please enter a valid name (max 100 chars).'; return; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 255) { out.className='form-msg error'; out.textContent='Please enter a valid email address.'; return; }
+  if (!message || message.length > 2000) { out.className='form-msg error'; out.textContent='Please enter a message (max 2000 chars).'; return; }
+  btn.disabled = true; btn.textContent = 'Sending...';
+  try {
+    const res = await fetch(`${SUPABASE_URL}/functions/v1/contact-submit`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` },
+      body: JSON.stringify({ name, email, message })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Something went wrong');
+    out.className = 'form-msg success';
+    out.textContent = "✓ Got it! We'll get back to you within a few hours.";
+    form.reset();
+  } catch (err) {
+    out.className = 'form-msg error';
+    out.textContent = '⚠ ' + (err.message || 'Could not send. Please WhatsApp us instead.');
+  } finally {
+    btn.disabled = false; btn.textContent = '→ Send Message';
+  }
+});
+</script>
 
-<section id="stack">
-  <div class="section-max">
-    <div class="section-tag reveal">Tools & Technologies</div>
-    <h2 class="section-h reveal">Our Tech Stack</h2>
-    <p class="section-sub reveal">The tools we use daily to build fast, reliable solutions for our clients.</p>
-    <div class="stack-grid reveal">
-      <div class="stack-pill"><div class="s-icon">📊</div><div class="s-name">Excel</div></div>
-      <div class="stack-pill"><div class="s-icon">🐍</div><div class="s-name">Python</div></div>
-      <div class="stack-pill"><div class="s-icon">🌐</div><div class="s-name">HTML/CSS</div></div>
-      <div class="stack-pill"><div class="s-icon">⚡</div><div class="s-name">JavaScript</div></div>
-      <div class="stack-pill"><div class="s-icon">🗄️</div><div class="s-name">SQL</div></div>
-      <div class="stack-pill"><div class="s-icon">☁️</div><div class="s-name">Google Sheets</div></div>
-      <div class="stack-pill"><div class="s-icon">🔷</div><div class="s-name">Power BI</div></div>
-      <div class="stack-pill"><div class="s-icon">📁</div><div class="s-name">SharePoint</div></div>
-      <div class="stack-pill"><div class="s-icon">🖥️</div><div class="s-name">Windows</div></div>
-      <div class="stack-pill"><div class="s-icon">🚀</div><div class="s-name">Vercel</div></div>
-      <div class="stack-pill"><div class="s-icon">📧</div><div class="s-name">M365</div></div>
-      <div class="stack-pill"><div class="s-icon">🔧</div><div class="s-name">Automation</div></div>
-    </div>
-  </div>
-</section>
-
-<section id="pricing">
-  <div class="section-max">
-    <div class="section-tag reveal">Pricing</div>
-    <h2 class="section-h reveal">Transparent Pricing</h2>
-    <p class="section-sub reveal">All prices in South African Rand. Payment via EFT. Custom quotes available for larger projects.</p>
-    <div class="pricing-wrap">
-      <div class="price-card reveal">
-        <div class="plan-tier">One-Time</div>
-        <div class="plan-amount"><sub>R</sub>300</div>
-        <div class="plan-period">starting price · once-off</div>
-        <div class="plan-desc">Single deliverable. Perfect for a template, a quick digital task, or a small automation.</div>
-        <ul class="plan-feat-list">
-          <li>1 custom Excel template or script</li>
-          <li>Invoice / quote template</li>
-          <li>Website landing page</li>
-          <li>WhatsApp & email support</li>
-          <li>Delivered within 48 hours</li>
-        </ul>
-        <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20a%20once-off%20service" class="plan-btn">Start a Project →</a>
-      </div>
-      <div class="price-card featured reveal">
-        <span class="feat-badge">POPULAR</span>
-        <div class="plan-tier">Monthly Retainer</div>
-        <div class="plan-amount"><sub>R</sub>500</div>
-        <div class="plan-period">per month · ongoing support</div>
-        <div class="plan-desc">Ongoing support and monthly bookkeeping for growing businesses that need consistent help.</div>
-        <ul class="plan-feat-list">
-          <li>Monthly books cleanup & summary</li>
-          <li>Unlimited WhatsApp & email support</li>
-          <li>1 custom template per month</li>
-          <li>Priority response time</li>
-          <li>First month: R350</li>
-        </ul>
-        <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20the%20monthly%20retainer" class="plan-btn cta">Get Started for R350</a>
-      </div>
-      <div class="price-card reveal">
-        <div class="plan-tier">Business Bundle</div>
-        <div class="plan-amount"><sub>R</sub>1,200</div>
-        <div class="plan-period">once-off · full setup</div>
-        <div class="plan-desc">Everything a growing small business needs to get professionally set up digitally.</div>
-        <ul class="plan-feat-list">
-          <li>Cash flow + stock tracker</li>
-          <li>Invoice & quote templates</li>
-          <li>Personal & business budget</li>
-          <li>Business website (1 page)</li>
-          <li>1 month free support included</li>
-        </ul>
-        <a href="https://wa.me/27673793503?text=Hi%2C%20I%27d%20like%20the%20Business%20Bundle" class="plan-btn">Get the Bundle →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="section-max">
-    <div class="section-tag reveal">FAQ</div>
-    <h2 class="section-h reveal">Common Questions</h2>
-    <p class="section-sub reveal">Everything you need to know before getting started.</p>
-    <div class="faq-grid reveal">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">How do I get in touch? <span class="arrow">›</span></div>
-        <div class="faq-a">WhatsApp us at +27 67 379 3503 or email info@skcdigital.co.za. We respond to all messages within a few hours.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">How do I send you my data? <span class="arrow">›</span></div>
-        <div class="faq-a">WhatsApp or email works perfectly — send photos of receipts, a voice note, or a file attachment. We work with whatever you have.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Do I need any special software? <span class="arrow">›</span></div>
-        <div class="faq-a">No. Everything is built in Excel or Google Sheets — tools you already have on your phone or laptop. No new subscriptions required.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">How fast will I get my deliverable? <span class="arrow">›</span></div>
-        <div class="faq-a">Most once-off projects are delivered within 24–48 hours of confirmation and payment. Larger projects are scoped with a clear timeline upfront.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Do you work with clients outside Pretoria? <span class="arrow">›</span></div>
-        <div class="faq-a">Yes — we're 100% online so we can serve clients anywhere in South Africa. All work is handled via WhatsApp and email, no meetings needed.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept? <span class="arrow">›</span></div>
-        <div class="faq-a">EFT to our bank account. A 50% deposit is required before starting any project above R500. Full payment on delivery for smaller tasks.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="section-max">
-    <div class="cta-container reveal">
-      <div class="cta-glow"></div>
-      <h2>Ready to Get Started?</h2>
-      <p>Tell us what you need on WhatsApp or email — we'll respond fast, quote clearly, and deliver on time.</p>
-      <div class="cta-response-badge">Typically responds within 4 hours</div><br/>
-      <a href="/contact.html" class="wa-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Contact Us</a>
-      <div class="contact-alts">
-        <a href="mailto:info@skcdigital.co.za">✉ info@skcdigital.co.za</a>
-        <a href="https://skcdigital.co.za">🌐 skcdigital.co.za</a>
-      </div>
-    </div>
-  </div>
-</section>
 
 <footer>
   <a href="#home" class="footer-logo">SKC<span class="dot">.</span>Digital</a>
