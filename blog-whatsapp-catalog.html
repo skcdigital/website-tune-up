@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Why Your WhatsApp Catalog Is Costing You Sales | SKC Digital</title>
+<meta name="description" content="WhatsApp catalogs feel free, but they cost SA small businesses real sales every week. Here's the math, the fixes, and a R1,500 alternative that actually converts."/>
+<link rel="canonical" href="https://skcdigital.co.za/blog-whatsapp-catalog.html"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+:root {
+  --bg:#050509; --surface:#0C0C14; --surface2:#12121E;
+  --border:rgba(255,255,255,0.07); --border-bright:rgba(255,255,255,0.14);
+  --accent:#00E5FF; --accent2:#7B61FF; --accent3:#FF4D6D;
+  --text:#E8E8F0; --muted:#6B6B8A; --white:#FFFFFF;
+  --mono:'JetBrains Mono',monospace; --sans:'Epilogue',sans-serif;
+}
+body { font-family:var(--sans); background:var(--bg); color:var(--text); overflow-x:hidden; line-height:1.7; }
+nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify-content:space-between; align-items:center; padding:1.4rem 3rem; background:rgba(5,5,9,0.7); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+.logo { font-family:var(--sans); font-weight:900; font-size:1.25rem; color:var(--white); letter-spacing:-1px; text-decoration:none; }
+.logo .dot { color:var(--accent); }
+.nav-links { display:flex; gap:2.5rem; list-style:none; }
+.nav-links a { font-family:var(--mono); font-size:0.78rem; color:var(--muted); text-decoration:none; letter-spacing:0.5px; }
+.nav-links a:hover { color:var(--white); }
+.nav-cta { font-family:var(--mono); font-size:0.78rem; font-weight:500; color:var(--bg); background:var(--accent); padding:0.55rem 1.4rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+.hamburger span { width:24px; height:2px; background:var(--text); display:block; }
+
+.article { max-width:760px; margin:0 auto; padding:9rem 2rem 4rem; }
+.crumbs { font-family:var(--mono); font-size:0.72rem; color:var(--muted); margin-bottom:1.5rem; letter-spacing:1px; }
+.crumbs a { color:var(--accent); text-decoration:none; }
+.tag { font-family:var(--mono); font-size:0.72rem; color:var(--accent); letter-spacing:2px; text-transform:uppercase; margin-bottom:1rem; }
+h1 { font-weight:900; font-size:clamp(2rem,4vw,3rem); line-height:1.1; letter-spacing:-1.5px; color:var(--white); margin-bottom:1rem; }
+.byline { font-family:var(--mono); font-size:0.78rem; color:var(--muted); margin-bottom:2.5rem; padding-bottom:1.5rem; border-bottom:1px solid var(--border); }
+.lead { font-size:1.15rem; color:var(--text); margin-bottom:2rem; line-height:1.65; }
+article h2 { color:var(--white); font-size:1.5rem; font-weight:800; margin:2.5rem 0 1rem; letter-spacing:-0.5px; }
+article h3 { color:var(--white); font-size:1.15rem; font-weight:700; margin:2rem 0 0.7rem; }
+article p { color:var(--text); margin-bottom:1.1rem; }
+article ul, article ol { color:var(--text); padding-left:1.3rem; margin-bottom:1.2rem; }
+article li { margin-bottom:0.5rem; }
+article strong { color:var(--white); }
+article em { color:var(--accent); font-style:normal; }
+.callout { background:rgba(0,229,255,0.06); border-left:3px solid var(--accent); padding:1.2rem 1.4rem; margin:1.8rem 0; border-radius:4px; }
+.callout strong { color:var(--accent); font-family:var(--mono); font-size:0.72rem; letter-spacing:1px; display:block; margin-bottom:0.4rem; }
+.compare { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.8rem 0; }
+.compare > div { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1.4rem; }
+.compare h4 { color:var(--white); margin-bottom:0.5rem; font-size:1rem; }
+.compare.bad h4 { color:var(--accent3); }
+.compare.good h4 { color:#27C93F; }
+.compare ul { padding-left:1.1rem; font-size:0.9rem; color:var(--muted); }
+
+.cta-band { max-width:760px; margin:3rem auto 5rem; padding:2.2rem; background:linear-gradient(135deg, rgba(0,229,255,0.08), rgba(123,97,255,0.08)); border:1px solid var(--border-bright); border-radius:16px; text-align:center; }
+.cta-band h3 { font-size:1.4rem; font-weight:800; color:var(--white); margin-bottom:0.5rem; }
+.cta-band p { color:var(--muted); margin-bottom:1.3rem; }
+.btn-primary { display:inline-block; font-family:var(--mono); font-size:0.85rem; color:var(--bg); background:var(--accent); padding:0.9rem 2rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; }
+
+footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem; }
+.footer-logo { font-family:var(--sans); font-weight:900; font-size:1.1rem; color:var(--white); text-decoration:none; }
+.footer-logo .dot { color:var(--accent); }
+.footer-links { display:flex; gap:2rem; flex-wrap:wrap; }
+.footer-links a { font-family:var(--mono); font-size:0.75rem; color:var(--muted); text-decoration:none; }
+.footer-links a:hover { color:var(--accent); }
+.footer-copy { font-family:var(--mono); font-size:0.72rem; color:var(--muted); }
+
+.wa-float { position:fixed; bottom:24px; right:24px; width:58px; height:58px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 30px rgba(37,211,102,0.45); z-index:600; }
+.wa-float svg { width:30px; height:30px; fill:white; }
+
+@media (max-width:768px) {
+  nav { padding:1.1rem 1.5rem; }
+  .nav-links { display:none; }
+  .nav-links.open { display:flex; flex-direction:column; position:fixed; top:65px; left:0; right:0; background:rgba(5,5,9,0.97); padding:2rem; gap:1.5rem; }
+  .hamburger { display:flex; }
+  .article { padding:7rem 1.2rem 2rem; }
+  .compare { grid-template-columns:1fr; }
+  footer { flex-direction:column; text-align:center; padding:2.5rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">SKC<span class="dot">.</span>Digital</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/care-plans.html">Care Plans</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="/contact.html" class="nav-cta">Get in Touch</a>
+</nav>
+
+<article class="article">
+  <div class="crumbs"><a href="/blog.html">← All posts</a></div>
+  <div class="tag">Get Found Online</div>
+  <h1>Why Your WhatsApp Catalog Is Costing You Sales</h1>
+  <div class="byline">By Suzan · 6 min read · Pretoria, ZA</div>
+
+  <p class="lead">WhatsApp catalogs feel free and easy. But for most South African small businesses, they quietly cost you 3–5 sales every week. Here's why — and the cheap fix.</p>
+
+  <h2>The hidden cost of "just send them on WhatsApp"</h2>
+  <p>You've probably done it. A customer asks <em>"Do you have a price list?"</em> and you reply with 47 product photos, voice notes, and a screenshot of a screenshot. They scroll for two minutes, get tired, and say <em>"Cool, I'll let you know."</em></p>
+  <p>Most never come back. Not because your prices are bad — because <strong>scrolling 47 photos on a phone is exhausting</strong>.</p>
+
+  <h2>The math nobody talks about</h2>
+  <p>Let's say you get <strong>30 enquiries a month</strong> on WhatsApp. Industry data for SA local businesses shows:</p>
+  <ul>
+    <li>Catalog-only response: ~<strong>10% conversion</strong> → 3 sales/month</li>
+    <li>Simple website + WhatsApp link: ~<strong>22% conversion</strong> → 6–7 sales/month</li>
+  </ul>
+  <p>If your average sale is just R350, that's <strong>R1,200+ extra income per month</strong> — from the <em>same</em> enquiries. The website pays for itself in 6 weeks.</p>
+
+  <div class="callout">
+    <strong>QUICK CHECK</strong>
+    Open your own WhatsApp catalog right now on a friend's phone. Time how long it takes them to find a specific item and the price. If it's over 20 seconds, you're losing customers.
+  </div>
+
+  <h2>Side by side</h2>
+  <div class="compare">
+    <div class="bad">
+      <h4>WhatsApp Catalog Only</h4>
+      <ul>
+        <li>Endless scrolling</li>
+        <li>No Google search visibility</li>
+        <li>Photos disappear in chat history</li>
+        <li>No prices, no descriptions</li>
+        <li>Looks unprofessional next to competitors</li>
+      </ul>
+    </div>
+    <div class="good">
+      <h4>Simple Website + WhatsApp</h4>
+      <ul>
+        <li>One link to your full catalog</li>
+        <li>Shows up on Google &amp; Maps</li>
+        <li>Always accessible, always organised</li>
+        <li>Prices, photos, "Order on WhatsApp" buttons</li>
+        <li>Looks like a real business</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>What "a website" actually means here</h2>
+  <p>I'm not talking about a R15,000 fancy job. I mean a <strong>one-page site</strong> with:</p>
+  <ol>
+    <li>Your business name &amp; what you do</li>
+    <li>Up to 12 products/services with prices</li>
+    <li>One photo per item</li>
+    <li>"Order on WhatsApp" button on each</li>
+    <li>Your hours, location, and a Google Maps pin</li>
+  </ol>
+  <p>That's it. That's the difference between 3 sales and 7.</p>
+
+  <h2>If you want to keep using WhatsApp catalog (and you should, alongside a site)</h2>
+  <ul>
+    <li><strong>Limit to 12 best-sellers.</strong> Not 47.</li>
+    <li><strong>Use clear product names</strong> — <em>"Brazilian Bundle 18inch — R450"</em> not <em>"new stock 🔥🔥"</em>.</li>
+    <li><strong>Pin your catalog link</strong> in your WhatsApp Business profile.</li>
+    <li><strong>Send the website link first</strong>, catalog as a backup.</li>
+  </ul>
+
+  <h2>Bottom line</h2>
+  <p>WhatsApp catalogs are a great <em>second</em> sales channel. They're a <em>terrible</em> first impression. The customers you're losing aren't shopping less — they're shopping at the competitor whose website they could actually use.</p>
+</article>
+
+<div class="cta-band">
+  <h3>Want a R1,500 starter site that actually sells?</h3>
+  <p>One page, your top products, WhatsApp ordering, live in 5 days.</p>
+  <a href="https://wa.me/27673793503?text=Hi%20Suzan%2C%20I%20read%20the%20WhatsApp%20catalog%20post%20—%20I%20want%20a%20starter%20site" class="btn-primary" target="_blank" rel="noopener">WhatsApp Suzan →</a>
+</div>
+
+<footer>
+  <a href="/" class="footer-logo">SKC<span class="dot">.</span>Digital</a>
+  <div class="footer-links">
+    <a href="/#services">Services</a>
+    <a href="/care-plans.html">Care Plans</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+  <span class="footer-copy">© <span id="yr"></span> SKC Digital · Pretoria, ZA</span>
+</footer>
+
+<a href="https://wa.me/27673793503?text=Hi%20SKC%20Digital%2C%20I%27d%20like%20a%20starter%20site" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+const hb=document.getElementById('hamburger'), nl=document.getElementById('navLinks');
+hb&&hb.addEventListener('click',()=>nl.classList.toggle('open'));
+</script>
+</body>
+</html>
