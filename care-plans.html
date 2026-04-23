@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Website Care Plans · Monthly Maintenance from R150 | SKC Digital</title>
+<meta name="description" content="Affordable monthly website care plans for South African small businesses. Updates, hosting checks, backups, security and content edits from R150/month. Pretoria-based."/>
+<link rel="canonical" href="https://skcdigital.co.za/care-plans.html"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+:root {
+  --bg:#050509; --surface:#0C0C14; --surface2:#12121E;
+  --border:rgba(255,255,255,0.07); --border-bright:rgba(255,255,255,0.14);
+  --accent:#00E5FF; --accent2:#7B61FF; --accent3:#FF4D6D;
+  --text:#E8E8F0; --muted:#6B6B8A; --white:#FFFFFF;
+  --mono:'JetBrains Mono',monospace; --sans:'Epilogue',sans-serif;
+}
+body { font-family:var(--sans); background:var(--bg); color:var(--text); overflow-x:hidden; line-height:1.6; }
+nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify-content:space-between; align-items:center; padding:1.4rem 3rem; background:rgba(5,5,9,0.7); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+.logo { font-family:var(--sans); font-weight:900; font-size:1.25rem; color:var(--white); letter-spacing:-1px; text-decoration:none; }
+.logo .dot { color:var(--accent); }
+.nav-links { display:flex; gap:2.5rem; list-style:none; }
+.nav-links a { font-family:var(--mono); font-size:0.78rem; color:var(--muted); text-decoration:none; letter-spacing:0.5px; }
+.nav-links a:hover { color:var(--white); }
+.nav-cta { font-family:var(--mono); font-size:0.78rem; font-weight:500; color:var(--bg); background:var(--accent); padding:0.55rem 1.4rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+.hamburger span { width:24px; height:2px; background:var(--text); display:block; }
+
+.page-hero { padding:10rem 2rem 3rem; max-width:900px; margin:0 auto; text-align:center; }
+.eyebrow { font-family:var(--mono); font-size:0.75rem; color:var(--accent); letter-spacing:2px; text-transform:uppercase; margin-bottom:1.2rem; }
+.page-hero h1 { font-weight:900; font-size:clamp(2.2rem,4.5vw,3.6rem); line-height:1.05; letter-spacing:-1.5px; color:var(--white); margin-bottom:1rem; }
+.page-hero h1 span { color:var(--accent); }
+.page-hero p.lead { font-size:1.05rem; color:var(--muted); max-width:640px; margin:0 auto; }
+
+.plans { max-width:1200px; margin:0 auto; padding:2rem 2rem 4rem; display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+.plan { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:2.5rem 2rem; display:flex; flex-direction:column; transition:transform 0.2s, border-color 0.2s; position:relative; }
+.plan:hover { transform:translateY(-4px); border-color:var(--border-bright); }
+.plan.featured { background:linear-gradient(160deg, rgba(0,229,255,0.06), rgba(123,97,255,0.06)); border-color:rgba(0,229,255,0.25); }
+.plan .badge { position:absolute; top:1.2rem; right:1.2rem; font-family:var(--mono); font-size:0.65rem; color:var(--bg); background:var(--accent); padding:0.25rem 0.7rem; border-radius:50px; letter-spacing:0.5px; }
+.tier { font-family:var(--mono); font-size:0.72rem; color:var(--muted); letter-spacing:2px; text-transform:uppercase; margin-bottom:0.8rem; }
+.amount { font-family:var(--sans); font-size:2.6rem; font-weight:900; color:var(--white); letter-spacing:-2px; line-height:1; }
+.amount sub { font-size:0.95rem; font-weight:400; color:var(--muted); vertical-align:middle; }
+.period { font-family:var(--mono); font-size:0.75rem; color:var(--muted); margin-bottom:1.4rem; }
+.tagline { color:var(--muted); font-size:0.9rem; padding-bottom:1.4rem; margin-bottom:1.4rem; border-bottom:1px solid var(--border); }
+ul.feats { list-style:none; flex:1; display:flex; flex-direction:column; gap:0.7rem; margin-bottom:1.8rem; }
+ul.feats li { font-size:0.88rem; color:var(--text); display:flex; gap:0.65rem; }
+ul.feats li::before { content:'✓'; color:var(--accent); font-weight:700; flex-shrink:0; }
+.btn { display:block; text-align:center; font-family:var(--mono); font-size:0.82rem; font-weight:500; padding:0.85rem; border-radius:6px; text-decoration:none; letter-spacing:0.5px; border:1px solid var(--border-bright); color:var(--text); }
+.btn:hover { border-color:var(--accent); color:var(--accent); }
+.btn.cta { background:var(--accent); color:var(--bg); border-color:var(--accent); font-weight:700; }
+.btn.cta:hover { opacity:0.88; color:var(--bg); }
+
+.why { max-width:1100px; margin:2rem auto 4rem; padding:0 2rem; }
+.why h2 { font-size:1.8rem; font-weight:800; color:var(--white); text-align:center; margin-bottom:0.7rem; letter-spacing:-0.5px; }
+.why p.sub { color:var(--muted); text-align:center; max-width:600px; margin:0 auto 2.5rem; }
+.why-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:1.2rem; }
+.why-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.6rem; }
+.why-card .ico { font-size:1.5rem; margin-bottom:0.7rem; }
+.why-card h4 { color:var(--white); font-size:1rem; margin-bottom:0.4rem; }
+.why-card p { color:var(--muted); font-size:0.88rem; }
+
+.faq-band { max-width:900px; margin:0 auto 5rem; padding:0 2rem; }
+.faq-band h2 { font-size:1.6rem; font-weight:800; color:var(--white); text-align:center; margin-bottom:2rem; letter-spacing:-0.5px; }
+.faq-item { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:1.3rem 1.5rem; margin-bottom:0.8rem; }
+.faq-item h4 { color:var(--white); font-size:0.95rem; margin-bottom:0.5rem; }
+.faq-item p { color:var(--muted); font-size:0.88rem; }
+
+.cta-band { max-width:820px; margin:0 auto 5rem; padding:2.5rem; background:linear-gradient(135deg, rgba(0,229,255,0.08), rgba(123,97,255,0.08)); border:1px solid var(--border-bright); border-radius:16px; text-align:center; }
+.cta-band h3 { font-size:1.5rem; font-weight:800; color:var(--white); margin-bottom:0.6rem; }
+.cta-band p { color:var(--muted); margin-bottom:1.5rem; }
+.cta-band .btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn-primary { font-family:var(--mono); font-size:0.85rem; color:var(--bg); background:var(--accent); padding:0.9rem 2rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; }
+.btn-outline { font-family:var(--mono); font-size:0.85rem; color:var(--text); background:transparent; padding:0.9rem 2rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; border:1px solid var(--border-bright); }
+.btn-outline:hover { border-color:var(--accent); color:var(--accent); }
+
+footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem; }
+.footer-logo { font-family:var(--sans); font-weight:900; font-size:1.1rem; color:var(--white); text-decoration:none; }
+.footer-logo .dot { color:var(--accent); }
+.footer-links { display:flex; gap:2rem; flex-wrap:wrap; }
+.footer-links a { font-family:var(--mono); font-size:0.75rem; color:var(--muted); text-decoration:none; }
+.footer-links a:hover { color:var(--accent); }
+.footer-copy { font-family:var(--mono); font-size:0.72rem; color:var(--muted); }
+
+.wa-float { position:fixed; bottom:24px; right:24px; width:58px; height:58px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 30px rgba(37,211,102,0.45); z-index:600; transition:transform 0.2s; }
+.wa-float:hover { transform:scale(1.08); }
+.wa-float svg { width:30px; height:30px; fill:white; }
+
+@media (max-width:900px) {
+  .plans { grid-template-columns:1fr; }
+}
+@media (max-width:768px) {
+  nav { padding:1.1rem 1.5rem; }
+  .nav-links { display:none; }
+  .nav-links.open { display:flex; flex-direction:column; position:fixed; top:65px; left:0; right:0; background:rgba(5,5,9,0.97); padding:2rem; gap:1.5rem; }
+  .hamburger { display:flex; }
+  .page-hero { padding:7rem 1.2rem 2rem; }
+  .plans { padding:1rem 1.2rem 3rem; }
+  footer { flex-direction:column; text-align:center; padding:2.5rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">SKC<span class="dot">.</span>Digital</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/care-plans.html">Care Plans</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="/contact.html" class="nav-cta">Get in Touch</a>
+</nav>
+
+<section class="page-hero">
+  <div class="eyebrow">Monthly Care Plans</div>
+  <h1>Keep Your Website <span>Running &amp; Growing</span></h1>
+  <p class="lead">Your website is like your car — it needs the occasional service. I keep yours fast, secure, up-to-date, and online while you focus on running your business.</p>
+</section>
+
+<div class="plans">
+
+  <div class="plan">
+    <div class="tier">Lite</div>
+    <div class="amount">R150<sub>/mo</sub></div>
+    <div class="period">No contract · cancel anytime</div>
+    <p class="tagline">Peace of mind for a simple one-page site or landing page.</p>
+    <ul class="feats">
+      <li>Monthly uptime &amp; security check</li>
+      <li>Domain &amp; SSL renewal reminders</li>
+      <li>Up to 1 small content edit per month</li>
+      <li>WhatsApp support (business hours)</li>
+      <li>Monthly status email</li>
+    </ul>
+    <a href="https://wa.me/27673793503?text=Hi%20Suzan%2C%20I%27d%20like%20the%20Lite%20care%20plan%20%28R150%2Fmo%29" class="btn" target="_blank" rel="noopener">Start Lite →</a>
+  </div>
+
+  <div class="plan featured">
+    <div class="badge">Most popular</div>
+    <div class="tier">Standard</div>
+    <div class="amount">R350<sub>/mo</sub></div>
+    <div class="period">No contract · cancel anytime</div>
+    <p class="tagline">For growing businesses that need regular tweaks and Google visibility.</p>
+    <ul class="feats">
+      <li>Everything in Lite</li>
+      <li>Up to 3 content edits per month</li>
+      <li>Monthly backup &amp; restore point</li>
+      <li>Google Business Profile updates</li>
+      <li>Basic SEO monitoring (rankings &amp; broken links)</li>
+      <li>Priority WhatsApp support</li>
+    </ul>
+    <a href="https://wa.me/27673793503?text=Hi%20Suzan%2C%20I%27d%20like%20the%20Standard%20care%20plan%20%28R350%2Fmo%29" class="btn cta" target="_blank" rel="noopener">Start Standard →</a>
+  </div>
+
+  <div class="plan">
+    <div class="tier">Pro</div>
+    <div class="amount">R650<sub>/mo</sub></div>
+    <div class="period">No contract · cancel anytime</div>
+    <p class="tagline">Hands-off growth partner for serious local businesses.</p>
+    <ul class="feats">
+      <li>Everything in Standard</li>
+      <li>Unlimited small content edits</li>
+      <li>1 new page or feature per quarter</li>
+      <li>Monthly performance &amp; SEO report</li>
+      <li>1 social/blog post written per month</li>
+      <li>Same-day WhatsApp response</li>
+    </ul>
+    <a href="https://wa.me/27673793503?text=Hi%20Suzan%2C%20I%27d%20like%20the%20Pro%20care%20plan%20%28R650%2Fmo%29" class="btn" target="_blank" rel="noopener">Start Pro →</a>
+  </div>
+
+</div>
+
+<section class="why">
+  <h2>Why a Care Plan?</h2>
+  <p class="sub">Most South African small business sites go down or get hacked because nobody is watching. Here's what you get.</p>
+  <div class="why-grid">
+    <div class="why-card"><div class="ico">🛡️</div><h4>Stay secure</h4><p>SSL, plugin and security updates handled before they break things.</p></div>
+    <div class="why-card"><div class="ico">⚡</div><h4>Stay fast</h4><p>I check page speed and fix issues that scare customers away.</p></div>
+    <div class="why-card"><div class="ico">🔄</div><h4>Stay current</h4><p>New prices, photos, hours, holiday closures — just send me a WhatsApp.</p></div>
+    <div class="why-card"><div class="ico">📈</div><h4>Stay visible</h4><p>Google Business updates and SEO checks keep you showing up in local search.</p></div>
+  </div>
+</section>
+
+<section class="faq-band">
+  <h2>Common Questions</h2>
+  <div class="faq-item"><h4>Do I need a care plan?</h4><p>If you can't afford for your site to be down or out of date for a week, yes. If you built it once and don't care, no.</p></div>
+  <div class="faq-item"><h4>Am I locked in?</h4><p>No contracts. Cancel anytime by sending me a WhatsApp — your site stays yours.</p></div>
+  <div class="faq-item"><h4>What if my site wasn't built by you?</h4><p>That's fine. As long as it's a standard WordPress, static, or React site, I can take over the care.</p></div>
+  <div class="faq-item"><h4>How do I pay?</h4><p>EFT or debit order, monthly. First month is invoiced after the first care check.</p></div>
+</section>
+
+<div class="cta-band">
+  <h3>Not sure which plan?</h3>
+  <p>Send me a WhatsApp with your website link and I'll recommend the smallest plan that actually covers you.</p>
+  <div class="btns">
+    <a href="https://wa.me/27673793503?text=Hi%20Suzan%2C%20which%20care%20plan%20do%20you%20recommend%20for%20my%20site%3F" class="btn-primary" target="_blank" rel="noopener">WhatsApp Suzan →</a>
+    <a href="/contact.html" class="btn-outline">Send a Message</a>
+  </div>
+</div>
+
+<footer>
+  <a href="/" class="footer-logo">SKC<span class="dot">.</span>Digital</a>
+  <div class="footer-links">
+    <a href="/#services">Services</a>
+    <a href="/care-plans.html">Care Plans</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+  <span class="footer-copy">© <span id="yr"></span> SKC Digital · Pretoria, ZA</span>
+</footer>
+
+<a href="https://wa.me/27673793503?text=Hi%20SKC%20Digital%2C%20I%27d%20like%20to%20chat%20about%20a%20care%20plan" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+const hb=document.getElementById('hamburger'), nl=document.getElementById('navLinks');
+hb&&hb.addEventListener('click',()=>nl.classList.toggle('open'));
+</script>
+</body>
+</html>
