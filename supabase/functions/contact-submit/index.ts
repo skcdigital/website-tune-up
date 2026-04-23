@@ -6,6 +6,8 @@ const corsHeaders = {
 };
 
 const TO_EMAIL = "info@skcdigital.co.za"; // <-- change to your inbox
+const FROM_EMAIL = "SKC Digital <onboarding@resend.dev>"; // works without domain verification
+const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
 
 interface Body { name: string; email: string; message: string; }
 
@@ -34,24 +36,45 @@ Deno.serve(async (req) => {
   // Log so you can see submissions in Edge Function logs even before email is wired.
   console.log("[contact-submit] new submission", { name, email, len: message.length });
 
-  // Forward via Lovable's transactional email if configured (optional — soft fail).
+  // Send email via Resend (through Lovable connector gateway)
   try {
-    const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
-    const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
-    if (SUPABASE_URL && SERVICE_ROLE) {
-      // Best-effort notification; ignore errors so the form still succeeds.
-      await fetch(`${SUPABASE_URL}/functions/v1/send-transactional-email`, {
+    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+    if (!LOVABLE_API_KEY || !RESEND_API_KEY) {
+      console.warn("Resend not configured; skipping email send");
+    } else {
+      const html = `
+        <h2>New contact form submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p style="white-space:pre-wrap">${message.replace(/</g, "&lt;")}</p>
+      `;
+      const resp = await fetch(`${GATEWAY_URL}/emails`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${SERVICE_ROLE}` },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${LOVABLE_API_KEY}`,
+          "X-Connection-Api-Key": RESEND_API_KEY,
+        },
         body: JSON.stringify({
-          templateName: "contact-form-notification",
-          recipientEmail: TO_EMAIL,
-          idempotencyKey: `contact-${crypto.randomUUID()}`,
-          templateData: { name, email, message },
+          from: FROM_EMAIL,
+          to: [TO_EMAIL],
+          reply_to: email,
+          subject: `New contact from ${name}`,
+          html,
         }),
-      }).catch((e) => console.warn("email notify failed", e));
+      });
+      const data = await resp.json().catch(() => ({}));
+      if (!resp.ok) {
+        console.error(`Resend send failed [${resp.status}]:`, data);
+      } else {
+        console.log("Resend send ok", data);
+      }
     }
-  } catch (e) { console.warn("notify error", e); }
+  } catch (e) {
+    console.warn("email send error", e);
+  }
 
   return new Response(JSON.stringify({ ok: true }), {
     status: 200,
