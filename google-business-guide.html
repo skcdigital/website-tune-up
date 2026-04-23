@@ -228,6 +228,45 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
 document.getElementById('yr').textContent = new Date().getFullYear();
 const hb=document.getElementById('hamburger'), nl=document.getElementById('navLinks');
 hb&&hb.addEventListener('click',()=>nl.classList.toggle('open'));
+
+// Lead capture (Supabase REST direct insert — RLS allows anon insert)
+const SUPA_URL = "https://vzrnzrqlywgatefojwbn.supabase.co";
+const SUPA_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ6cm56cnFseXdnYXRlZm9qd2JuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY4NjIzNDIsImV4cCI6MjA5MjQzODM0Mn0.7VAE1V58OcIEVojd1Cp4QQXMuGuuNf30L9QLLqRLvJg";
+const form = document.getElementById('leadForm');
+const msg = document.getElementById('leadMsg');
+const btn = document.getElementById('leadBtn');
+form && form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email = document.getElementById('leadEmail').value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    msg.textContent = 'Please enter a valid email.';
+    msg.className = 'lm-msg err';
+    return;
+  }
+  btn.disabled = true; btn.textContent = 'Sending...';
+  msg.textContent = ''; msg.className = 'lm-msg';
+  try {
+    const res = await fetch(`${SUPA_URL}/rest/v1/leads`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPA_KEY,
+        'Authorization': `Bearer ${SUPA_KEY}`,
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify({ email, source: 'google-business-guide' })
+    });
+    if (!res.ok) throw new Error('Submission failed');
+    msg.textContent = '✓ Thanks! I\'ll send you the PDF within 24 hours.';
+    msg.className = 'lm-msg ok';
+    form.reset();
+    btn.textContent = 'Sent ✓';
+  } catch (err) {
+    msg.textContent = 'Something went wrong. Please WhatsApp me instead.';
+    msg.className = 'lm-msg err';
+    btn.disabled = false; btn.textContent = 'Send me the PDF →';
+  }
+});
 </script>
 </body>
 </html>
