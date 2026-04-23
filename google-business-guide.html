@@ -51,6 +51,21 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .cta-band h3 { font-size:1.6rem; font-weight:800; color:var(--white); margin-bottom:0.6rem; letter-spacing:-0.5px; }
 .cta-band p { color:var(--muted); margin-bottom:1.5rem; }
 .cta-band .btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+.lead-magnet { max-width:820px; margin:0 auto 2rem; padding:2.2rem; background:var(--surface); border:1px solid var(--border-bright); border-radius:16px; }
+.lead-magnet .lm-eyebrow { font-family:var(--mono); font-size:0.7rem; color:var(--accent); letter-spacing:2px; text-transform:uppercase; margin-bottom:0.6rem; }
+.lead-magnet h3 { font-size:1.45rem; font-weight:800; color:var(--white); margin-bottom:0.5rem; letter-spacing:-0.5px; }
+.lead-magnet p { color:var(--muted); margin-bottom:1.3rem; }
+.lead-magnet form { display:flex; gap:0.6rem; flex-wrap:wrap; }
+.lead-magnet input { flex:1; min-width:220px; font-family:var(--sans); font-size:0.95rem; background:var(--bg); border:1px solid var(--border-bright); color:var(--text); padding:0.85rem 1rem; border-radius:6px; outline:none; transition:border-color 0.2s; }
+.lead-magnet input:focus { border-color:var(--accent); }
+.lead-magnet button { font-family:var(--mono); font-size:0.85rem; font-weight:600; background:var(--accent); color:var(--bg); border:none; padding:0.85rem 1.6rem; border-radius:6px; cursor:pointer; letter-spacing:0.5px; transition:opacity 0.2s, transform 0.2s; }
+.lead-magnet button:hover:not(:disabled) { opacity:0.88; transform:translateY(-1px); }
+.lead-magnet button:disabled { opacity:0.6; cursor:not-allowed; }
+.lead-magnet .lm-msg { margin-top:0.9rem; font-family:var(--mono); font-size:0.78rem; min-height:1.2em; }
+.lead-magnet .lm-msg.ok { color:#27C93F; }
+.lead-magnet .lm-msg.err { color:var(--accent3); }
+.lead-magnet .lm-fine { font-family:var(--mono); font-size:0.7rem; color:var(--muted); margin-top:0.6rem; }
 .btn-primary { font-family:var(--mono); font-size:0.85rem; color:var(--bg); background:var(--accent); padding:0.9rem 2rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; }
 .btn-outline { font-family:var(--mono); font-size:0.85rem; color:var(--text); background:transparent; padding:0.9rem 2rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; border:1px solid var(--border-bright); }
 .btn-outline:hover { border-color:var(--accent); color:var(--accent); }
@@ -88,6 +103,7 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
     <li><a href="/demos.html">Demos</a></li>
     <li><a href="/portfolio.html">Portfolio</a></li>
     <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/care-plans.html">Care Plans</a></li>
     <li><a href="/blog.html">Blog</a></li>
     <li><a href="/contact.html">Contact</a></li>
   </ul>
