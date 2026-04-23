@@ -6,7 +6,7 @@ const corsHeaders = {
 };
 
 const TO_EMAIL = "info@skcdigital.co.za"; // <-- change to your inbox
-const FROM_EMAIL = "SKC Digital <onboarding@resend.dev>"; // works without domain verification
+const FROM_EMAIL = "SKC Digital <info@skcdigital.co.za>"; // verified domain
 const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
 
 interface Body { name: string; email: string; message: string; }
