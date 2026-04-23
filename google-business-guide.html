@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Google Business Profile Setup Guide for SA Small Businesses | SKC Digital</title>
+<meta name="description" content="Step-by-step guide to set up your Google Business Profile and start showing up on Google Maps and Search. Free for South African small businesses by SKC Digital, Pretoria."/>
+<link rel="canonical" href="https://skcdigital.co.za/google-business-guide.html"/>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+:root {
+  --bg:#050509; --surface:#0C0C14; --surface2:#12121E;
+  --border:rgba(255,255,255,0.07); --border-bright:rgba(255,255,255,0.14);
+  --accent:#00E5FF; --accent2:#7B61FF; --accent3:#FF4D6D;
+  --text:#E8E8F0; --muted:#6B6B8A; --white:#FFFFFF;
+  --mono:'JetBrains Mono',monospace; --sans:'Epilogue',sans-serif;
+}
+body { font-family:var(--sans); background:var(--bg); color:var(--text); overflow-x:hidden; line-height:1.6; }
+nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify-content:space-between; align-items:center; padding:1.4rem 3rem; background:rgba(5,5,9,0.7); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+.logo { font-family:var(--sans); font-weight:900; font-size:1.25rem; color:var(--white); letter-spacing:-1px; text-decoration:none; }
+.logo .dot { color:var(--accent); }
+.nav-links { display:flex; gap:2.5rem; list-style:none; }
+.nav-links a { font-family:var(--mono); font-size:0.78rem; color:var(--muted); text-decoration:none; letter-spacing:0.5px; transition:color 0.2s; }
+.nav-links a:hover { color:var(--white); }
+.nav-cta { font-family:var(--mono); font-size:0.78rem; font-weight:500; color:var(--bg); background:var(--accent); padding:0.55rem 1.4rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+.hamburger span { width:24px; height:2px; background:var(--text); display:block; }
+
+.page-hero { padding:10rem 2rem 4rem; max-width:900px; margin:0 auto; text-align:center; }
+.eyebrow { font-family:var(--mono); font-size:0.75rem; color:var(--accent); letter-spacing:2px; text-transform:uppercase; margin-bottom:1.2rem; }
+.page-hero h1 { font-weight:900; font-size:clamp(2.2rem,4.5vw,3.6rem); line-height:1.05; letter-spacing:-1.5px; color:var(--white); margin-bottom:1.2rem; }
+.page-hero h1 span { color:var(--accent); }
+.page-hero p.lead { font-size:1.05rem; color:var(--muted); max-width:640px; margin:0 auto; }
+
+.guide { max-width:820px; margin:0 auto; padding:2rem 2rem 5rem; }
+.step { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:2rem; margin-bottom:1.5rem; transition:border-color 0.2s; }
+.step:hover { border-color:var(--border-bright); }
+.step-num { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:var(--accent); color:var(--bg); font-family:var(--mono); font-weight:700; font-size:0.9rem; margin-bottom:1rem; }
+.step h2 { font-size:1.4rem; font-weight:700; color:var(--white); margin-bottom:0.8rem; letter-spacing:-0.5px; }
+.step p { color:var(--text); margin-bottom:0.8rem; }
+.step ul { padding-left:1.2rem; color:var(--muted); }
+.step ul li { margin-bottom:0.4rem; }
+.step a.inline { color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(0,229,255,0.3); }
+.step a.inline:hover { border-color:var(--accent); }
+.step .tip { margin-top:1rem; padding:0.9rem 1rem; background:rgba(0,229,255,0.06); border-left:3px solid var(--accent); border-radius:4px; font-size:0.9rem; color:var(--text); }
+.step .tip strong { color:var(--accent); font-family:var(--mono); font-size:0.75rem; letter-spacing:1px; }
+
+.cta-band { max-width:820px; margin:0 auto 5rem; padding:2.5rem; background:linear-gradient(135deg, rgba(0,229,255,0.08), rgba(123,97,255,0.08)); border:1px solid var(--border-bright); border-radius:16px; text-align:center; }
+.cta-band h3 { font-size:1.6rem; font-weight:800; color:var(--white); margin-bottom:0.6rem; letter-spacing:-0.5px; }
+.cta-band p { color:var(--muted); margin-bottom:1.5rem; }
+.cta-band .btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.btn-primary { font-family:var(--mono); font-size:0.85rem; color:var(--bg); background:var(--accent); padding:0.9rem 2rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; }
+.btn-outline { font-family:var(--mono); font-size:0.85rem; color:var(--text); background:transparent; padding:0.9rem 2rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; border:1px solid var(--border-bright); }
+.btn-outline:hover { border-color:var(--accent); color:var(--accent); }
+
+footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem; }
+.footer-logo { font-family:var(--sans); font-weight:900; font-size:1.1rem; color:var(--white); text-decoration:none; }
+.footer-logo .dot { color:var(--accent); }
+.footer-links { display:flex; gap:2rem; }
+.footer-links a { font-family:var(--mono); font-size:0.75rem; color:var(--muted); text-decoration:none; }
+.footer-links a:hover { color:var(--accent); }
+.footer-copy { font-family:var(--mono); font-size:0.72rem; color:var(--muted); }
+
+.wa-float { position:fixed; bottom:24px; right:24px; width:58px; height:58px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 30px rgba(37,211,102,0.45); z-index:600; transition:transform 0.2s; }
+.wa-float:hover { transform:scale(1.08); }
+.wa-float svg { width:30px; height:30px; fill:white; }
+
+@media (max-width:768px) {
+  nav { padding:1.1rem 1.5rem; }
+  .nav-links { display:none; }
+  .nav-links.open { display:flex; flex-direction:column; position:fixed; top:65px; left:0; right:0; background:rgba(5,5,9,0.97); padding:2rem; gap:1.5rem; }
+  .hamburger { display:flex; }
+  .page-hero { padding:7rem 1.2rem 3rem; }
+  .guide { padding:1rem 1.2rem 3rem; }
+  .step { padding:1.5rem; }
+  footer { flex-direction:column; text-align:center; padding:2.5rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">SKC<span class="dot">.</span>Digital</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/demos.html">Demos</a></li>
+    <li><a href="/portfolio.html">Portfolio</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <a href="/contact.html" class="nav-cta">Get in Touch</a>
+</nav>
+
+<section class="page-hero">
+  <div class="eyebrow">Free Guide · 10 min read</div>
+  <h1>Get Your Business On <span>Google Maps</span> in 7 Simple Steps</h1>
+  <p class="lead">A free, plain-English setup guide for South African small businesses. No tech jargon — just the exact steps to start showing up when locals search for you.</p>
+</section>
+
+<div class="guide">
+
+  <div class="step">
+    <div class="step-num">1</div>
+    <h2>Go to Google Business Profile</h2>
+    <p>Open <a class="inline" href="https://www.google.com/business/" target="_blank" rel="noopener">google.com/business</a> and click <strong>Manage now</strong>. Sign in with the Gmail account you want to own this profile (use your business email if you have one).</p>
+    <div class="tip"><strong>TIP</strong><br/>Use one Gmail you'll never lose access to. This account "owns" your listing.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">2</div>
+    <h2>Enter Your Business Name & Category</h2>
+    <p>Type your exact business name (e.g. <em>"Kwinika's Salon"</em>). Pick the category that best matches what you do — like <em>Hair salon, Plumber, Caterer, IT services</em>.</p>
+    <ul>
+      <li>Don't stuff keywords into your name (Google will suspend you).</li>
+      <li>You can add more categories later.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-num">3</div>
+    <h2>Add Your Location (or Service Area)</h2>
+    <p>If customers visit you (shop, salon, office), add your physical address. If you go to them (plumber, mobile hairdresser), choose <strong>"I deliver goods and services to my customers"</strong> and pick the suburbs/cities you serve.</p>
+    <div class="tip"><strong>SA TIP</strong><br/>For service areas, list specific suburbs (Pretoria CBD, Centurion, Hatfield) — not just "Gauteng".</div>
+  </div>
+
+  <div class="step">
+    <div class="step-num">4</div>
+    <h2>Add Phone & Website</h2>
+    <p>Use a phone number you actually answer. If you don't have a website yet, you can use your Facebook page link, or come back and add one later (we can build you a R1,500 starter site that links here perfectly).</p>
+  </div>
+
+  <div class="step">
+    <div class="step-num">5</div>
+    <h2>Verify Your Business</h2>
+    <p>Google needs to confirm you're real. They'll offer one or more options:</p>
+    <ul>
+      <li><strong>Postcard</strong> — they post a code to your address (5–14 days in SA).</li>
+      <li><strong>Phone / SMS</strong> — instant code via call or text.</li>
+      <li><strong>Video verification</strong> — record a short video of your premises, signage, and ID.</li>
+    </ul>
+    <p>Pick whichever they offer. Don't change your business info until verification is complete — it can reset the process.</p>
+  </div>
+
+  <div class="step">
+    <div class="step-num">6</div>
+    <h2>Complete Your Profile (This Is Where Most People Quit)</h2>
+    <p>A complete profile shows up <strong>7× more</strong> than a half-filled one. Add:</p>
+    <ul>
+      <li>Business hours (mark public holidays!)</li>
+      <li>A short description (what you do + who you help)</li>
+      <li>At least 5 real photos — outside, inside, team, products/work, logo</li>
+      <li>Services or products with prices</li>
+      <li>Payment methods you accept (EFT, cash, card, SnapScan)</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="step-num">7</div>
+    <h2>Get Your First 5 Reviews</h2>
+    <p>Reviews are the #1 thing that makes you rank above competitors. After verification, Google gives you a short review link in your dashboard.</p>
+    <ul>
+      <li>Send the link via WhatsApp to your last 10 happy customers.</li>
+      <li>Ask them by name: <em>"Hi Thandi, would you mind leaving a quick Google review? Here's the link 🙏"</em></li>
+      <li>Reply to every review — even bad ones. Politely.</li>
+    </ul>
+    <div class="tip"><strong>SA TIP</strong><br/>Never pay for fake reviews. Google detects them and will suspend your profile permanently.</div>
+  </div>
+
+</div>
+
+<div class="cta-band">
+  <h3>Want me to set this up for you?</h3>
+  <p>I'll do all 7 steps + add your photos, services, and review link — done in 48 hours from <strong>R450 once-off</strong>.</p>
+  <div class="btns">
+    <a href="https://wa.me/27673793503?text=Hi%20Suzan%2C%20I%27d%20like%20you%20to%20set%20up%20my%20Google%20Business%20Profile" class="btn-primary" target="_blank" rel="noopener">WhatsApp Me →</a>
+    <a href="/contact.html" class="btn-outline">Send a Message</a>
+  </div>
+</div>
+
+<footer>
+  <a href="/" class="footer-logo">SKC<span class="dot">.</span>Digital</a>
+  <div class="footer-links">
+    <a href="/#services">Services</a>
+    <a href="/#pricing">Pricing</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+  <span class="footer-copy">© <span id="yr"></span> SKC Digital · Pretoria, ZA</span>
+</footer>
+
+<a href="https://wa.me/27673793503?text=Hi%20SKC%20Digital%2C%20I%27d%20like%20to%20chat%20about%20a%20project" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+const hb=document.getElementById('hamburger'), nl=document.getElementById('navLinks');
+hb&&hb.addEventListener('click',()=>nl.classList.toggle('open'));
+</script>
+</body>
+</html>
