@@ -226,6 +226,18 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
 .test-author-info .ta-biz { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
 @media (max-width: 900px) { .test-grid { grid-template-columns: 1fr; } }
 
+/* ── CARE PLANS CTA BANNER ── */
+.care-banner-wrap { background: var(--bg); padding: 0 3rem 3rem; }
+.care-banner { max-width: 1200px; margin: 0 auto; background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(123,97,255,0.08)); border: 1px solid rgba(0,229,255,0.18); border-radius: 16px; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; position: relative; overflow: hidden; }
+.care-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+.care-banner-text { flex: 1; min-width: 260px; }
+.care-banner-eyebrow { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+.care-banner h3 { font-family: var(--sans); font-weight: 800; font-size: 1.35rem; color: var(--white); margin-bottom: 0.4rem; letter-spacing: -0.5px; }
+.care-banner p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+.care-banner .care-cta { font-family: var(--mono); font-size: 0.82rem; font-weight: 600; color: var(--bg); background: var(--accent); padding: 0.85rem 1.6rem; border-radius: 6px; text-decoration: none; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; white-space: nowrap; }
+.care-banner .care-cta:hover { opacity: 0.88; transform: translateY(-2px); }
+@media (max-width: 700px) { .care-banner-wrap { padding: 0 1.5rem 2rem; } .care-banner { padding: 1.5rem; } }
+
 @media (max-width: 900px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
