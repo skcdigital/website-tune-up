@@ -257,6 +257,16 @@ form && form.addEventListener('submit', async (e) => {
       body: JSON.stringify({ email, source: 'google-business-guide' })
     });
     if (!res.ok) throw new Error('Submission failed');
+    // Fire-and-forget thank-you email (don't block UX if it fails)
+    fetch(`${SUPA_URL}/functions/v1/lead-thankyou`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPA_KEY,
+        'Authorization': `Bearer ${SUPA_KEY}`,
+      },
+      body: JSON.stringify({ email, source: 'google-business-guide' })
+    }).catch(()=>{});
     msg.textContent = '✓ Thanks! I\'ll send you the PDF within 24 hours.';
     msg.className = 'lm-msg ok';
     form.reset();
