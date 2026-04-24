@@ -6,6 +6,16 @@
 <title>SKC Digital – IT Solutions & Digital Services</title>
 <meta name="description" content="Custom Excel tools, business websites, bookkeeping and digital solutions for South African small businesses. Based in Pretoria. From R300."/>
 <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="canonical" href="https://skcdigital.co.za/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SKC Digital – IT Solutions & Digital Services"/>
+<meta property="og:description" content="Custom Excel tools, business websites, bookkeeping and digital solutions for South African small businesses. From R300."/>
+<meta property="og:url" content="https://skcdigital.co.za/"/>
+<meta property="og:image" content="https://skcdigital.co.za/images/og-skc-digital.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="SKC Digital – IT Solutions & Digital Services"/>
+<meta name="twitter:description" content="Excel automation, websites and digital tools for SA small businesses. From R300."/>
+<meta name="twitter:image" content="https://skcdigital.co.za/images/og-skc-digital.jpg"/>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -215,6 +225,18 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
 .test-author-info .ta-name { font-family: var(--sans); font-weight: 700; font-size: 0.9rem; color: var(--white); }
 .test-author-info .ta-biz { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
 @media (max-width: 900px) { .test-grid { grid-template-columns: 1fr; } }
+
+/* ── CARE PLANS CTA BANNER ── */
+.care-banner-wrap { background: var(--bg); padding: 0 3rem 3rem; }
+.care-banner { max-width: 1200px; margin: 0 auto; background: linear-gradient(135deg, rgba(0,229,255,0.08), rgba(123,97,255,0.08)); border: 1px solid rgba(0,229,255,0.18); border-radius: 16px; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; position: relative; overflow: hidden; }
+.care-banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+.care-banner-text { flex: 1; min-width: 260px; }
+.care-banner-eyebrow { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+.care-banner h3 { font-family: var(--sans); font-weight: 800; font-size: 1.35rem; color: var(--white); margin-bottom: 0.4rem; letter-spacing: -0.5px; }
+.care-banner p { color: var(--muted); font-size: 0.92rem; line-height: 1.6; }
+.care-banner .care-cta { font-family: var(--mono); font-size: 0.82rem; font-weight: 600; color: var(--bg); background: var(--accent); padding: 0.85rem 1.6rem; border-radius: 6px; text-decoration: none; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; white-space: nowrap; }
+.care-banner .care-cta:hover { opacity: 0.88; transform: translateY(-2px); }
+@media (max-width: 700px) { .care-banner-wrap { padding: 0 1.5rem 2rem; } .care-banner { padding: 1.5rem; } }
 
 @media (max-width: 900px) {
   .nav-links { display: none; }
@@ -544,6 +566,17 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
     </div>
   </div>
 </section>
+
+<div class="care-banner-wrap reveal">
+  <div class="care-banner">
+    <div class="care-banner-text">
+      <div class="care-banner-eyebrow">Care Plans · From R150/mo</div>
+      <h3>Already have a website? Let's keep it healthy.</h3>
+      <p>Monthly maintenance, backups, security updates and small content changes — so your site keeps earning instead of breaking.</p>
+    </div>
+    <a href="/care-plans.html" class="care-cta">→ View Care Plans</a>
+  </div>
+</div>
 
 <section id="pricing">
   <div class="section-max">
