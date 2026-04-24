@@ -267,7 +267,7 @@ form && form.addEventListener('submit', async (e) => {
       },
       body: JSON.stringify({ email, source: 'google-business-guide' })
     }).catch(()=>{});
-    msg.textContent = '✓ Thanks! I\'ll send you the PDF within 24 hours.';
+    msg.textContent = '✓ Check your inbox — the guide is on its way.';
     msg.className = 'lm-msg ok';
     form.reset();
     btn.textContent = 'Sent ✓';
