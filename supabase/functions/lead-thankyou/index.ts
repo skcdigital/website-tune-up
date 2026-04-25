@@ -7,7 +7,7 @@ const corsHeaders = {
 
 const TO_NOTIFY = "info@skcdigital.co.za";
 const FROM_EMAIL = "SKC Digital <info@skcdigital.co.za>";
-const GUIDE_URL = "https://skcdigital.co.za/google-business-guide.html";
+const GUIDE_URL = "https://skcdigital.co.za/google-business-profile-guide.pdf";
 const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
 
 interface Body { email: string; source?: string; }
