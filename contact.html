@@ -298,8 +298,8 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
 .quick-btn.em .qlabel { color: var(--accent); }
 .field-group { margin-bottom: 1rem; }
 .field-group label { display: block; font-family: var(--mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.5rem; }
-.field-group input, .field-group textarea { width: 100%; background: var(--bg); border: 1px solid var(--border-bright); border-radius: 8px; padding: 0.85rem 1rem; color: var(--text); font-family: var(--sans); font-size: 0.95rem; transition: border-color 0.2s; }
-.field-group input:focus, .field-group textarea:focus { outline: none; border-color: var(--accent); }
+.field-group input, .field-group textarea, .field-group select { width: 100%; background: var(--bg); border: 1px solid var(--border-bright); border-radius: 8px; padding: 0.85rem 1rem; color: var(--text); font-family: var(--sans); font-size: 0.95rem; transition: border-color 0.2s; }
+.field-group input:focus, .field-group textarea:focus, .field-group select:focus { outline: none; border-color: var(--accent); }
 .field-group textarea { resize: vertical; min-height: 130px; }
 .submit-btn { width: 100%; background: var(--accent); color: var(--bg); font-family: var(--mono); font-weight: 700; font-size: 0.9rem; padding: 1rem; border-radius: 8px; border: none; letter-spacing: 0.5px; transition: opacity 0.2s, transform 0.2s; }
 .submit-btn:hover:not(:disabled) { opacity: 0.9; transform: translateY(-2px); }
@@ -323,7 +323,7 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
     <li><a href="/blog.html">Blog</a></li>
     <li><a href="/contact.html" class="active" aria-current="page">Contact</a></li>
   </ul>
-  <a href="/contact.html" class="nav-cta">Get in Touch</a>
+  <a href="/contact.html" class="nav-cta">Book Free Audit</a>
   <button class="hamburger" id="ham" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
@@ -337,8 +337,8 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
 <section class="contact-page">
   <div class="contact-grid">
     <div class="contact-card">
-      <h2>Quick Connect</h2>
-      <p class="lead">Prefer a chat? Hit us on WhatsApp or drop an email and we'll respond within hours.</p>
+      <h2>Book a Free Audit</h2>
+      <p class="lead">Send your website, Google profile, spreadsheet, or idea and we'll reply with the clearest next step.</p>
       <div class="quick-row">
         <a class="quick-btn wa" href="https://wa.me/27673793503?text=Hi%2C%20I%27m%20interested%20in%20your%20IT%20services" target="_blank" rel="noopener">
           <span class="qicon">💬</span>
@@ -359,8 +359,8 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
     </div>
 
     <div class="contact-card">
-      <h2>Send a Message</h2>
-      <p class="lead">Tell us about your project — we'll reply with a clear quote and timeline.</p>
+      <h2>WhatsApp-First Quote Form</h2>
+      <p class="lead">Choose what you need and we'll format your request for a quick WhatsApp quote.</p>
       <form id="contactForm" novalidate>
         <div class="field-group">
           <label for="cf-name">Your Name</label>
@@ -371,10 +371,43 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
           <input id="cf-email" name="email" type="email" required maxlength="255" autocomplete="email"/>
         </div>
         <div class="field-group">
-          <label for="cf-msg">How can we help?</label>
-          <textarea id="cf-msg" name="message" required maxlength="2000" placeholder="e.g. I need a custom Excel cash flow tracker..."></textarea>
+          <label for="cf-service">Service Needed</label>
+          <select id="cf-service" name="service" required>
+            <option value="">Choose one</option>
+            <option>Website</option>
+            <option>Excel / automation</option>
+            <option>Bookkeeping setup</option>
+            <option>Google Business Profile</option>
+            <option>Care plan</option>
+            <option>Not sure yet</option>
+          </select>
         </div>
-        <button class="submit-btn" id="cf-submit" type="submit">→ Send Message</button>
+        <div class="field-group">
+          <label for="cf-budget">Budget Range</label>
+          <select id="cf-budget" name="budget" required>
+            <option value="">Choose one</option>
+            <option>Under R1,000</option>
+            <option>R1,000 - R3,500</option>
+            <option>R3,500 - R7,500</option>
+            <option>R7,500+</option>
+            <option>I need guidance</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="cf-deadline">Deadline</label>
+          <select id="cf-deadline" name="deadline" required>
+            <option value="">Choose one</option>
+            <option>This week</option>
+            <option>Within 2 weeks</option>
+            <option>This month</option>
+            <option>No rush</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="cf-msg">Project Details</label>
+          <textarea id="cf-msg" name="message" required maxlength="2000" placeholder="e.g. I need a website for my salon with WhatsApp booking..."></textarea>
+        </div>
+        <button class="submit-btn" id="cf-submit" type="submit">→ Send WhatsApp Quote Request</button>
         <div class="form-msg" id="cf-msg-out"></div>
       </form>
     </div>
@@ -393,27 +426,33 @@ form.addEventListener('submit', async (e) => {
   out.textContent = '';
   const name = document.getElementById('cf-name').value.trim();
   const email = document.getElementById('cf-email').value.trim();
+  const service = document.getElementById('cf-service').value.trim();
+  const budget = document.getElementById('cf-budget').value.trim();
+  const deadline = document.getElementById('cf-deadline').value.trim();
   const message = document.getElementById('cf-msg').value.trim();
   if (!name || name.length > 100) { out.className='form-msg error'; out.textContent='Please enter a valid name (max 100 chars).'; return; }
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 255) { out.className='form-msg error'; out.textContent='Please enter a valid email address.'; return; }
+  if (!service || !budget || !deadline) { out.className='form-msg error'; out.textContent='Please choose a service, budget and deadline.'; return; }
   if (!message || message.length > 2000) { out.className='form-msg error'; out.textContent='Please enter a message (max 2000 chars).'; return; }
-  btn.disabled = true; btn.textContent = 'Sending...';
+  const waText = `Hi Suzan, I need a quote.%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0AService: ${encodeURIComponent(service)}%0ABudget: ${encodeURIComponent(budget)}%0ADeadline: ${encodeURIComponent(deadline)}%0ADetails: ${encodeURIComponent(message)}`;
+  window.open(`https://wa.me/27673793503?text=${waText}`, '_blank', 'noopener');
+  btn.disabled = true; btn.textContent = 'Sending backup...';
   try {
     const res = await fetch(`${SUPABASE_URL}/functions/v1/contact-submit`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` },
-      body: JSON.stringify({ name, email, message })
+      body: JSON.stringify({ name, email, message: `Service: ${service}\nBudget: ${budget}\nDeadline: ${deadline}\n\n${message}` })
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Something went wrong');
     out.className = 'form-msg success';
-    out.textContent = "✓ Got it! We'll get back to you within a few hours.";
+    out.textContent = "✓ WhatsApp opened and your message backup was sent.";
     form.reset();
   } catch (err) {
     out.className = 'form-msg error';
     out.textContent = '⚠ ' + (err.message || 'Could not send. Please WhatsApp us instead.');
   } finally {
-    btn.disabled = false; btn.textContent = '→ Send Message';
+    btn.disabled = false; btn.textContent = '→ Send WhatsApp Quote Request';
   }
 });
 </script>

@@ -54,7 +54,9 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .tier-price { font-family:var(--sans); font-size:clamp(2.8rem,5vw,4.1rem); font-weight:900; color:var(--white); letter-spacing:-2px; line-height:1; padding:0.25rem 0 0.1rem; }
 .tier-price sub { font-size:0.85rem; font-weight:400; color:var(--muted); vertical-align:middle; margin-left:0.3rem; }
 .tier-diff { font-family:var(--mono); font-size:0.72rem; color:var(--accent); background:rgba(0,229,255,0.08); border:1px solid rgba(0,229,255,0.2); border-radius:999px; padding:0.45rem 0.75rem; margin:1rem 0 0.2rem; width:max-content; max-width:100%; }
-.tier-tag { color:var(--text); font-size:0.95rem; padding:0.8rem 0 1.4rem; margin-bottom:1.4rem; border-bottom:1px solid var(--border); }
+.tier-tag { color:var(--text); font-size:0.95rem; padding:0.8rem 0 1.4rem; margin-bottom:0.8rem; border-bottom:1px solid var(--border); }
+.tier-best { color:var(--muted); font-size:0.84rem; line-height:1.6; margin-bottom:1.4rem; }
+.tier-best strong { color:var(--white); }
 ul.feats { list-style:none; flex:1; display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1.8rem; }
 ul.feats li { font-size:0.88rem; color:var(--text); display:flex; gap:0.6rem; }
 ul.feats li::before { content:'✓'; color:var(--accent); font-weight:700; flex-shrink:0; }
@@ -131,7 +133,7 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
     <li><a href="/contact.html">Contact</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
-  <a href="/contact.html" class="nav-cta">Get in Touch</a>
+  <a href="/contact.html" class="nav-cta">Book Free Audit</a>
 </nav>
 
 <section class="page-hero">
@@ -151,6 +153,7 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
     <div class="tier-price">R3,500<sub>once-off</sub></div>
     <div class="tier-diff">1 page · launch fast</div>
     <div class="tier-tag">A clean one-page site to get you on Google fast.</div>
+    <div class="tier-best"><strong>Best for:</strong> new businesses that need one strong page, contact details, and Google visibility.</div>
     <ul class="feats">
       <li>1-page modern landing site</li>
       <li>Mobile-friendly &amp; fast</li>
@@ -168,6 +171,7 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
     <div class="tier-price">R7,500<sub>once-off</sub></div>
     <div class="tier-diff">Up to 5 pages · best value</div>
     <div class="tier-tag">A full multi-page site for established small businesses.</div>
+    <div class="tier-best"><strong>Best for:</strong> service businesses with multiple offers, trust sections, and a proper quote flow.</div>
     <ul class="feats">
       <li>Up to 5 pages (Home, About, Services, etc.)</li>
       <li>Custom design &amp; brand colours</li>
@@ -185,6 +189,7 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
     <div class="tier-price">R15,000<sub>once-off</sub></div>
     <div class="tier-diff">Up to 10 pages · bookings/shop</div>
     <div class="tier-tag">For brands ready to sell, book or grow seriously online.</div>
+    <div class="tier-best"><strong>Best for:</strong> businesses needing bookings, payments, product pages, content, or advanced growth setup.</div>
     <ul class="feats">
       <li>Everything in Business</li>
       <li>Up to 10 pages</li>
