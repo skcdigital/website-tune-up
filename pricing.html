@@ -28,7 +28,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .logo { font-family:var(--sans); font-weight:900; font-size:1.25rem; color:var(--white); letter-spacing:-1px; text-decoration:none; }
 .logo .dot { color:var(--accent); }
 .nav-links { display:flex; gap:2.5rem; list-style:none; }
-.nav-links a { font-family:var(--mono); font-size:0.82rem; color:rgba(255,255,255,0.88); text-decoration:none; letter-spacing:0.5px; font-weight:500; }
+.nav-links a { font-family:var(--mono); font-size:0.82rem; color:rgba(255,255,255,0.9); text-decoration:none; letter-spacing:0.5px; font-weight:600; }
+.nav-links a.active, .nav-links a[aria-current='page'] { color:var(--white); }
 .nav-links a:hover { color:var(--white); }
 .nav-cta { font-family:var(--mono); font-size:0.78rem; font-weight:500; color:var(--bg); background:var(--accent); padding:0.55rem 1.4rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; }
 .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
@@ -50,9 +51,10 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .tier-card.featured { background:linear-gradient(160deg, rgba(0,229,255,0.06), rgba(123,97,255,0.06)); border-color:rgba(0,229,255,0.25); }
 .tier-card .badge { position:absolute; top:1.2rem; right:1.2rem; font-family:var(--mono); font-size:0.65rem; color:var(--bg); background:var(--accent); padding:0.25rem 0.7rem; border-radius:50px; letter-spacing:0.5px; }
 .tier-name { font-family:var(--mono); font-size:0.72rem; color:var(--muted); letter-spacing:2px; text-transform:uppercase; margin-bottom:0.8rem; }
-.tier-price { font-family:var(--sans); font-size:2.4rem; font-weight:900; color:var(--white); letter-spacing:-2px; line-height:1; }
+.tier-price { font-family:var(--sans); font-size:clamp(2.8rem,5vw,4.1rem); font-weight:900; color:var(--white); letter-spacing:-2px; line-height:1; padding:0.25rem 0 0.1rem; }
 .tier-price sub { font-size:0.85rem; font-weight:400; color:var(--muted); vertical-align:middle; margin-left:0.3rem; }
-.tier-tag { color:var(--muted); font-size:0.9rem; padding:0.8rem 0 1.4rem; margin-bottom:1.4rem; border-bottom:1px solid var(--border); }
+.tier-diff { font-family:var(--mono); font-size:0.72rem; color:var(--accent); background:rgba(0,229,255,0.08); border:1px solid rgba(0,229,255,0.2); border-radius:999px; padding:0.45rem 0.75rem; margin:1rem 0 0.2rem; width:max-content; max-width:100%; }
+.tier-tag { color:var(--text); font-size:0.95rem; padding:0.8rem 0 1.4rem; margin-bottom:1.4rem; border-bottom:1px solid var(--border); }
 ul.feats { list-style:none; flex:1; display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1.8rem; }
 ul.feats li { font-size:0.88rem; color:var(--text); display:flex; gap:0.6rem; }
 ul.feats li::before { content:'✓'; color:var(--accent); font-weight:700; flex-shrink:0; }
@@ -122,7 +124,7 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
   <ul class="nav-links" id="navLinks">
     <li><a href="/#services">Services</a></li>
     <li><a href="/care-plans.html">Care Plans</a></li>
-    <li><a href="/pricing.html">Pricing</a></li>
+    <li><a href="/pricing.html" class="active" aria-current="page">Pricing</a></li>
     <li><a href="/blog.html">Blog</a></li>
     <li><a href="/contact.html">Contact</a></li>
   </ul>
@@ -145,6 +147,7 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
   <div class="tier-card">
     <div class="tier-name">Starter</div>
     <div class="tier-price">R3,500<sub>once-off</sub></div>
+    <div class="tier-diff">1 page · launch fast</div>
     <div class="tier-tag">A clean one-page site to get you on Google fast.</div>
     <ul class="feats">
       <li>1-page modern landing site</li>
@@ -161,6 +164,7 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
     <div class="badge">Most popular</div>
     <div class="tier-name">Business</div>
     <div class="tier-price">R7,500<sub>once-off</sub></div>
+    <div class="tier-diff">Up to 5 pages · best value</div>
     <div class="tier-tag">A full multi-page site for established small businesses.</div>
     <ul class="feats">
       <li>Up to 5 pages (Home, About, Services, etc.)</li>
@@ -177,6 +181,7 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
   <div class="tier-card">
     <div class="tier-name">Pro</div>
     <div class="tier-price">R15,000<sub>once-off</sub></div>
+    <div class="tier-diff">Up to 10 pages · bookings/shop</div>
     <div class="tier-tag">For brands ready to sell, book or grow seriously online.</div>
     <ul class="feats">
       <li>Everything in Business</li>
