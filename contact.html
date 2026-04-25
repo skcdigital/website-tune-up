@@ -28,7 +28,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; j
 .logo { font-family: var(--sans); font-weight: 900; font-size: 1.25rem; color: var(--white); letter-spacing: -1px; text-decoration: none; }
 .logo .dot { color: var(--accent); }
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-.nav-links a { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); text-decoration: none; letter-spacing: 0.5px; transition: color 0.2s; position: relative; }
+.nav-links a { font-family: var(--mono); font-size: 0.82rem; color: rgba(255,255,255,0.9); text-decoration: none; letter-spacing: 0.5px; font-weight: 600; transition: color 0.2s; position: relative; }
+.nav-links a.active, .nav-links a[aria-current='page'] { color: var(--white); }
+.nav-links a.active::after, .nav-links a[aria-current='page']::after { transform: scaleX(1); }
 .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transition: transform 0.2s; }
 .nav-links a:hover { color: var(--white); }
 .nav-links a:hover::after { transform: scaleX(1); }
@@ -311,14 +313,15 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
 </head>
 <body>
 <nav id="nav">
-  <a href="#home" class="logo">SKC<span class="dot">.</span>Digital</a>
+  <a href="/" class="logo">SKC<span class="dot">.</span>Digital</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="/#services">Services</a></li>
     <li><a href="/demos.html">Demos</a></li>
     <li><a href="/portfolio.html">Portfolio</a></li>
-    <li><a href="/#pricing">Pricing</a></li>
-    <li><a href="/#faq">FAQ</a></li>
-    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/pricing.html">Pricing</a></li>
+    <li><a href="/care-plans.html">Care Plans</a></li>
+    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/contact.html" class="active" aria-current="page">Contact</a></li>
   </ul>
   <a href="/contact.html" class="nav-cta">Get in Touch</a>
   <button class="hamburger" id="ham" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -417,7 +420,7 @@ form.addEventListener('submit', async (e) => {
 
 
 <footer>
-  <a href="#home" class="footer-logo">SKC<span class="dot">.</span>Digital</a>
+  <a href="/" class="footer-logo">SKC<span class="dot">.</span>Digital</a>
   <div class="footer-links">
     <a href="#services">Services</a>
     <a href="#pricing">Pricing</a>

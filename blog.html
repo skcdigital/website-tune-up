@@ -31,7 +31,8 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .logo { font-family:var(--sans); font-weight:900; font-size:1.25rem; color:var(--white); letter-spacing:-1px; text-decoration:none; }
 .logo .dot { color:var(--accent); }
 .nav-links { display:flex; gap:2.5rem; list-style:none; }
-.nav-links a { font-family:var(--mono); font-size:0.78rem; color:var(--muted); text-decoration:none; letter-spacing:0.5px; }
+.nav-links a { font-family:var(--mono); font-size:0.82rem; color:rgba(255,255,255,0.9); text-decoration:none; letter-spacing:0.5px; font-weight:600; transition:color 0.2s; }
+.nav-links a.active, .nav-links a[aria-current='page'] { color:var(--white); }
 .nav-links a:hover { color:var(--white); }
 .nav-cta { font-family:var(--mono); font-size:0.78rem; font-weight:500; color:var(--bg); background:var(--accent); padding:0.55rem 1.4rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; }
 .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
@@ -87,7 +88,7 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
     <li><a href="/portfolio.html">Portfolio</a></li>
     <li><a href="/pricing.html">Pricing</a></li>
     <li><a href="/care-plans.html">Care Plans</a></li>
-    <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/blog.html" class="active" aria-current="page">Blog</a></li>
     <li><a href="/contact.html">Contact</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
