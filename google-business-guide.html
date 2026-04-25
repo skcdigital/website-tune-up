@@ -67,6 +67,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .lead-magnet .lm-msg.ok { color:#27C93F; }
 .lead-magnet .lm-msg.err { color:var(--accent3); }
 .lead-magnet .lm-fine { font-family:var(--mono); font-size:0.7rem; color:var(--muted); margin-top:0.6rem; }
+.pdf-link { display:inline-flex; margin-top:0.9rem; font-family:var(--mono); font-size:0.82rem; color:var(--bg); background:var(--accent); padding:0.75rem 1.1rem; border-radius:6px; text-decoration:none; font-weight:700; }
 .btn-primary { font-family:var(--mono); font-size:0.85rem; color:var(--bg); background:var(--accent); padding:0.9rem 2rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; }
 .btn-outline { font-family:var(--mono); font-size:0.85rem; color:var(--text); background:transparent; padding:0.9rem 2rem; border-radius:4px; text-decoration:none; letter-spacing:0.5px; border:1px solid var(--border-bright); }
 .btn-outline:hover { border-color:var(--accent); color:var(--accent); }
@@ -268,7 +269,7 @@ form && form.addEventListener('submit', async (e) => {
       },
       body: JSON.stringify({ email, source: 'google-business-guide' })
     }).catch(()=>{});
-    msg.textContent = '✓ Check your inbox — the guide is on its way.';
+    msg.innerHTML = '✓ Check your inbox — the guide is on its way.<br><a class="pdf-link" href="/google-business-guide.html" target="_blank" rel="noopener">Open the guide now →</a>';
     msg.className = 'lm-msg ok';
     form.reset();
     btn.textContent = 'Sent ✓';
