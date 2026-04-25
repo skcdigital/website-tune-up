@@ -269,7 +269,7 @@ form && form.addEventListener('submit', async (e) => {
       },
       body: JSON.stringify({ email, source: 'google-business-guide' })
     }).catch(()=>{});
-    msg.innerHTML = '✓ Check your inbox — the guide is on its way.<br><a class="pdf-link" href="/google-business-guide.html" target="_blank" rel="noopener">Open the guide now →</a>';
+    msg.innerHTML = '✓ Check your inbox — the guide is on its way.<br><a class="pdf-link" href="/google-business-profile-guide.pdf" target="_blank" rel="noopener">Download the PDF now →</a>';
     msg.className = 'lm-msg ok';
     form.reset();
     btn.textContent = 'Sent ✓';
