@@ -276,6 +276,19 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
   .xlt { min-width: 480px; }
 }
 
+
+.site-footer { background:#0b1014; border-top:1px solid var(--border); padding:3.25rem 2.5rem 2rem; }
+.footer-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:4rem; }
+.footer-brand p { margin-top:1.6rem; max-width:460px; color:var(--muted); line-height:1.55; font-size:1rem; }
+.footer-contact { margin-top:1.6rem; display:flex; flex-direction:column; gap:0.7rem; }
+.footer-contact a, .footer-contact span, .footer-col a { color:var(--muted); text-decoration:none; font-size:0.96rem; transition:color .2s; }
+.footer-contact a:hover, .footer-col a:hover { color:var(--accent); }
+.footer-col { display:flex; flex-direction:column; gap:0.72rem; }
+.footer-col h4 { color:var(--white); font-family:var(--display); text-transform:uppercase; letter-spacing:0.04em; font-size:0.92rem; margin-bottom:0.65rem; }
+.footer-bottom { max-width:1200px; margin:3rem auto 0; border-top:1px solid var(--border); padding-top:1.6rem; display:flex; justify-content:space-between; gap:1rem; color:var(--muted); font-family:var(--mono); font-size:0.78rem; }
+@media (max-width:900px){ .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}.site-footer{padding:2.5rem 1.5rem}.footer-bottom{flex-direction:column}.logo-word small{display:none} }
+@media (max-width:560px){ .footer-grid{grid-template-columns:1fr} }
+
 </style>
 
 
@@ -324,12 +337,14 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
 <nav id="nav">
   <a href="/" class="logo"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 80 70"><polygon points="20,2 60,2 78,35 60,68 20,68 2,35"/><polygon class="inner" points="22,7 58,7 74,35 58,63 22,63 6,35"/><text x="40" y="44" text-anchor="middle">SKC</text></svg></span><span class="logo-word"><span>SKC<span class="dot">.</span>Digital</span><small>Built to scale</small></span></a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="/#services">Services</a></li>
-    <li><a href="/demos.html" class="active" aria-current="page">Demos</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/services.html">Services</a></li>
     <li><a href="/portfolio.html">Portfolio</a></li>
+    <li><a href="/demos.html" class="active" aria-current="page">Demos</a></li>
     <li><a href="/pricing.html">Pricing</a></li>
     <li><a href="/care-plans.html">Care Plans</a></li>
     <li><a href="/blog.html">Blog</a></li>
+    <li><a href="/about.html">About</a></li>
     <li><a href="/contact.html">Contact</a></li>
   </ul>
   <a href="/contact.html" class="nav-cta">Get in Touch</a>
@@ -768,18 +783,22 @@ footer { background: var(--surface); border-top: 1px solid var(--border); paddin
   </div><!-- end section-max -->
 </section>
 
-<footer>
-  <a href="/" class="footer-logo"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 80 70"><polygon points="20,2 60,2 78,35 60,68 20,68 2,35"/><polygon class="inner" points="22,7 58,7 74,35 58,63 22,63 6,35"/><text x="40" y="44" text-anchor="middle">SKC</text></svg></span><span class="logo-word"><span>SKC<span class="dot">.</span>Digital</span><small>Built to scale</small></span></a>
-  <div class="footer-links">
-    <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#faq">FAQ</a>
-    <a href="#contact">Contact</a>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 80 70"><polygon points="20,2 60,2 78,35 60,68 20,68 2,35"/><polygon class="inner" points="22,7 58,7 74,35 58,63 22,63 6,35"/><text x="40" y="44" text-anchor="middle">SKC</text></svg></span><span class="logo-word"><span>SKC<span class="dot">.</span>Digital</span><small>Built to scale</small></span></a>
+      <p>Practical IT solutions, automation and websites for South African businesses. Direct contact, fair local pricing, fast delivery.</p>
+      <div class="footer-contact">
+        <a href="https://wa.me/27673793503">☏ +27 67 379 3503</a>
+        <a href="mailto:info@skcdigital.co.za">✉ info@skcdigital.co.za</a>
+        <span>⌖ Pretoria, South Africa</span>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Explore</h4><a href="/services.html">Services</a><a href="/pricing.html">Pricing</a><a href="/care-plans.html">Care Plans</a><a href="/portfolio.html">Portfolio</a><a href="/demos.html">Demos</a></div>
+    <div class="footer-col"><h4>Company</h4><a href="/about.html">About</a><a href="/blog.html">Blog</a><a href="/contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="/legal-terms.html">Terms &amp; Conditions</a><a href="/legal-privacy.html">Privacy Policy</a><a href="/legal-refund.html">Refund Policy</a><a href="/legal-service-agreement.html">Service Agreement</a></div>
   </div>
-  <div class="footer-right">
-    <a href="mailto:info@skcdigital.co.za" class="footer-email">info@skcdigital.co.za</a>
-    <span class="footer-copy">© <span id="yr"></span> SKC Digital · Pretoria, ZA</span>
-  </div>
+  <div class="footer-bottom"><span>© 2026 SKC Digital. All rights reserved.</span><span>Built in Pretoria · Serving South Africa</span></div>
 </footer>
 
 <script>
