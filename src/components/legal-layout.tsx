@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { ArrowLeft, Mail, MessageCircle } from "lucide-react";
 import { PageHero } from "@/components/page-hero";
 import { SITE, waLink } from "@/lib/site";
@@ -66,13 +66,14 @@ export function LegalLayout({
               <ul className="mt-3 space-y-1.5 text-sm">
                 {links.map((l) => (
                   <li key={l.to}>
-                    <Link
+                    <NavLink
                       to={l.to}
-                      activeProps={{ className: "text-primary" }}
-                      inactiveProps={{ className: "text-muted-foreground hover:text-primary" }}
+                      className={({ isActive }) =>
+                        isActive ? "text-primary" : "text-muted-foreground hover:text-primary"
+                      }
                     >
                       {l.label}
-                    </Link>
+                    </NavLink>
                   </li>
                 ))}
               </ul>
