@@ -6,7 +6,7 @@
 <title>Case Study · Excel Quote Tool Saved a Pretoria Plumber 6 Hours a Week | SKC Digital</title>
 <meta name="description" content="How a custom Excel quoting tool turned 90 minutes of admin into 8 minutes for a small Pretoria plumbing business — and unlocked R12,000/mo in extra capacity."/>
 <link rel="canonical" href="https://skcdigital.co.za/case-study.html"/>
-<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;700;900&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="Case Study: Excel quote tool saved a plumber 6 hours/week"/>
 <meta property="og:description" content="From 90 min per quote to 8 min — and R12k/mo extra capacity for a small Pretoria business."/>
@@ -17,16 +17,24 @@
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; }
 :root {
-  --bg:#050509; --surface:#0C0C14; --surface2:#12121E;
-  --border:rgba(255,255,255,0.07); --border-bright:rgba(255,255,255,0.14);
-  --accent:#00E5FF; --accent2:#7B61FF; --accent3:#FF4D6D;
-  --text:#E8E8F0; --muted:#6B6B8A; --white:#FFFFFF;
-  --mono:'JetBrains Mono',monospace; --sans:'Epilogue',sans-serif;
+  --bg:#15191f; --surface:#1b2028; --surface2:#232a34;
+  --border:rgba(255,255,255,0.08); --border-bright:rgba(255,255,255,0.16);
+  --accent:#5ee7ff; --accent2:#6ea8ff; --accent3:#ff6b7d;
+  --text:#edf3f7; --muted:#9aa8b6; --white:#FFFFFF;
+  --mono:'JetBrains Mono',monospace; --sans:'Inter',sans-serif; --display:'Space Grotesk',sans-serif;
 }
 body { font-family:var(--sans); background:var(--bg); color:var(--text); overflow-x:hidden; line-height:1.7; }
 nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify-content:space-between; align-items:center; padding:1.4rem 3rem; background:rgba(5,5,9,0.7); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
-.logo { font-family:var(--sans); font-weight:900; font-size:1.25rem; color:var(--white); letter-spacing:-1px; text-decoration:none; }
+.logo { font-family:var(--display); font-weight:800; font-size:1.25rem; color:var(--white); letter-spacing:-1px; text-decoration:none; }
 .logo .dot { color:var(--accent); }
+.logo { display:inline-flex; align-items:center; gap:0.72rem; }
+.logo-mark { display:inline-flex; width:40px; height:36px; color:var(--white); flex:0 0 auto; }
+.logo-mark svg { width:100%; height:100%; overflow:visible; }
+.logo-mark polygon:first-child { fill:var(--bg); stroke:rgba(255,255,255,0.88); stroke-width:2; }
+.logo-mark polygon.inner { fill:none; stroke:var(--accent); stroke-width:1.4; }
+.logo-mark text { fill:var(--white); font-family:Georgia,serif; font-size:22px; font-weight:700; letter-spacing:-1px; }
+.logo-word { display:flex; flex-direction:column; line-height:1; }
+.logo-word small { margin-top:0.32rem; font-family:var(--mono); font-size:0.52rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); }
 .nav-links { display:flex; gap:2.5rem; list-style:none; }
 .nav-links a { font-family:var(--mono); font-size:0.82rem; color:rgba(255,255,255,0.9); text-decoration:none; letter-spacing:0.5px; font-weight:600; transition:color 0.2s; }
 .nav-links a.active, .nav-links a[aria-current='page'] { color:var(--white); }
@@ -44,7 +52,7 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 
 .results { max-width:880px; margin:1.5rem auto 3rem; padding:0 2rem; display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; }
 .result-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.4rem 1.2rem; text-align:center; }
-.result-card .num { font-family:var(--sans); font-size:2rem; font-weight:900; color:var(--accent); letter-spacing:-1px; line-height:1; margin-bottom:0.4rem; }
+.result-card .num { font-family:var(--display); font-size:2rem; font-weight:900; color:var(--accent); letter-spacing:-1px; line-height:1; margin-bottom:0.4rem; }
 .result-card .lbl { font-family:var(--mono); font-size:0.7rem; color:var(--muted); letter-spacing:1px; text-transform:uppercase; }
 
 .cs-body { max-width:780px; margin:0 auto; padding:0 2rem 4rem; }
@@ -76,8 +84,9 @@ nav { position:fixed; top:0; left:0; right:0; z-index:500; display:flex; justify
 .btn-outline:hover { border-color:var(--accent); color:var(--accent); }
 
 footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1.5rem; }
-.footer-logo { font-family:var(--sans); font-weight:900; font-size:1.1rem; color:var(--white); text-decoration:none; }
+.footer-logo { font-family:var(--display); font-weight:800; font-size:1.1rem; color:var(--white); text-decoration:none; }
 .footer-logo .dot { color:var(--accent); }
+.footer-logo { display:inline-flex; align-items:center; gap:0.72rem; }
 .footer-links { display:flex; gap:2rem; }
 .footer-links a { font-family:var(--mono); font-size:0.75rem; color:var(--muted); text-decoration:none; }
 .footer-links a:hover { color:var(--accent); }
@@ -101,7 +110,7 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
 <body>
 
 <nav>
-  <a href="/" class="logo">SKC<span class="dot">.</span>Digital</a>
+  <a href="/" class="logo"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 80 70"><polygon points="20,2 60,2 78,35 60,68 20,68 2,35"/><polygon class="inner" points="22,7 58,7 74,35 58,63 22,63 6,35"/><text x="40" y="44" text-anchor="middle">SKC</text></svg></span><span class="logo-word"><span>SKC<span class="dot">.</span>Digital</span><small>Built to scale</small></span></a>
   <ul class="nav-links" id="navLinks">
     <li><a href="/#services">Services</a></li>
     <li><a href="/demos.html">Demos</a></li>
@@ -233,7 +242,7 @@ footer { padding:3rem 3rem 2rem; border-top:1px solid var(--border); display:fle
 </div>
 
 <footer>
-  <a href="/" class="footer-logo">SKC<span class="dot">.</span>Digital</a>
+  <a href="/" class="footer-logo"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 80 70"><polygon points="20,2 60,2 78,35 60,68 20,68 2,35"/><polygon class="inner" points="22,7 58,7 74,35 58,63 22,63 6,35"/><text x="40" y="44" text-anchor="middle">SKC</text></svg></span><span class="logo-word"><span>SKC<span class="dot">.</span>Digital</span><small>Built to scale</small></span></a>
   <div class="footer-links">
     <a href="/#services">Services</a>
     <a href="/care-plans.html">Care Plans</a>
